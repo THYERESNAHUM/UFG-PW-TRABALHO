@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.ufg.inf</groupId>
-  <artifactId>lab-pw-2017-1</artifactId>
+  <artifactId>javaapp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <!-- "war" indica que é um projeto web. -->
   <packaging>war</packaging>
