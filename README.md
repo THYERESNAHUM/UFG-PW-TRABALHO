@@ -1,6 +1,6 @@
-# lab-pw-2017-1
+# Endemic Sys
 
-Laboratório da turma de Programação para Web.
+Projeto fase 1.
 
 ## Para rodar o projeto
 
