@@ -11,22 +11,17 @@
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap select -->
+  	<link href="css/bootstrap-select.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
     <!-- iCheck -->
-    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">      
     <!-- bootstrap-daterangepicker -->
     <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="css/custom.min.css" rel="stylesheet">	    
+     
   </head>
 
   <body class="nav-md">
@@ -134,37 +129,8 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
-          <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-              <div class="count">XXX</div>
-              <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-              <div class="count">XXX</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-              <div class="count green">XXX</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-              <div class="count">XXX</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-              <div class="count">XXX</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-              <div class="count">XXX</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
+           <div class="row tile_count">
+		  <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx INSERIR BREADCRUMB xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
           </div>
           <!-- /top tiles -->
 
@@ -185,63 +151,143 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                   <form class="form-horizontal form-label-left">
-
-                      <p>Atenção as campos requeridos<code>*</code></p>
-                      <!-- <span class="section">Dados do Denuncia</span>-->
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>                     
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Website URL <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="url" id="website" name="website" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label for="password" class="control-label col-md-3">Password</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Textarea <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea id="textarea" required="required" name="textarea" class="form-control col-md-7 col-xs-12"></textarea>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
+                   <form class="form-horizontal form-label-left" method="get">				 
+                      <p>Atenção aos campos requeridos<code>*</code></p>
+                      <!-- <span class="section">Dados do Agente</span>-->					  
+					  <!--Nome Input-->
                       <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
-                          <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        <label class="control-label col-md-3" for="name">Agente <span class="required">*</span></label>
+                        <div class="col-lg-6 col-xs-12">
+                          <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
+                        </div>
+                      </div>
+					  <!--data Input-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
+                        <div class="col-lg-2 col-xs-12">
+                          <input type="text" id="data" name="data" required="required" class="form-control input-md">
+                        </div>
+                      </div>
+          <!--Rua Input-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="rua">Rua <span class="required">*</span></label>
+                        <div class="col-lg-5 col-xs-12">
+                          <input type="text" id="rua" name="rua" required="required" class="form-control input-md">
+                        </div>
+                      </div>
+             <!--Quadra Lote Numero Input-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="quadra">Quadra <span class="required">*</span></label>
+                        <div class="col-lg-1 col-xs-12">
+                          <input type="text" id="quadra" name="quadra" required="required" class="form-control input-md">
+                        </div>
+                        <label class="control-label col-md-1" for="name">Lote <span class="required">*</span></label>
+                        <div class="col-lg-1 col-xs-12">
+                          <input type="text" id="lote" name="lote" required="required" class="form-control input-md">
+                        </div>
+                        <label class="control-label col-md-1" for="name">Nº <span class="required">*</span></label>
+                        <div class="col-lg-1 col-xs-12">
+                          <input type="text" id="numero" name="numero" required="required" class="form-control input-md">
+                        </div>
+                      </div>            
+              <!--Bairro Input-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="bairro">Bairro/Setor <span class="required">*</span></label>
+                        <div class="col-lg-3 col-xs-12">
+                          <input type="text" id="datetimepicker" name="datetimepicker" required="required" class="form-control input-md">
+                        </div>
+                      </div>
+               <!--Cep Input-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="cep">CEP <span class="required">*</span></label>
+                        <div class="col-lg-2 col-xs-12">
+                          <input type="number" id="datetimepicker" name="datetimepicker" required="required" class="form-control input-md">
+                        </div>
+                      </div>
+           <!--Cidade select-->
+					   <div class="form-group">
+					   <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
+						  <div class="col-lg-3 col-xs-12">
+							<select id="larvicida" name="cidades"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+							  <option value="goiania">Goiânia</option>
+							  <option value="aparecida">Aparecida de Goiânia</option>
+							  <option value="senadorcanedo">Senador Canedo</option>
+                <option value="trindade">Trindade</option>
+							</select>
+						  </div>
+					  </div> 
+           <!--Coordenadas-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="coordenadas">Coordenadas <span class="required">*</span></label>
+                        <div class="col-lg-2 col-xs-12">
+                          <input type="text" id="latitude" name="latitude" required="required" class="form-control input-md">
+                          <div class="help">Latitude</div>
+                        </div>
+                        <div class="col-lg-2 col-xs-12">
+                          <input type="text" id="longitude" name="longitude" required="required" class="form-control input-md">
+                          <div class="help">Longitude</div>
+                        </div>                     
+                      </div>                        
+      	  <!--Tipo_Imovel select-->
+					   <div class="form-group">
+					   <label class="control-label col-md-3" for="tipo">Tipo do Imovel <span class="required">*</span></label>
+						  <div class="col-lg-3 col-xs-12">
+							<select id="imovel" name="imovel" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+							  <option value="atendente">Lote</option>
+							  <option value="atendente">Casa</option>
+							  <option value="agente">Apartamento</option>
+							  <option value="agente">Depósito</option>
+							  <option value="agente">Loja</option>
+							  <option value="agente">Sala comercial</option>
+							</select>
+						  </div>
+					  </div>
+					 <!--Estagio select-->
+					   <div class="form-group">
+					   <label class="control-label col-md-3" for="estagio">Estagio do Ciclo <span class="required">*</span></label>
+						  <div class="col-lg-3 col-xs-12">
+							<select id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+							  <option value="ovo">Ovo</option>
+							  <option value="larva">Larva</option>
+							  <option value="pupa">Pupa</option>
+							  <option value="mosquito">Mosquito</option>							  
+							</select>
+						  </div>
+					  </div>	
+					  <!--Larvicida select-->
+					   <div class="form-group">
+					   <label class="control-label col-md-3" for="larvicida">Larvicida <span class="required">*</span></label>
+						  <div class="col-lg-3 col-xs-12">
+							<select id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+							  <option value="tipo1">Tipo 1</option>
+							  <option value="tipo2">Tipo 2</option>
+							  <option value="tipo3">Tipo 3</option>
+							</select>
+						  </div>
+					  </div>
+					  <!--Ação select-->
+					   <div class="form-group">
+					   <label class="control-label col-md-3" for="acao">Ação Corretiva <span class="required">*</span></label>
+						  <div class="col-lg-3 col-xs-12">
+							<select id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
+                <option value="tipo1">Nebolização</option>
+							  <option value="tipo2">Borrifação</option>
+							</select>
+						  </div>
+					  </div>						  
+					  <!--Local input-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3" for="name">Local do Foco <span class="required">*</span></label>
+                        <div class="col-lg-6 col-xs-12">
+                          <input type="text" id="nome" name="nome" placeholder="ex: caixa d'agua,vaso sanitário" required="required" class="form-control input-md">
+                        </div>
+                      </div>				 
+           <!--Botões-->    
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-md-offset-3">
+                  <button id="send" type="submit" class="btn btn-info">Gravar</button>
+                  <button type="reset" class="btn btn-warning">Limpar</button>                             
                         </div>
                       </div>
                     </form>
@@ -258,45 +304,17 @@
         </footer>
       </div>
     </div>
-
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap select -->
+    <script src="js/bootstrap-select.min.js"></script>
     <!-- FastClick -->
-    <script src="vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="vendors/Flot/jquery.flot.js"></script>
-    <script src="vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="vendors/Flot/jquery.flot.time.js"></script>
-    <script src="vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="vendors/fastclick/lib/fastclick.js"></script>   
     <!-- bootstrap-daterangepicker -->
     <script src="vendors/moment/min/moment.min.js"></script>
     <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 	
