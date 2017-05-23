@@ -124,14 +124,14 @@
           </div>
           <!-- /top tiles -->
 
-          <div class="row">             
+  	<div class="row">             
           <br />		    
               <div class="row">			  
                 <!-- Start to do list -->
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Funcionário</h2>
+                      <h2>Funcionario</h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -141,15 +141,17 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">					
-                <form class="form-horizontal form-label-left" method="get">				 
+                <form class="form-horizontal form-label-left" data-toggle="validator" method="get">				 
                             <p>Atenção aos campos requeridos<code>*</code></p>
                             <!-- <span class="section">Dados do Agente</span>-->
                   
                   <!--Matricula Input-->
                   <div class="form-group">
-                              <label class="control-label col-md-3" for="matricula">Matrícula <span class="required">*</span></label>
+                              <label class="control-label col-md-3" for="matricula">Matricula <span class="required">*</span></label>
                               <div class="col-md-2 col-xs-12">
-                                <input type="text" id="matricula" name="matricula" placeholder="ex: 710001" required="required" class="form-control input-md">
+                                <input type="text" id="matricula" name="matricula" placeholder="ex: 710001" required="required" class="form-control input-md"
+                                 data-error="Informe um Nº de matricula vlido.">                                
+                                <div class="help-block with-errors"></div>
                               </div>
                             </div>			  					  
                   <!--Nome Input-->
@@ -157,6 +159,7 @@
                               <label class="control-label col-md-3" for="nome">Nome <span class="required">*</span></label>
                               <div class="col-lg-6 col-xs-12">
                                 <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
+                                <div class="help-block with-errors"></div>
                               </div>
                               </div>					  
                     <!--Função select-->
@@ -167,6 +170,7 @@
                         <option value="atendente">Atendente</option>
                         <option value="agente">Agente</option>
                       </select>
+                      <div class="help-block with-errors"></div>
                       </div>
                     </div>
                   <!--Email Input-->
@@ -178,16 +182,19 @@
                     </div>            
                   <!--senha Input-->
                     <div class="item form-group">
-                      <label for="senha" class="control-label col-md-3">Senha</label>
+                      <label for="senha" class="control-label col-md-3">Senha <span class="required">*</span></label>
                       <div class="col-lg-6 col-xs-12">
-                        <input id="senha" type="password" name="senha" placeholder="ex: #s3nh4*" class="form-control input-md" required="required">
+                        <input id="senha" type="password" name="senha" placeholder="ex: #s3nh4*" class="form-control input-md" required="required">                        
+                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
                 <!--Confirmação senha Input-->  
                     <div class="item form-group">
-                      <label for="senha2" class="control-label col-md-3">Confirmar Senha</label>
+                      <label for="senha2" class="control-label col-md-3">Confirmar Senha <span class="required">*</span></label>
                       <div class="col-lg-6 col-xs-12">
                         <input id="senha2" type="password" name="senha2" placeholder="ex: #s3nh4*"  class="form-control input-md" required="required">
+                        <data-match="#senha" data-match-error="As senhas não são equivalentes!">
+                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
                 <!--Botões-->    
@@ -221,7 +228,10 @@
     <!-- Bootstrap select -->
     <script src="js/bootstrap-select.min.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="build/js/custom.min.js"></script>  
+    <script src="build/js/custom.min.js"></script> 
+    <!-- bootstrap-VALIDATOR -->
+    <script src="js/validator.min.js"></script>
+
 	
   </body>
 </html>

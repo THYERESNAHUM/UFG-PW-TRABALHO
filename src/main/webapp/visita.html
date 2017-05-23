@@ -146,14 +146,15 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                   <form class="form-horizontal form-label-left" method="get">				 
+                   <form class="form-horizontal form-label-left" data-toggle="validator" method="get">				 
                             <p>Atenção aos campos requeridos<code>*</code></p>
                                     <!-- <span class="section">Dados do Agente</span>-->					  
                           <!--Nome Input-->
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="nome">Agente <span class="required">*</span></label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
+                                        <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
+                                        <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
                           <!--data Input-->
@@ -161,6 +162,7 @@
                                       <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
                                         <input type="text" id="data" name="data" required="required" class="form-control input-md">
+                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
                         <!--Rua Input-->
@@ -168,6 +170,7 @@
                                       <label class="control-label col-md-3" for="rua">Rua <span class="required">*</span></label>
                                       <div class="col-lg-5 col-xs-12">
                                         <input type="text" id="rua" name="rua" required="required" class="form-control input-md">
+                                        <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
                           <!--Quadra Lote Numero Input-->
@@ -190,13 +193,16 @@
                                       <label class="control-label col-md-3" for="bairro">Bairro/Setor <span class="required">*</span></label>
                                       <div class="col-lg-3 col-xs-12">
                                         <input type="text" id="bairro" name="bairro" required="required" class="form-control input-md">
+                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
                             <!--Cep Input-->
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="cep">CEP <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="number" id="cep" name="cep" required="required" class="form-control input-md">
+                                        <input type="tel" id="cep" name="cep" required="required" class="form-control input-md" pattern="[0-9]+$" 
+                                         data-error="Informe um CEP somente com numeros.">
+                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
                         <!--Cidade select-->
@@ -209,6 +215,7 @@
                               <option value="senadorcanedo">Senador Canedo</option>
                               <option value="trindade">Trindade</option>
                             </select>
+                             <div class="help-block with-errors"></div>
                             </div>
                           </div> 
                         <!--Coordenadas-->
@@ -216,10 +223,12 @@
                                       <label class="control-label col-md-3" for="coordenadas">Coordenadas <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
                                         <input type="text" id="latitude" name="latitude" required="required" class="form-control input-md">
+                                        <div class="help-block with-errors"></div>
                                         <div class="help">Latitude</div>
                                       </div>
                                       <div class="col-lg-2 col-xs-12">
                                         <input type="text" id="longitude" name="longitude" required="required" class="form-control input-md">
+                                        <div class="help-block with-errors"></div>
                                         <div class="help">Longitude</div>
                                       </div>                     
                                     </div>                        
@@ -235,13 +244,14 @@
                               <option value="agente">Loja</option>
                               <option value="agente">Sala comercial</option>
                             </select>
+                            <div class="help-block with-errors"></div>
                             </div>
                           </div>
                         <!--Estagio select-->
                           <div class="form-group">
-                          <label class="control-label col-md-3" for="estagio">Estagio do Ciclo <span class="required">*</span></label>
+                          <label class="control-label col-md-3" for="estagio">Estagio do Ciclo </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select  id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="ovo">Ovo</option>
                               <option value="larva">Larva</option>
                               <option value="pupa">Pupa</option>
@@ -251,9 +261,9 @@
                           </div>	
                           <!--Larvicida select-->
                           <div class="form-group">
-                          <label class="control-label col-md-3" for="larvicida">Larvicida <span class="required">*</span></label>
+                          <label class="control-label col-md-3" for="larvicida">Larvicida </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select  id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="tipo1">Tipo 1</option>
                               <option value="tipo2">Tipo 2</option>
                               <option value="tipo3">Tipo 3</option>
@@ -262,9 +272,9 @@
                           </div>
                           <!--Ação select-->
                           <div class="form-group">
-                          <label class="control-label col-md-3" for="acao">Ação Corretiva <span class="required">*</span></label>
+                          <label class="control-label col-md-3" for="acao">Ação Corretiva </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
+                            <select  id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
                               <option value="tipo1">Nebolização</option>
                               <option value="tipo2">Borrifação</option>
                             </select>
@@ -272,20 +282,42 @@
                           </div>						  
                           <!--Local input-->
                                     <div class="form-group">
-                                      <label class="control-label col-md-3" for="local">Local do Foco <span class="required">*</span></label>
+                                      <label class="control-label col-md-3" for="local">Local do Foco </label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text" id="local" name="local" placeholder="ex: caixa d'agua,vaso sanitário" required="required" class="form-control input-md">
+                                        <input type="text" id="local" name="local" placeholder="ex: caixa d'agua,vaso sanitário" class="form-control input-md">
                                       </div>
                                     </div>				 
                         <!--Botões-->    
                             <div class="ln_solid"></div>
                             <div class="form-group">
                               <div class="col-md-6 col-md-offset-3">
+                                <!-- <button id="send" type="submit" class="btn btn-info" data-toggle="modal" data-target="#confirma">Gravar</button> -->
                                 <button id="send" type="submit" class="btn btn-info">Gravar</button>
                                 <button type="reset" class="btn btn-warning">Limpar</button>                             
-			      </div>
-			    </div>
+                                      </div>
+                                    </div>
                       </form>
+
+                    <!-- Modal botao ok -->
+                    <div class="modal fade" id="confirma" role="dialog">
+                      <div class="modal-dialog">
+                         <div class="modal-dialog modal-sm">
+                            <!-- Modal conteudo-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Informação</h4>
+                              </div>
+                              <div class="modal-body">
+                                <h5>Dados gravados com sucesso.</h5>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
                     </div>
                   </div>
                 </div>  
@@ -310,8 +342,9 @@
     <!-- bootstrap-daterangepicker -->
     <script src="vendors/moment/min/moment.min.js"></script>
     <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-VALIDATOR -->
+    <script src="js/validator.min.js"></script>
     
-
     <script type="text/javascript">
     $(function() {
         $('input[name="data"]').daterangepicker({
