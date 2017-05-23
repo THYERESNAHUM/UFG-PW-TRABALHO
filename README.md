@@ -19,4 +19,3 @@ Para rodar com o Tomcat ignorando as configurações do plugin no `pom.xml`.
 ## Para acessar a aplicação
 
 `http://localhost:9090/endemias` em qualquer navegador.
-aaaa
