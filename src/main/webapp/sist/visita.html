@@ -20,15 +20,7 @@
     <!-- bootstrap-daterangepicker -->
     <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="css/custom.min.css" rel="stylesheet">	   
-    <!-- Include Required Prerequisites -->
-<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
- 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" /> 
+    <link href="css/custom.min.css" rel="stylesheet">	       
      
   </head>
 
@@ -38,7 +30,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-desktop"></i> <span>Endemic Sys</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -46,7 +38,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="images/img.jpg" class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bem-vindo,</span>
@@ -83,7 +75,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="mapa_foco.html">Mapa de focos </a></li>
+                      <li><a href="index1.html">Um item qualquer</a></li>
                     </ul>
                   </li>                                
                 </ul>
@@ -152,158 +144,157 @@
                     </div>
                     <div class="x_content">
                    <form class="form-horizontal form-label-left" method="get">				 
-                        <p>Atenção aos campos requeridos<code>*</code></p>
-                                <!-- <span class="section">Dados do Agente</span>-->					  
-                      <!--Nome Input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="nome">Agente <span class="required">*</span></label>
-                                  <div class="col-lg-6 col-xs-12">
-                                    <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
-                                  </div>
-                                </div>
-                      <!--data Input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
-                                  <div class="col-lg-3 col-xs-12">
-                                    <input type="text" id="data" name="data" required="required" class="form-control input-md">
-                                  </div>
-                                </div>
-                    <!--Rua Input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="rua">Rua <span class="required">*</span></label>
-                                  <div class="col-lg-5 col-xs-12">
-                                    <input type="text" id="rua" name="rua" required="required" class="form-control input-md">
-                                  </div>
-                                </div>
-                      <!--Quadra Lote Numero Input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="quadra">Quadra <span class="required">*</span></label>
-                                  <div class="col-lg-1 col-xs-12">
-                                    <input type="text" id="quadra" name="quadra" required="required" class="form-control input-md">
-                                  </div>
-                                  <label class="control-label col-md-1" for="lote">Lote <span class="required">*</span></label>
-                                  <div class="col-lg-1 col-xs-12">
-                                    <input type="text" id="lote" name="lote" required="required" class="form-control input-md">
-                                  </div>
-                                  <label class="control-label col-md-1" for="numero">Nº <span class="required">*</span></label>
-                                  <div class="col-lg-1 col-xs-12">
-                                    <input type="text" id="numero" name="numero" required="required" class="form-control input-md">
-                                  </div>
-                                </div>            
-                        <!--Bairro Input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="bairro">Bairro/Setor <span class="required">*</span></label>
-                                  <div class="col-lg-3 col-xs-12">
-                                    <input type="text" id="bairro" name="bairro" required="required" class="form-control input-md">
-                                  </div>
-                                </div>
-                        <!--Cep Input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="cep">CEP <span class="required">*</span></label>
-                                  <div class="col-lg-2 col-xs-12">
-                                    <input type="number" id="cep" name="cep" required="required" class="form-control input-md">
-                                  </div>
-                                </div>
-                    <!--Cidade select-->
-                      <div class="form-group">
-                      <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
-                        <div class="col-lg-3 col-xs-12">
-                        <select id="cidade" name="cidades"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                          <option value="goiania">Goiânia</option>
-                          <option value="aparecida">Aparecida de Goiânia</option>
-                          <option value="senadorcanedo">Senador Canedo</option>
-                          <option value="trindade">Trindade</option>
-                        </select>
-                        </div>
-                      </div> 
-                    <!--Coordenadas-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="coordenadas">Coordenadas <span class="required">*</span></label>
-                                  <div class="col-lg-2 col-xs-12">
-                                    <input type="text" id="latitude" name="latitude" required="required" class="form-control input-md">
-                                    <div class="help">Latitude</div>
-                                  </div>
-                                  <div class="col-lg-2 col-xs-12">
-                                    <input type="text" id="longitude" name="longitude" required="required" class="form-control input-md">
-                                    <div class="help">Longitude</div>
-                                  </div>                     
-                                </div>                        
-                    <!--Tipo_Imovel select-->
-                      <div class="form-group">
-                      <label class="control-label col-md-3" for="tipo">Tipo do Imovel <span class="required">*</span></label>
-                        <div class="col-lg-3 col-xs-12">
-                        <select id="tipo" name="tipo" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                          <option value="atendente">Lote</option>
-                          <option value="atendente">Casa</option>
-                          <option value="agente">Apartamento</option>
-                          <option value="agente">Depósito</option>
-                          <option value="agente">Loja</option>
-                          <option value="agente">Sala comercial</option>
-                        </select>
-                        </div>
-                      </div>
-                    <!--Estagio select-->
-                      <div class="form-group">
-                      <label class="control-label col-md-3" for="estagio">Estagio do Ciclo <span class="required">*</span></label>
-                        <div class="col-lg-3 col-xs-12">
-                        <select id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                          <option value="ovo">Ovo</option>
-                          <option value="larva">Larva</option>
-                          <option value="pupa">Pupa</option>
-                          <option value="mosquito">Mosquito</option>							  
-                        </select>
-                        </div>
-                      </div>	
-                      <!--Larvicida select-->
-                      <div class="form-group">
-                      <label class="control-label col-md-3" for="larvicida">Larvicida <span class="required">*</span></label>
-                        <div class="col-lg-3 col-xs-12">
-                        <select id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                          <option value="tipo1">Tipo 1</option>
-                          <option value="tipo2">Tipo 2</option>
-                          <option value="tipo3">Tipo 3</option>
-                        </select>
-                        </div>
-                      </div>
-                      <!--Ação select-->
-                      <div class="form-group">
-                      <label class="control-label col-md-3" for="acao">Ação Corretiva <span class="required">*</span></label>
-                        <div class="col-lg-3 col-xs-12">
-                        <select id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
-                          <option value="tipo1">Nebolização</option>
-                          <option value="tipo2">Borrifação</option>
-                        </select>
-                        </div>
-                      </div>						  
-                      <!--Local input-->
-                                <div class="form-group">
-                                  <label class="control-label col-md-3" for="local">Local do Foco <span class="required">*</span></label>
-                                  <div class="col-lg-6 col-xs-12">
-                                    <input type="text" id="local" name="local" placeholder="ex: caixa d'agua,vaso sanitário" required="required" class="form-control input-md">
-                                  </div>
-                                </div>				 
-                    <!--Botões-->    
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                          <div class="col-md-6 col-md-offset-3">
-                            <button id="send" type="submit" class="btn btn-info">Gravar</button>
-                            <button type="reset" class="btn btn-warning">Limpar</button>                             
-                                  </div>
-                                </div>
-                              </form>
+                            <p>Atenção aos campos requeridos<code>*</code></p>
+                                    <!-- <span class="section">Dados do Agente</span>-->					  
+                          <!--Nome Input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="nome">Agente <span class="required">*</span></label>
+                                      <div class="col-lg-6 col-xs-12">
+                                        <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
+                                      </div>
+                                    </div>
+                          <!--data Input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
+                                      <div class="col-lg-2 col-xs-12">
+                                        <input type="text" id="data" name="data" required="required" class="form-control input-md">
+                                      </div>
+                                    </div>
+                        <!--Rua Input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="rua">Rua <span class="required">*</span></label>
+                                      <div class="col-lg-5 col-xs-12">
+                                        <input type="text" id="rua" name="rua" required="required" class="form-control input-md">
+                                      </div>
+                                    </div>
+                          <!--Quadra Lote Numero Input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="quadra">Quadra <span class="required">*</span></label>
+                                      <div class="col-lg-1 col-xs-12">
+                                        <input type="text" id="quadra" name="quadra" required="required" class="form-control input-md">
+                                      </div>
+                                      <label class="control-label col-md-1" for="lote">Lote <span class="required">*</span></label>
+                                      <div class="col-lg-1 col-xs-12">
+                                        <input type="text" id="lote" name="lote" required="required" class="form-control input-md">
+                                      </div>
+                                      <label class="control-label col-md-1" for="numero">Nº <span class="required">*</span></label>
+                                      <div class="col-lg-1 col-xs-12">
+                                        <input type="text" id="numero" name="numero" class="form-control input-md">
+                                      </div>
+                                    </div>            
+                            <!--Bairro Input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="bairro">Bairro/Setor <span class="required">*</span></label>
+                                      <div class="col-lg-3 col-xs-12">
+                                        <input type="text" id="bairro" name="bairro" required="required" class="form-control input-md">
+                                      </div>
+                                    </div>
+                            <!--Cep Input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="cep">CEP <span class="required">*</span></label>
+                                      <div class="col-lg-2 col-xs-12">
+                                        <input type="number" id="cep" name="cep" required="required" class="form-control input-md">
+                                      </div>
+                                    </div>
+                        <!--Cidade select-->
+                          <div class="form-group">
+                          <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
+                            <div class="col-lg-3 col-xs-12">
+                            <select required id="cidade" name="cidades"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                              <option value="goiania">Goiânia</option>
+                              <option value="aparecida">Aparecida de Goiânia</option>
+                              <option value="senadorcanedo">Senador Canedo</option>
+                              <option value="trindade">Trindade</option>
+                            </select>
+                            </div>
+                          </div> 
+                        <!--Coordenadas-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="coordenadas">Coordenadas <span class="required">*</span></label>
+                                      <div class="col-lg-2 col-xs-12">
+                                        <input type="text" id="latitude" name="latitude" required="required" class="form-control input-md">
+                                        <div class="help">Latitude</div>
+                                      </div>
+                                      <div class="col-lg-2 col-xs-12">
+                                        <input type="text" id="longitude" name="longitude" required="required" class="form-control input-md">
+                                        <div class="help">Longitude</div>
+                                      </div>                     
+                                    </div>                        
+                        <!--Tipo_Imovel select-->
+                          <div class="form-group">
+                          <label class="control-label col-md-3" for="tipo">Tipo do Imovel <span class="required">*</span></label>
+                            <div class="col-lg-3 col-xs-12">
+                            <select required id="tipo" name="tipo" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                              <option value="atendente">Lote</option>
+                              <option value="atendente">Casa</option>
+                              <option value="agente">Apartamento</option>
+                              <option value="agente">Depósito</option>
+                              <option value="agente">Loja</option>
+                              <option value="agente">Sala comercial</option>
+                            </select>
+                            </div>
+                          </div>
+                        <!--Estagio select-->
+                          <div class="form-group">
+                          <label class="control-label col-md-3" for="estagio">Estagio do Ciclo <span class="required">*</span></label>
+                            <div class="col-lg-3 col-xs-12">
+                            <select required id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                              <option value="ovo">Ovo</option>
+                              <option value="larva">Larva</option>
+                              <option value="pupa">Pupa</option>
+                              <option value="mosquito">Mosquito</option>							  
+                            </select>
+                            </div>
+                          </div>	
+                          <!--Larvicida select-->
+                          <div class="form-group">
+                          <label class="control-label col-md-3" for="larvicida">Larvicida <span class="required">*</span></label>
+                            <div class="col-lg-3 col-xs-12">
+                            <select required id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                              <option value="tipo1">Tipo 1</option>
+                              <option value="tipo2">Tipo 2</option>
+                              <option value="tipo3">Tipo 3</option>
+                            </select>
+                            </div>
+                          </div>
+                          <!--Ação select-->
+                          <div class="form-group">
+                          <label class="control-label col-md-3" for="acao">Ação Corretiva <span class="required">*</span></label>
+                            <div class="col-lg-3 col-xs-12">
+                            <select required id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
+                              <option value="tipo1">Nebolização</option>
+                              <option value="tipo2">Borrifação</option>
+                            </select>
+                            </div>
+                          </div>						  
+                          <!--Local input-->
+                                    <div class="form-group">
+                                      <label class="control-label col-md-3" for="local">Local do Foco <span class="required">*</span></label>
+                                      <div class="col-lg-6 col-xs-12">
+                                        <input type="text" id="local" name="local" placeholder="ex: caixa d'agua,vaso sanitário" required="required" class="form-control input-md">
+                                      </div>
+                                    </div>				 
+                        <!--Botões-->    
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                              <div class="col-md-6 col-md-offset-3">
+                                <button id="send" type="submit" class="btn btn-info">Gravar</button>
+                                <button type="reset" class="btn btn-warning">Limpar</button>                             
+			      </div>
+			    </div>
+                      </form>
                     </div>
                   </div>
                 </div>  
               </div>
 		</div>
-		 
-      </div>
-      <footer>
+		 <footer>
           <div class="pull-center">
             Trabalho PW2017-1 - Sistema de Controle de Endemias <a href="https://github.com/dougfalves/UFG-PW-TRABALHO">GitHub</a>
           </div>
           <div class="clearfix"></div>
         </footer>
+      </div>
     </div>
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -311,13 +302,13 @@
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Bootstrap select -->
     <script src="js/bootstrap-select.min.js"></script>
-    <!-- FastClick -->
-    <script src="vendors/fastclick/lib/fastclick.js"></script>   
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="vendors/moment/min/moment.min.js"></script>
     <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="build/js/custom.min.js"></script>
+    
+
     <script type="text/javascript">
     $(function() {
         $('input[name="data"]').daterangepicker({
