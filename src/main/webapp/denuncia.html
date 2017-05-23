@@ -284,8 +284,8 @@
     <script src="js/locale.js"></script>
     <script>	 
         $(function() {
-        $('input[name="data"]').daterangepicker({
-            singleDatePicker: true,
+        $('input[name="data"]').daterangepicker({            
+	    singleDatePicker: true,
             timePicker: true,
             timePickerIncrement: 1,
             locale: {
@@ -293,6 +293,7 @@
             }
         });
     });
+	moment.locale('pt-BR');	    
     </script>	
   </body>
 </html>
