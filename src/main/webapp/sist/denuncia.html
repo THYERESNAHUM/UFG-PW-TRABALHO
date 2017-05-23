@@ -84,7 +84,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Sair" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -107,8 +107,8 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>          
               </ul>
@@ -131,7 +131,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Denúncia</h2>
+                      <h2>Denuncia</h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -141,12 +141,12 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                   <form class="form-horizontal form-label-left" method="get">				 
+                   <form class="form-horizontal form-label-left" data-toggle="validator" method="get">				 
                       <p>Atenção aos campos requeridos<code>*</code></p>
                       <!-- <span class="section">Dados do Agente</span>-->					  
                       <!--Data_denuncia Input-->
                                 <div class="form-group">
-                                  <label class="control-label col-md-3" for="data">Data da Denúncia <span class="required">*</span></label>
+                                  <label class="control-label col-md-3" for="data">Data da Denuncia <span class="required">*</span></label>
                                   <div class="col-lg-2 col-xs-12">
                                     <input type="text" id="data" name="data" required="required" class="form-control input-md">
                                   </div>
@@ -168,11 +168,11 @@
                                 </div>
                       <!--Quadra Lote Numero Input-->
                                 <div class="form-group">
-                                  <label class="control-label col-md-3" for="quadra">Quadra <span class="required">*</span></label>
+                                  <label class="control-label col-md-3" for="quadra">Quadra</label>
                                   <div class="col-lg-1 col-xs-12">
                                     <input type="text" id="quadra" name="quadra"  class="form-control input-md">
                                   </div>
-                                  <label class="control-label col-md-1" for="lote">Lote <span class="required">*</span></label>
+                                  <label class="control-label col-md-1" for="lote">Lote</label>
                                   <div class="col-lg-1 col-xs-12">
                                     <input type="text" id="lote" name="lote" class="form-control input-md">
                                   </div>
@@ -238,7 +238,7 @@
                               <button id="send" type="submit" class="btn btn-info">Gravar</button>
                               <button type="reset" class="btn btn-warning">Limpar</button>                             
                            </div>
-                          </div>
+                        </div>
                      </form>
                     </div>
                   </div>
@@ -267,6 +267,8 @@
     <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+     <!-- bootstrap-VALIDATOR -->
+    <script src="js/validator.min.js"></script>
     <script>	 
         $(function() {
         $('input[name="data"]').daterangepicker({
