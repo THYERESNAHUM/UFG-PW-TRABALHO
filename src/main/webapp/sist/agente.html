@@ -15,10 +15,6 @@
   	<link href="css/bootstrap-select.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
-    <!-- iCheck -->
-    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">      
-    <!-- bootstrap-daterangepicker -->
-    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">	
   </head>
@@ -29,7 +25,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-desktop"></i> <span>Endemic Sys</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -74,7 +70,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="mapa_foco.html">Mapa de focos </a></li>
+                      <li><a href="index1.html">Um item qualquer</a></li>
                     </ul>
                   </li>                                
                 </ul>
@@ -132,7 +128,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Funcionário</h2>
+                      <h2>Funcionario</h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -142,77 +138,76 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">					
-                <form class="form-horizontal form-label-left" method="get">
-				 
-                      <p>Atenção aos campos requeridos<code>*</code></p>
-                      <!-- <span class="section">Dados do Agente</span>-->
-					  
-					  <!--Matricula Input-->
-					  <div class="form-group">
-                        <label class="control-label col-md-3" for="matricula">Matrícula <span class="required">*</span></label>
-                        <div class="col-md-2 col-xs-12">
-                          <input type="text" id="matricula" name="matricula" placeholder="ex: 710001" required="required" class="form-control input-md">
-                        </div>
-                      </div>			  					  
-					  <!--Nome Input-->
+                <form class="form-horizontal form-label-left" method="get">				 
+                            <p>Atenção aos campos requeridos<code>*</code></p>
+                            <!-- <span class="section">Dados do Agente</span>-->
+                  
+                  <!--Matricula Input-->
+                  <div class="form-group">
+                              <label class="control-label col-md-3" for="matricula">Matricula <span class="required">*</span></label>
+                              <div class="col-md-2 col-xs-12">
+                                <input type="text" id="matricula" name="matricula" placeholder="ex: 710001" required="required" class="form-control input-md">
+                              </div>
+                            </div>			  					  
+                  <!--Nome Input-->
+                            <div class="form-group">
+                              <label class="control-label col-md-3" for="nome">Nome <span class="required">*</span></label>
+                              <div class="col-lg-6 col-xs-12">
+                                <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
+                              </div>
+                              </div>					  
+                    <!--Função select-->
+                    <div class="form-group">
+                    <label class="control-label col-md-3" for="funcao">Função <span class="required">*</span></label>
+                      <div class="col-lg-4 col-xs-12">
+                      <select required id="funcao" name="funcao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                        <option value="atendente">Atendente</option>
+                        <option value="agente">Agente</option>
+                      </select>
+                      </div>
+                    </div>
+                  <!--Email Input-->
+                    <div class="item form-group">
+                        <label class="control-label col-md-3" for="email">Email</label>
+                      <div class="col-lg-6 col-xs-12">
+                        <input type="email" id="email" name="email" placeholder="ex: fulano@detal.com" class="form-control input-md">
+                      </div>
+                    </div>            
+                  <!--senha Input-->
+                    <div class="item form-group">
+                      <label for="senha" class="control-label col-md-3">Senha</label>
+                      <div class="col-lg-6 col-xs-12">
+                        <input id="senha" type="password" name="senha" placeholder="ex: #s3nh4*" class="form-control input-md" required="required">
+                      </div>
+                    </div>
+                <!--Confirmação senha Input-->  
+                    <div class="item form-group">
+                      <label for="senha2" class="control-label col-md-3">Confirmar Senha</label>
+                      <div class="col-lg-6 col-xs-12">
+                        <input id="senha2" type="password" name="senha2" placeholder="ex: #s3nh4*"  class="form-control input-md" required="required">
+                      </div>
+                    </div>
+                <!--Botões-->    
+                      <div class="ln_solid"></div>
                       <div class="form-group">
-                        <label class="control-label col-md-3" for="nome">Nome <span class="required">*</span></label>
-                        <div class="col-lg-6 col-xs-12">
-                          <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button id="send" type="submit" class="btn btn-info">Gravar</button>
+                          <button type="reset" class="btn btn-warning">Limpar</button>                          
                         </div>
-                      </div>					  
-					  <!--Função select-->
-					   <div class="form-group">
-					   <label class="control-label col-md-3" for="funcao">Função <span class="required">*</span></label>
-						  <div class="col-lg-4 col-xs-12">
-							<select id="funcao" name="funcao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-							  <option value="atendente">Atendente</option>
-							  <option value="agente">Agente</option>
-							</select>
-						  </div>
-					  </div>
-					 <!--Email Input-->
-            <div class="item form-group">
-                <label class="control-label col-md-3" for="email">Email</label>
-              <div class="col-lg-6 col-xs-12">
-                <input type="email" id="email" name="email" placeholder="ex: fulano@detal.com" class="form-control input-md">
-              </div>
-            </div>            
-          <!--senha Input-->
-            <div class="item form-group">
-              <label for="senha" class="control-label col-md-3">Senha</label>
-              <div class="col-lg-6 col-xs-12">
-                <input id="senha" type="password" name="senha" placeholder="ex: #s3nh4*" class="form-control input-md" required="required">
-              </div>
-            </div>
-         <!--Confirmação senha Input-->  
-            <div class="item form-group">
-              <label for="senha2" class="control-label col-md-3">Confirmar Senha</label>
-              <div class="col-lg-6 col-xs-12">
-                <input id="senha2" type="password" name="senha2" placeholder="ex: #s3nh4*"  class="form-control input-md" required="required">
-              </div>
-            </div>
-        <!--Botões-->    
-              <div class="ln_solid"></div>
-              <div class="form-group">
-                <div class="col-md-6 col-md-offset-3">
-                  <button id="send" type="submit" class="btn btn-info">Gravar</button>
-                  <button type="reset" class="btn btn-warning">Limpar</button>                          
-                </div>
-              </div>
-            </form>
+                      </div>
+               </form>
             </div>
           </div>
         </div>  
       </div>
 </div>
-		       </div>
-      <footer>
+		 <footer>
           <div class="pull-center">
             Trabalho PW2017-1 - Sistema de Controle de Endemias <a href="https://github.com/dougfalves/UFG-PW-TRABALHO">GitHub</a>
           </div>
           <div class="clearfix"></div>
         </footer>
+      </div>
     </div>
 
     <!-- jQuery -->
@@ -221,11 +216,6 @@
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Bootstrap select -->
     <script src="js/bootstrap-select.min.js"></script>
-    <!-- FastClick -->
-    <script src="vendors/fastclick/lib/fastclick.js"></script>   
-    <!-- bootstrap-daterangepicker -->
-    <script src="vendors/moment/min/moment.min.js"></script>
-    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>  
 	
