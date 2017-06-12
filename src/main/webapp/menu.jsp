@@ -1,38 +1,28 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="br">
+<html lang="pt">
   <head>
-    <meta http-equiv="Content-Type">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Sistema de Controle de Endemias</title>
-    <!-- Bootstrap -->
+      <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap select -->
   	<link href="css/bootstrap-select.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
     <!-- Custom Theme Style -->
-    <link href="css/custom.min.css" rel="stylesheet">	 
-    <!-- Logo do sistema -->
-    <style>
-       .imgcenter {          
-            margin: 20%;
-            text-align:center;  
-        }           
-    </style>
-  
-  </head>
+    <link href="css/custom.min.css" rel="stylesheet">	
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
+  </head>    
+   <body>    
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="pagina_inicial.html" class="site_title"><i class="fa fa-desktop"></i> <span>Endemic Sys</span></a>
+              <a href="pagina_inicial.html" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -57,20 +47,20 @@
                 <h3>INFORMAÇÕES</h3>
                 <ul class="nav side-menu">
                 <li>
-                    <a href="#"><i class="fa fa-home"></i> Início</a>
-                  </li>
+                                        <a href="pagina_inicial.html"><i class="fa fa-home"></i> Início</a>
+                                    </li>
                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="funcionario.jsp">Funcionário</a></li>
                       <li><a href="visita.jsp">Visita</a></li>
-					  <li><a href="denuncia.jsp">Denúncia</a></li>
+                      <li><a href="denuncia.jsp">Denúncia</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-search"></i> Busca <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="c_funcionario.html">Funcionários</a></li>
-                      <li><a href="c_visita.html">Visitas</a></li>
-                      <li><a href="c_denuncia.html">Denúncias</a></li>                      
+                      <li><a href="c_funcionario.jsp">Funcionários</a></li>
+                      <li><a href="c_visita.jsp">Visitas</a></li>
+                      <li><a href="c_denuncia.jsp">Denúncias</a></li>                      
                     </ul>
                   </li>               
                  </ul>
@@ -80,7 +70,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="mapa_foco.html">Mapa de focos </a></li>
+                      <li><a href="mapa_foco.jsp">Mapa de focos </a></li>
                     </ul>
                   </li>                                
                 </ul>
@@ -123,42 +113,6 @@
           </div>
         </div>
         <!-- /top navigation -->
-
-         
-        <!-- page content -->
-        <div class="right_col" role="main">
-		  <div class="row">
-            <div class="page-title">
-              <div class="imgcenter" >
-                <h3 ></h3>
-                    <img src="images/logosis.png"  width="400px"/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Trabalho de Programação Web <a href="https://github.com/dougfalves/UFG-PW-TRABALHO">Github</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-		</div>
-	</div>
-
- <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Bootstrap select -->
-    <script src="js/bootstrap-select.min.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="build/js/custom.min.js"></script> 
-    <!-- bootstrap-VALIDATOR -->
-    <script src="js/validator.min.js"></script>
-	
-  </body>
+</body>
 </html>
+        
