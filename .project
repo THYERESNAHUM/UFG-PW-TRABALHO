@@ -26,4 +26,11 @@
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>C:/Users/thyeres/Desktop/UFG-PW-TRABALHO - cópia/src/main/webapp/java</location>
+		</link>
+	</linkedResources>
 </projectDescription>

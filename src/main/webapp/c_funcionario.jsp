@@ -75,7 +75,7 @@
 						<label>Matricula </label>
 						<input name="txtpesquisa3" class="form-control input-sm" type="text">
 						</div>
-					</div>
+					</div>				
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       <a href="funcionario.jsp">

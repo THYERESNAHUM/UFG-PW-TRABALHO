@@ -58,7 +58,7 @@
                        <!--IDbanco Input-->
                               <div class="form-group">
                                         <div class="col-md-2 col-xs-12">
-                                            <input  type="hidden" readonly="readonly" type="text" id="idfuncionario" name="idfuncionario" value="${denuncia.iddenuncia}" class="form-control input-md">
+                                            <input  type="hidden" readonly="readonly" type="text" id="iddenunciante" name="idfuncionario" value="${denuncia.iddenuncia}" class="form-control input-md">
                                         </div>
                               </div>					  
                       <!--Data_denuncia Input-->

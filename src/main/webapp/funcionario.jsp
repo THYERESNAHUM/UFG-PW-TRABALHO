@@ -49,14 +49,14 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">					
-                <form class="form-horizontal form-label-left" data-toggle="validator" method="get" action="funcionario">				 
+                <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="funcionario">				 
                             <p>Atenção aos campos requeridos<code>*</code></p>
                             <!-- <span class="section">Dados do Agente</span>-->
                   
                   <!--IDbanco Input-->
                   <div class="form-group">
                              <div class="col-md-2 col-xs-12">
-                                <input  type="hidden" readonly="readonly" type="text" id="idfuncionario" name="idfuncionario" value="${funcionario.idfuncionario}" class="form-control input-md">
+                                <input type="hidden" readonly="readonly" type="text" id="idfuncionario" name="idfuncionario" value="${funcionario.idfuncionario}" class="form-control input-md">
                             </div>
                   </div>	
                   <!--Matricula Input-->
@@ -109,9 +109,21 @@
                       <div class="col-lg-6 col-xs-12">
                         <input id="senha2" type="password" name="senha2" placeholder="ex: #s3nh4*"  class="form-control input-md" required="required">
                         <data-match="#senha" data-match-error="As senhas não são equivalentes!">
-                         <div class="help-block with-errors"></div>
+                        <div class="help-block with-errors"></div>
                       </div>
-                    </div>
+                    </div>	
+					 <c:if test="${not empty message}">
+						<div class="container">
+							<label class="control-label col-md-3"></label>
+								<div class="col-lg-4 col-xs-12">
+									<div class="alert alert-success fade in">
+											<a href="#" class="close" data-dismiss="alert">&times;</a>
+									<strong>${message}</strong>
+									</div>
+								</div>			
+						</div>		
+					</c:if>
+						
                 <!--Botões-->    
                       <div class="ln_solid"></div>
                       <div class="form-group">

@@ -1,4 +1,4 @@
-package teste;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,8 +18,7 @@ public class ConectaBanco {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + nomeBancoDados,
-					 usuario, senha);
+			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + nomeBancoDados, usuario, senha);
 		} catch (Exception e) {
 			//e.printStackTrace();
 			 JOptionPane.showMessageDialog(null, "Erro na Conexão com o banco ","world",JOptionPane.ERROR_MESSAGE);

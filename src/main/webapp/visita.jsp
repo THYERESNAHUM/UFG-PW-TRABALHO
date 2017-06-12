@@ -57,6 +57,12 @@
                    <form class="form-horizontal form-label-left" data-toggle="validator" method="get">				 
                             <p>Atenção aos campos requeridos<code>*</code></p>
                                     <!-- <span class="section">Dados do Agente</span>-->					  
+                           <!--IDbanco Input-->
+                              <div class="form-group">
+                                        <div class="col-md-2 col-xs-12">
+                                            <input  type="hidden" readonly="readonly" type="text" id="idvisita" name="idfuncionario" value="${denuncia.iddenuncia}" class="form-control input-md">
+                                        </div>
+                              </div>
                           <!--Nome Input-->
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="nome">Agente <span class="required">*</span></label>
