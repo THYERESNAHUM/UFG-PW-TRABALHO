@@ -9,7 +9,7 @@ USE `dbendemic` ;
 -- Table `dbendemic`.`denuncia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dbendemic`.`denuncia` (
-  `iddenuncia` INT(11) NOT NULL,
+  `iddenuncia` INT(11) NOT NULL AUTO_INCREMENT,
   `data_denuncia` DATETIME NOT NULL,
   `bairro` VARCHAR(30) NOT NULL,
   `rua` VARCHAR(45) NOT NULL,
@@ -24,12 +24,11 @@ CREATE TABLE IF NOT EXISTS `dbendemic`.`denuncia` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
 -- -----------------------------------------------------
 -- Table `dbendemic`.`funcionario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dbendemic`.`funcionario` (
-  `idfuncionario` INT(11) NOT NULL,
+  `idfuncionario` INT(11) NOT NULL AUTO_INCREMENT,
   `matricula` VARCHAR(10) NOT NULL,
   `nome` VARCHAR(60) NOT NULL,
   `funcao` VARCHAR(20) NOT NULL,
@@ -41,12 +40,11 @@ CREATE TABLE IF NOT EXISTS `dbendemic`.`funcionario` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
 -- -----------------------------------------------------
 -- Table `dbendemic`.`visita`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dbendemic`.`visita` (
-  `idvisita` INT(11) NOT NULL,
+  `idvisita` INT(11) NOT NULL AUTO_INCREMENT,
   `agente` VARCHAR(60) NOT NULL,
   `data_visita` DATETIME NOT NULL,
   `bairro` VARCHAR(30) NOT NULL,
