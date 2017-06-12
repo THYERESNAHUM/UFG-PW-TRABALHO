@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
       <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap select -->
@@ -20,13 +19,6 @@
 
   </head>    
    <body>    
-=======
-
-  </head>    
-   <body>
-    <div class="container body">
-      <div class="main_container">
->>>>>>> e343418500ea2d4824250598650ebaae125dec59
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
@@ -66,15 +58,9 @@
                   </li>
                   <li><a><i class="fa fa-search"></i> Busca <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-<<<<<<< HEAD
                       <li><a href="c_funcionario.jsp">Funcionários</a></li>
                       <li><a href="c_visita.jsp">Visitas</a></li>
                       <li><a href="c_denuncia.jsp">Denúncias</a></li>                      
-=======
-                      <li><a href="c_funcionario.html">Funcionários</a></li>
-                      <li><a href="c_visita.html">Visitas</a></li>
-                      <li><a href="c_denuncia.html">Denúncias</a></li>                      
->>>>>>> e343418500ea2d4824250598650ebaae125dec59
                     </ul>
                   </li>               
                  </ul>
@@ -84,11 +70,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-<<<<<<< HEAD
                       <li><a href="mapa_foco.jsp">Mapa de focos </a></li>
-=======
-                      <li><a href="mapa_foco.html">Mapa de focos </a></li>
->>>>>>> e343418500ea2d4824250598650ebaae125dec59
                     </ul>
                   </li>                                
                 </ul>

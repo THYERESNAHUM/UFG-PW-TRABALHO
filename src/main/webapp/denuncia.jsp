@@ -25,13 +25,9 @@
           
   </head>
   <body class="nav-md">
-<<<<<<< HEAD:src/main/webapp/denuncia.jsp
     <div class="container body">
       <div class="main_container">
   		<c:import url="menu.jsp" /> 
-=======
-  <c:import url="menu.jsp" /> 
->>>>>>> e343418500ea2d4824250598650ebaae125dec59:src/main/webapp/denuncia.jsp
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->

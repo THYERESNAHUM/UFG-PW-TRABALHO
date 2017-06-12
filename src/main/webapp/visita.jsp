@@ -27,11 +27,8 @@
      
   </head>
   <body class="nav-md">
-<<<<<<< HEAD:src/main/webapp/visita.jsp
     <div class="container body">
       <div class="main_container">
-=======
->>>>>>> e343418500ea2d4824250598650ebaae125dec59:src/main/webapp/visita.jsp
   <c:import url="menu.jsp" /> 
         <!-- page content -->
         <div class="right_col" role="main">
