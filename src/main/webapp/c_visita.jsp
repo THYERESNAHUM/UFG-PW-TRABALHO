@@ -29,7 +29,105 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
+<<<<<<< HEAD:src/main/webapp/c_visita.jsp
        <c:import url="menu.jsp"/> 
+=======
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="pagina_inicial.html" class="site_title"><i class="fa fa-desktop"></i> <span>Endemic Sys</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bem-vindo,</span>
+                <h2>Administrador</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>INFORMAÇÕES</h3>
+                <ul class="nav side-menu">
+                <li>
+                    <a href="pagina_inicial.html"><i class="fa fa-home"></i> Início</a>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="funcionario.jsp">Funcionário</a></li>
+                      <li><a href="visita.jsp">Visita</a></li>
+                      <li><a href="denuncia.jsp">Denúncia</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-search"></i> Busca <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="c_funcionario.html">Funcionários</a></li>
+                      <li><a href="c_visita.html">Visitas</a></li>
+                      <li><a href="c_denuncia.html">Denúncias</a></li>                      
+                    </ul>
+                  </li>               
+                 </ul>
+              </div>
+              <div class="menu_section">
+                <h3>Visualização</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="mapa_foco.html">Mapa de focos </a></li>
+                    </ul>
+                  </li>                                
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Sair" href="index.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">Administrador
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Perfil</a></li>
+                    <li><a href="index.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                  </ul>
+                </li>          
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+>>>>>>> e343418500ea2d4824250598650ebaae125dec59:src/main/webapp/c_visita.html
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="row">             
@@ -59,7 +157,11 @@
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       <a href="visita.jsp">
+<<<<<<< HEAD:src/main/webapp/c_visita.jsp
                         <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Nova DenÃºncia">
+=======
+                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Nova Denúncia">
+>>>>>>> e343418500ea2d4824250598650ebaae125dec59:src/main/webapp/c_visita.html
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
