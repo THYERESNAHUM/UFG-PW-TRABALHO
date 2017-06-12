@@ -55,7 +55,7 @@
                 <input type="password" class="form-control" placeholder="Senha" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="pagina_inicial.html">Logar</a>
+                <a class="btn btn-default submit" href="pagina_inicial.jsp">Logar</a>
                 <a class="reset_pass" href="#">Esqueceu sua senha?</a>
               </div>
 

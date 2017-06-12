@@ -22,11 +22,9 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="pagina_inicial.html" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
+              <a href="pagina_inicial.jsp" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
             </div>
-
             <div class="clearfix"></div>
-
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
@@ -38,17 +36,23 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-
             <br />
-
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+               <div class="menu_section">
+                <h3>Visualização</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="mapa_foco.jsp">Mapa de focos </a></li>
+                    </ul>
+                  </li>                                
+                </ul>
+              </div>
               <div class="menu_section">
                 <h3>INFORMAÇÕES</h3>
                 <ul class="nav side-menu">
-                <li>
-                                        <a href="pagina_inicial.html"><i class="fa fa-home"></i> Início</a>
-                                    </li>
+                	<li><a href="pagina_inicial.jsp"><i class="fa fa-home"></i> Início</a></li>
                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="funcionario.jsp">Funcionário</a></li>
@@ -64,18 +68,7 @@
                     </ul>
                   </li>               
                  </ul>
-              </div>
-              <div class="menu_section">
-                <h3>Visualização</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="mapa_foco.jsp">Mapa de focos </a></li>
-                    </ul>
-                  </li>                                
-                </ul>
-              </div>
-
+              </div>   
             </div>
             <!-- /sidebar menu -->
 
@@ -88,7 +81,6 @@
             <!-- /menu footer buttons -->
           </div>
         </div>
-
         <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
