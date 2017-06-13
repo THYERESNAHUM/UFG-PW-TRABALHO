@@ -55,6 +55,8 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
+                  <div class="x_content">					
+                <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="funcionario">
 				 <div class="form-group">			 
 					<div class="form-group col-lg-5 col-xs-12">
 						<label>Nome</label>
@@ -63,12 +65,12 @@
 						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Funcao </label> 	  
-			            	<select class="form-control placeholder input-sm"  name="txtpesquisa2">
-			            	 <option selected="selected">${funcionario.funcao}</option>   
-						      	<c:forEach var="funcionario" items="${listafuncionario}">      
-						        <option>${funcionario.idfuncionario}</option>      
-						      	</c:forEach>      
-						    </select>		    				
+			            	<select class="form-control placeholder input-sm"  name="txtpesquisa2">			            
+		                        <option selected="selected">${funcionario.funcao}</option>
+		                        <option value="atendente">Atendente</option>
+		                        <option value="agente">Agente</option>
+		                    </select>
+			           		    				
 						</div>							
 						
 						<div class="form-group col-lg-3 col-xs-12">
@@ -83,188 +85,56 @@
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
-                      <a href="c_funcionario.html">
-                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Atualizar Listagem">
+                      <a href="c_funcionario.jsp">
+                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Limpar Listagem">
                           <i class="fa fa-refresh"></i>
                         </button>
-                      </a>
-					  <a href="c_funcionario.html">
-                        <button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
+                      </a>					  
+                        <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
                           <i class="fa fa-search"></i>
-                        </button>
-                      </a>
+                        </button>                      
                     </p>
+                     <c:if test="${not empty message}">
+						<div class="container">
+							<label class="control-label col-md-3"></label>
+								<div class="col-lg-4 col-xs-12">
+									<div class="alert alert-success fade in">
+											<a href="#" class="close" data-dismiss="alert">&times;</a>
+									<strong>${message}</strong>
+									</div>
+								</div>			
+						</div>		
+					</c:if>
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Matrícula</th>
                           <th>Nome</th>
                           <th>E-mail</th>
-                          <th>Tipo</th>
+                          <th>Funcao</th>
                           <th>Ações</th>
                         </tr>
                       </thead>
-
-
-                      <tbody>
-                        <tr>
-                          <td>2012043</td>
-                          <td>Douglas de França Alves</td>
-                          <td>douglas.alves@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2012038</td>
-                          <td>Silvio Passos</td>
-                          <td>silvio.passos@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1999033</td>
-                          <td>Luciana Moreira da Silva</td>
-                          <td>luciana.silva@sysend.com.br</td>
-                          <td>Atendente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2005063</td>
-                          <td>Maria do Carmo Teles</td>
-                          <td>maria.teles@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2010789</td>
-                          <td>Carlos Luiz Nascimento</td>
-                          <td>carlos.nascimento@sysend.com.br</td>
-                          <td>Atendente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2012777</td>
-                          <td>Bruno Bryan</td>
-                          <td>bruno.bryan@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2013987</td>
-                          <td>Alana Rafaela da Silva</td>
-                          <td>alana.silva@sysend.com.br</td>
-                          <td>Atendente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1999890</td>
-                          <td>Felipe Rodrigues Oliveira</td>
-                          <td>felipe.oliveira@sysend.com.br</td>
-                          <td>Atendente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2012078</td>
-                          <td>Andressa Alves Ferrari</td>
-                          <td>andressa.ferrari@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2002890</td>
-                          <td>Kairo Rodarte Ribeiro</td>
-                          <td>kairo.ribeiro@sysend.com.br</td>
-                          <td>Atendente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2012888</td>
-                          <td>Alberto Gomes</td>
-                          <td>alberto.gomes@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2000098</td>
-                          <td>Débora Alves Santos</td>
-                          <td>debora.santos@sysend.com.br</td>
-                          <td>Agente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2012756</td>
-                          <td>Marta Xavier</td>
-                          <td>marta.xavier@sysend.com.br</td>
-                          <td>Atendente</td>
-                          <td>
-                            <a href="funcionario.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        
-                      </tbody>
+                      	<tbody> 
+                      	<c:forEach var="funcionario" items="${listafuncionario}">
+							<tr>								
+								<td>${funcionario.matricula}</td>
+								<td>${funcionario.nome}</td>
+								<td>${funcionario.email}</td>
+								<td>${funcionario.funcao}</td>
+					<td><div class="btn-group">
+					  <button type="button" class="btn dropdown-toggle btn btn-success btn-xs" data-toggle="dropdown">Opções <span class="caret"></span></button>
+					  <ul class="dropdown-menu">
+					    <li><a href="funcionario?idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
+					    <li><a onclick="confirmaexclusao(${funcionario.idfuncionario})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
+					   	<li><a data-target="#imprimir" data-toggle="modal"><span class="glyphicon glyphicon-print"></span> Visualizar</a></li>
+					 
+					  </ul>
+					</div>
+					</td>				
+					</tr>
+				</c:forEach>                                                                   
+                      	</tbody>
                     </table>
                   </div>
                   <!-- Small modal -->
@@ -282,12 +152,13 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          <a href="c_funcionario.html"><button type="button" class="btn btn-primary">Sim</button></a>
+                          <a href="c_funcionario.jsp"><button type="button" class="btn btn-primary">Sim</button></a>
                         </div>
                       </div>
                     </div>
+                  </div>                  
+                  </form>
                   </div>
-                  
                 </div>
               </div>
               </div>  

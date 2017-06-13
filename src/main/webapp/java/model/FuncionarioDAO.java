@@ -28,6 +28,7 @@ public class FuncionarioDAO extends ConectaBanco {
 			pstmt.setString(3, funcionario.getFuncao());
 			pstmt.setString(4, funcionario.getEmail());
 			pstmt.setString(5, funcionario.getSenha());
+			pstmt.setInt(6, funcionario.getIdfuncionario());
 			pstmt.execute();
 			pstmt.close();
 			conexao.close();
@@ -101,7 +102,7 @@ public class FuncionarioDAO extends ConectaBanco {
 			/*Statement stm = conexao.createStatement();*/
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("Select * from fucncionario where nome like ? and funcao like ? and matricula like ? order by nome asc");
+					.prepareStatement("Select * from funcionario where nome like ? and funcao like ? and matricula like ? order by nome asc");
 			pstm.setString(1, "%" + par_nome +"%");
 			pstm.setString(2, "%" + par_funcao +"%");
 			pstm.setString(3, "%" + par_matricula +"%");
