@@ -35,15 +35,26 @@ public class ServletFuncionario extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {		
+			HttpServletResponse response) throws ServletException, IOException {
+		
+		acao = request.getParameter("acao");		
+		if(acao!=null)
+			doPost(request, response);
 				
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {		
-		acao = request.getParameter("acao");
-		buscarfuncionario(request, response);
 		
+		try {
+			
+			idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
+			
+		 }catch(NumberFormatException number){
+			 
+		 }
+		
+		buscarfuncionario(request, response);		
 		System.out.println("VARIAVEL ACAO: " + acao);  
 			
 	    if(acao!=null){
@@ -192,8 +203,8 @@ public class ServletFuncionario extends HttpServlet {
 	}
 	 protected void consultareditarfuncionario(HttpServletRequest request,
  		    HttpServletResponse response) throws ServletException, IOException {
-
-     	 idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
+		 
+		 idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
      	 nome = request.getParameter("nome");
  		 funcao = request.getParameter("funcao");
  		 matricula = request.getParameter("matricula");	
