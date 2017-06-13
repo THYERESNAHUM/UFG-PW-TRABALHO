@@ -57,7 +57,7 @@
                   </div>
                   <div class="x_content">					
                 <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="funcionario">
-				 <div class="form-group">			 
+                <div class="form-group">			 
 					<div class="form-group col-lg-5 col-xs-12">
 						<label>Nome</label>
 						<input name="txtpesquisa1" class="form-control input-sm" type="text">
@@ -125,10 +125,9 @@
 					<td><div class="btn-group">
 					  <button type="button" class="btn dropdown-toggle btn btn-success btn-xs" data-toggle="dropdown">Opções <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					    <li><a href="funcionario?idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
+					    <li><a href="funcionario?acao=Consultar&idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
 					    <li><a onclick="confirmaexclusao(${funcionario.idfuncionario})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
-					   	<li><a data-target="#imprimir" data-toggle="modal"><span class="glyphicon glyphicon-print"></span> Visualizar</a></li>
-					 
+					   	<li><a data-target="#imprimir" data-toggle="modal"><span class="glyphicon glyphicon-print"></span> Visualizar</a></li>					 
 					  </ul>
 					</div>
 					</td>				

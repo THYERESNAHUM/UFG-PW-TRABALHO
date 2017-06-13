@@ -23,6 +23,7 @@ public class ServletFuncionario extends HttpServlet {
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Funcionario funcionario = new Funcionario();
 	private String[] parametropesquisa = new String[3];
+	String destino = "";
 	private int idfuncionario;
 	private String nome;
 	private String funcao;
@@ -30,6 +31,7 @@ public class ServletFuncionario extends HttpServlet {
 	private String email;
 	private String senha;
 	private String message = "";
+	private String acao;
 
 	
 	protected void doGet(HttpServletRequest request,
@@ -38,38 +40,53 @@ public class ServletFuncionario extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		
+			HttpServletResponse response) throws ServletException, IOException {		
+		acao = request.getParameter("acao");
 		buscarfuncionario(request, response);
 		
-        try {		            
+		System.out.println("VARIAVEL ACAO: " + acao);  
+			
+	    if(acao!=null){
+	    	
+			if(acao.equalsIgnoreCase("Consultar")){
+					consultareditarfuncionario(request, response);
+			}		
+		}
+	        /*else{
+	            List<Employee> result = employeeService.getAllEmployees();
+	            forwardListEmployees(req, resp, result);
+	        }
+		 */
+		/*try {		            
         	
         	idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
-        
-        }catch(NumberFormatException number){
-        	idfuncionario = 0;
-        	System.out.println("NA VARIAVEL: " + idfuncionario);        	
-        }
-        
-        if(idfuncionario==0){
-        	adicionafuncionario(request, response);
-        }else{	
-	        matricula = request.getParameter("matricula");	
-	    	funcionario.setIdfuncionario(idfuncionario);
+	        matricula = request.getParameter("matricula");
+	        funcionario.setIdfuncionario(idfuncionario);
 			funcionario.setMatricula(matricula);
-			if(funcionarioDAO.existe(funcionario))
-	    		editarfuncionario(request, response, idfuncionario);			
+        
+        }catch(NumberFormatException number){        
+        	if(!funcionarioDAO.existe(funcionario))
+        		adicionafuncionario(request, response); 
+        		System.out.println("NA VARIAVEL: " + idfuncionario);        	
         }
+        
+        if(idfuncionario!=0){       	
+        	if(funcionarioDAO.existe(funcionario))
+	    		editarfuncionario(request, response, idfuncionario);				
+        }*/
+	    
+	    RequestDispatcher rd = request.getRequestDispatcher(destino);
+	    rd.forward(request, response);  
 	}	
 	
 	protected void adicionafuncionario(HttpServletRequest request,
 	    HttpServletResponse response) throws ServletException, IOException {
 		
-		String nome = request.getParameter("nome");
-		String funcao = request.getParameter("funcao");
-		String matricula = request.getParameter("matricula");	
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");	
+		 nome = request.getParameter("nome");
+		 funcao = request.getParameter("funcao");
+		 matricula = request.getParameter("matricula");	
+		 email = request.getParameter("email");
+		 senha = request.getParameter("senha");	
 		
 		try {
 			
@@ -97,8 +114,7 @@ public class ServletFuncionario extends HttpServlet {
 	       }
 		
 		request.setAttribute("message", message);
-		RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
-	    rd.forward(request, response);   
+		destino = "/c_funcionario.jsp";		 
 		
 	}	
 	
@@ -106,11 +122,11 @@ public class ServletFuncionario extends HttpServlet {
 		    HttpServletResponse response,int idfuncionario) throws ServletException, IOException {
 		
 		
-		String nome = request.getParameter("nome");
-		String funcao = request.getParameter("funcao");
-		String matricula = request.getParameter("matricula");	
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");	
+		 nome = request.getParameter("nome");
+		 funcao = request.getParameter("funcao");
+		 matricula = request.getParameter("matricula");	
+		 email = request.getParameter("email");
+		 senha = request.getParameter("senha");	
 		
 		try {
 			
@@ -139,11 +155,11 @@ public class ServletFuncionario extends HttpServlet {
 	       }
 		
 		request.setAttribute("message", message);
-		RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
-	    rd.forward(request, response);
+		destino = "/c_funcionario.jsp";	
 	}
+	
 	protected void buscarfuncionario(HttpServletRequest request,
-		    HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 
 		String textopesquisa1 = request.getParameter("txtpesquisa1");
 		String textopesquisa2 = request.getParameter("txtpesquisa2");		
@@ -169,11 +185,34 @@ public class ServletFuncionario extends HttpServlet {
 				System.out.println("No parametro " + parametropesquisa[i]);					
 			}		   	 
 			listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
-			request.setAttribute("listafuncionario", listafuncionario);
+			request.setAttribute("listafuncionario", listafuncionario);			
+			destino = "/c_funcionario.jsp";	
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
-	 	     rd.forward(request, response);
-	     }
-	    	  	
+        	}   
 	}
+	 protected void consultareditarfuncionario(HttpServletRequest request,
+ 		    HttpServletResponse response) throws ServletException, IOException {
+
+     	 idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
+     	 nome = request.getParameter("nome");
+ 		 funcao = request.getParameter("funcao");
+ 		 matricula = request.getParameter("matricula");	
+ 		 email = request.getParameter("email");
+ 		 senha = request.getParameter("senha");
+ 		
+  			
+			funcionario.setIdfuncionario(idfuncionario);
+			funcionario.setMatricula(matricula);
+			funcionario.setNome(nome);
+			funcionario.setFuncao(funcao);
+			funcionario.setEmail(email);
+			funcionario.setSenha(senha);
+
+			System.out.println("nome = " + nome);
+			
+		
+		request.setAttribute("funcionario", funcionario);
+		funcionario = funcionarioDAO.consultar_editar(funcionario);		
+		destino = "/funcionario.jsp";	
+		}
 }
