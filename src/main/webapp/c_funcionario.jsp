@@ -96,7 +96,7 @@
                     </p>
                      <c:if test="${not empty message}">
 						<div class="container">
-							<label class="control-label col-md-3"></label>
+							<label class="control-label col-md-1"></label>
 								<div class="col-lg-4 col-xs-12">
 									<div class="alert alert-success fade in">
 											<a href="#" class="close" data-dismiss="alert">&times;</a>

@@ -42,23 +42,29 @@ public class ServletFuncionario extends HttpServlet {
 		
 		buscarfuncionario(request, response);
 		
-        try {
-		
-        	idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));        	
+        try {		            
         	
-	        if (idfuncionario>=0)
-	        	editarfuncionario(request, response,idfuncionario);	        	
-	        //else 
-	        //	adicionafuncionario(request, response);
-       
+        	idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
+        
         }catch(NumberFormatException number){
+        	idfuncionario = 0;
+        	System.out.println("NA VARIAVEL: " + idfuncionario);        	
+        }
+        
+        if(idfuncionario==0){
         	adicionafuncionario(request, response);
-        	System.out.println(idfuncionario);        	
+        }else{	
+	        matricula = request.getParameter("matricula");	
+	    	funcionario.setIdfuncionario(idfuncionario);
+			funcionario.setMatricula(matricula);
+			if(funcionarioDAO.existe(funcionario))
+	    		editarfuncionario(request, response, idfuncionario);			
         }
 	}	
 	
 	protected void adicionafuncionario(HttpServletRequest request,
 	    HttpServletResponse response) throws ServletException, IOException {
+		
 		String nome = request.getParameter("nome");
 		String funcao = request.getParameter("funcao");
 		String matricula = request.getParameter("matricula");	
@@ -163,9 +169,11 @@ public class ServletFuncionario extends HttpServlet {
 				System.out.println("No parametro " + parametropesquisa[i]);					
 			}		   	 
 			listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
-			request.setAttribute("listafuncionario", listafuncionario);	    
-	     }	
-	    	 RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
-	 	     rd.forward(request, response); 	
+			request.setAttribute("listafuncionario", listafuncionario);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
+	 	     rd.forward(request, response);
+	     }
+	    	  	
 	}
 }
