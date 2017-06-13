@@ -38,9 +38,13 @@ public class ServletFuncionario extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		acao = request.getParameter("acao");		
-		if(acao!=null)
-			doPost(request, response);
-				
+		if(acao!=null){
+			if(acao.equalsIgnoreCase("Consultar")){
+				consultareditarfuncionario(request, response);
+				RequestDispatcher rd = request.getRequestDispatcher(destino);
+			    rd.forward(request, response); 
+			}		
+		}		 				
 	}
 
 	protected void doPost(HttpServletRequest request,
@@ -55,14 +59,8 @@ public class ServletFuncionario extends HttpServlet {
 		 }
 		
 		buscarfuncionario(request, response);		
-		System.out.println("VARIAVEL ACAO: " + acao);  
-			
-	    if(acao!=null){
-	    	
-			if(acao.equalsIgnoreCase("Consultar")){
-					consultareditarfuncionario(request, response);
-			}		
-		}
+		System.out.println("VARIAVEL ACAO: " + acao);  	    	
+		
 	        /*else{
 	            List<Employee> result = employeeService.getAllEmployees();
 	            forwardListEmployees(req, resp, result);
