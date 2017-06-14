@@ -22,81 +22,62 @@ public class ServletBuscaFuncionario extends HttpServlet {
 	
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Funcionario funcionario = new Funcionario();
-	private String[] parametropesquisa = new String[3];
 	private int idfuncionario;
-	private String nome;
-	private String funcao;
-	private String matricula;
-	private String email;
-	private String senha;
-	private String message = "";
+	private String destino = "";
+	private String acao;
+	private String message;
 
 	
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {		
-				
+			HttpServletResponse response) throws ServletException, IOException {
+		
+			acao = request.getParameter("acao");	
+			if(acao!=null){
+				if(acao.equalsIgnoreCase("Consultar")){
+					consultareditarfuncionario(request, response);
+					RequestDispatcher rd = request.getRequestDispatcher(destino);
+				    rd.forward(request, response); 
+				}		
+			}					
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {	
 
-		buscarfuncionario(request, response);
+			buscarfuncionario(request, response);
 		
 		
 	}
 	protected void buscarfuncionario(HttpServletRequest request,
 		    HttpServletResponse response) throws ServletException, IOException {
 
-		String textopesquisa1 = request.getParameter("txtpesquisa1");
-		String textopesquisa2 = request.getParameter("txtpesquisa2");		
-		String textopesquisa3 = request.getParameter("txtpesquisa3");	
-	
-		
-		List<Funcionario> listafuncionario = new ArrayList<Funcionario>();			
-		System.out.println("txtpesquisa1 = " + textopesquisa1);
-		System.out.println("txtpesquisa2 = " + textopesquisa2);
-		System.out.println("txtpesquisa3 = " + textopesquisa3);	
-
-		
-        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
-        				
-        	for(int i=0;i<parametropesquisa.length;i++){					
-    			parametropesquisa[i]="";					
-    		}        	
-        		 parametropesquisa[0] = textopesquisa1;
-				 parametropesquisa[1] = textopesquisa2;
-				 parametropesquisa[2] = textopesquisa3;
-				 
-			for(int i=0;i<parametropesquisa.length;i++){					
-				System.out.println("No parametro " + parametropesquisa[i]);					
-			}		   	 
-			listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
-			request.setAttribute("listafuncionario", listafuncionario);
+			String textopesquisa1 = request.getParameter("txtpesquisa1");
+			String textopesquisa2 = request.getParameter("txtpesquisa2");		
+			String textopesquisa3 = request.getParameter("txtpesquisa3");		
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
-	 	     rd.forward(request, response);
-	     }
+	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
+		   	 
+	        	List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
+	        	listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
+				request.setAttribute("listafuncionario", listafuncionario);
+				
+				RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
+		 	     rd.forward(request, response);
+		     }else{
+		    	 message = "Informa um parametro para pesquisa";				
+			   	 request.setAttribute("message", message);
+			   	 destino = "/c_funcionario.jsp";
+		    	 RequestDispatcher rd = request.getRequestDispatcher(destino);
+		     	 rd.forward(request, response);
+		     }	 
 	}  
-        protected void consultareditarfuncionario(HttpServletRequest request,
-    		    HttpServletResponse response) throws ServletException, IOException {
-
-        	String nome = request.getParameter("nome");
-    		String funcao = request.getParameter("funcao");
-    		String matricula = request.getParameter("matricula");	
-    		String email = request.getParameter("email");
-    		String senha = request.getParameter("senha");	
-     			
-			funcionario.setIdfuncionario(idfuncionario);
-			funcionario.setMatricula(matricula);
-			funcionario.setNome(nome);
-			funcionario.setFuncao(funcao);
-			funcionario.setEmail(email);
-			funcionario.setSenha(senha);
-
-		
-		request.setAttribute("funcionario", funcionario);
-		funcionario = funcionarioDAO.consultar_editar(funcionario);		
-		RequestDispatcher rd = request.getRequestDispatcher("/funcionario.jsp");
-	     rd.forward(request, response);
+	 protected void consultareditarfuncionario(HttpServletRequest request,
+	 		    HttpServletResponse response) throws ServletException, IOException {
+			 
+			 	idfuncionario = Integer.parseInt(request.getParameter("idfuncionario")); 			
+				funcionario.setIdfuncionario(idfuncionario);			
+				request.setAttribute("funcionario", funcionario);
+				funcionario = funcionarioDAO.consultar_editar(funcionario);		
+				destino = "/funcionario.jsp";	
 		}
 }

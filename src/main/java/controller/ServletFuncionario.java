@@ -31,35 +31,39 @@ public class ServletFuncionario extends HttpServlet {
 	private String email;
 	private String senha;
 	private String message = "";
-	private String acao;
+	private boolean acao = false;
 
 	
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		
-		acao = request.getParameter("acao");		
-		if(acao!=null){
-			if(acao.equalsIgnoreCase("Consultar")){
-				consultareditarfuncionario(request, response);
-				RequestDispatcher rd = request.getRequestDispatcher(destino);
-			    rd.forward(request, response); 
-			}		
-		}		 				
+			HttpServletResponse response) throws ServletException, IOException {		
+		 				
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {		
-		
+		 
 		try {
 			
 			idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
+    		System.out.println("NA VARIAVEL: " + idfuncionario);
+
 			
 		 }catch(NumberFormatException number){
-			 
+			acao = true;
+			adicionafuncionario(request, response);
+			message = "Funcionario inserido com sucessso"; 		
+			request.setAttribute("message", message);
+			destino = "/c_funcionario.jsp";
 		 }
 		
-		buscarfuncionario(request, response);		
-		System.out.println("VARIAVEL ACAO: " + acao);  	    	
+		if (acao==false){
+		//	if(funcionarioDAO.existe(funcionario)){
+				editarfuncionario(request, response);	    		
+	    		message = "Funcionario alterado com sucessso"; 		
+				request.setAttribute("message", message);
+				destino = "/c_funcionario.jsp";
+		//	}	
+		}
 		
 	        /*else{
 	            List<Employee> result = employeeService.getAllEmployees();
@@ -118,24 +122,29 @@ public class ServletFuncionario extends HttpServlet {
 				System.out.println(e);
 				e.printStackTrace();
 				//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);
-			}finally{			
-				message = "Funcionario inserido com sucessso";   			
-	       }
-		
-		request.setAttribute("message", message);
-		destino = "/c_funcionario.jsp";		 
+			}		
+				message = "Funcionario inserido com sucessso"; 		
+				request.setAttribute("message", message);
+				destino = "/c_funcionario.jsp";		 
 		
 	}	
 	
 	protected void editarfuncionario(HttpServletRequest request,
-		    HttpServletResponse response,int idfuncionario) throws ServletException, IOException {
-		
+		    HttpServletResponse response) throws ServletException, IOException {		
 		
 		 nome = request.getParameter("nome");
 		 funcao = request.getParameter("funcao");
 		 matricula = request.getParameter("matricula");	
 		 email = request.getParameter("email");
-		 senha = request.getParameter("senha");	
+		 senha = request.getParameter("senha");		 
+		 
+		  System.out.println("no EDITAR: " + idfuncionario);
+		  System.out.println("no EDITAR: " + nome);
+		  System.out.println("no EDITAR: " + matricula);
+		  System.out.println("no EDITAR: " + email);
+		  System.out.println("no EDITAR: " + funcao);
+		  System.out.println("no EDITAR: " + senha);
+
 		
 		try {
 			
@@ -152,76 +161,18 @@ public class ServletFuncionario extends HttpServlet {
 			//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);				
 		}
 		
-		try {			
-	   		funcionarioDAO.alterar(funcionario);        		
+		try {
+			
+	   		funcionarioDAO.alterar(funcionario); 
+	   		
 			} catch (Exception e) {			
 				message = "Verifique os dados informados";   			
 				System.out.println(e);
 				e.printStackTrace();
 				//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);
-			}finally{			
-				message = "Funcionario alterado com sucessso";   			
-	       }
-		
-		request.setAttribute("message", message);
-		destino = "/c_funcionario.jsp";	
-	}
-	
-	protected void buscarfuncionario(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-
-		String textopesquisa1 = request.getParameter("txtpesquisa1");
-		String textopesquisa2 = request.getParameter("txtpesquisa2");		
-		String textopesquisa3 = request.getParameter("txtpesquisa3");	
-	
-		
-		List<Funcionario> listafuncionario = new ArrayList<Funcionario>();			
-		System.out.println("txtpesquisa1 = " + textopesquisa1);
-		System.out.println("txtpesquisa2 = " + textopesquisa2);
-		System.out.println("txtpesquisa3 = " + textopesquisa3);	
-
-		
-        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
-        				
-        	for(int i=0;i<parametropesquisa.length;i++){					
-    			parametropesquisa[i]="";					
-    		}        	
-        		 parametropesquisa[0] = textopesquisa1;
-				 parametropesquisa[1] = textopesquisa2;
-				 parametropesquisa[2] = textopesquisa3;
-				 
-			for(int i=0;i<parametropesquisa.length;i++){					
-				System.out.println("No parametro " + parametropesquisa[i]);					
-			}		   	 
-			listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
-			request.setAttribute("listafuncionario", listafuncionario);			
+			}		
+			message = "Funcionario alterado com sucessso";   			
+			request.setAttribute("message", message);
 			destino = "/c_funcionario.jsp";	
-			
-        	}   
-	}
-	 protected void consultareditarfuncionario(HttpServletRequest request,
- 		    HttpServletResponse response) throws ServletException, IOException {
-		 
-		 idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
-     	 nome = request.getParameter("nome");
- 		 funcao = request.getParameter("funcao");
- 		 matricula = request.getParameter("matricula");	
- 		 email = request.getParameter("email");
- 		 senha = request.getParameter("senha");
- 		
-  			
-			funcionario.setIdfuncionario(idfuncionario);
-			funcionario.setMatricula(matricula);
-			funcionario.setNome(nome);
-			funcionario.setFuncao(funcao);
-			funcionario.setEmail(email);
-			funcionario.setSenha(senha);
-
-			System.out.println("nome = " + nome);
-			
-		
-		request.setAttribute("funcionario", funcionario);
-		funcionario = funcionarioDAO.consultar_editar(funcionario);		
-		destino = "/funcionario.jsp";	
-		}
+	}	
 }

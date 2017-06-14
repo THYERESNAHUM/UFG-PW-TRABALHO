@@ -21,6 +21,8 @@
     <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
@@ -56,8 +58,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">					
-                <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="funcionario">
-                <div class="form-group">			 
+                <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscafuncionario">
 					<div class="form-group col-lg-5 col-xs-12">
 						<label>Nome</label>
 						<input name="txtpesquisa1" class="form-control input-sm" type="text">
@@ -65,8 +66,8 @@
 						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Funcao </label> 	  
-			            	<select class="form-control placeholder input-sm"  name="txtpesquisa2">			            
-		                        <option selected="selected">${funcionario.funcao}</option>
+			            	<select data-live-search="true" class="form-control placeholder input-sm selectpicker" title="" name="txtpesquisa2">			            
+		                        <option selected="selected"></option>
 		                        <option value="atendente">Atendente</option>
 		                        <option value="agente">Agente</option>
 		                    </select>
@@ -77,7 +78,14 @@
 						<label>Matricula </label>
 						<input name="txtpesquisa3" class="form-control input-sm" type="text">
 						</div>
-					</div>				
+					<c:if test="${not empty message}">
+								<div class="col-lg-4 col-xs-12">
+									<div class="alert alert-info fade in">
+											<a href="#" class="close" data-dismiss="alert">&times;</a>
+									<strong>${message}</strong>
+									</div>
+								</div>			
+					</c:if>				
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       <a href="funcionario.jsp">
@@ -93,18 +101,7 @@
                         <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
                           <i class="fa fa-search"></i>
                         </button>                      
-                    </p>
-                     <c:if test="${not empty message}">
-						<div class="container">
-							<label class="control-label col-md-1"></label>
-								<div class="col-lg-4 col-xs-12">
-									<div class="alert alert-success fade in">
-											<a href="#" class="close" data-dismiss="alert">&times;</a>
-									<strong>${message}</strong>
-									</div>
-								</div>			
-						</div>		
-					</c:if>
+                    </p>                     
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -125,7 +122,7 @@
 					<td><div class="btn-group">
 					  <button type="button" class="btn dropdown-toggle btn btn-success btn-xs" data-toggle="dropdown">Opções <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					    <li><a href="funcionario?acao=Consultar&idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
+					    <li><a href="buscafuncionario?acao=Consultar&idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
 					    <li><a onclick="confirmaexclusao(${funcionario.idfuncionario})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
 					   	<li><a data-target="#imprimir" data-toggle="modal"><span class="glyphicon glyphicon-print"></span> Visualizar</a></li>					 
 					  </ul>
@@ -194,6 +191,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
 	
   </body>
 </html>
