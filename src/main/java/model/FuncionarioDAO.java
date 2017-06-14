@@ -3,9 +3,11 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import controller.ExibeMensagem;
 import model.Funcionario;
 
 /**
@@ -16,7 +18,9 @@ import model.Funcionario;
  */
 
 public class FuncionarioDAO extends ConectaBanco {
-
+	
+	ExibeMensagem msg = new ExibeMensagem();
+	
 	public void alterar(Funcionario funcionario) {
 		try {
 			Connection conexao = getConexao();
@@ -32,11 +36,15 @@ public class FuncionarioDAO extends ConectaBanco {
 			pstmt.execute();
 			pstmt.close();
 			conexao.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL EFETUAR ALTERAÇÂO",null, JOptionPane.ERROR_MESSAGE);
-		}
+			}catch (Exception e) {
+				//e.printStackTrace();
+				if(e instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException){
+					//System.out.println("ERRO AO INCLUIR");
+					msg.erro();
+				}else
+					msg.sucesso();
+					
+			}
 	}
 
 	public void excluir(Funcionario funcionario) {
@@ -59,10 +67,10 @@ public class FuncionarioDAO extends ConectaBanco {
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("Select idfuncionario, matricula from funcionario where idfuncionario = ? or matricula = ?");
+					.prepareStatement("Select idfuncionario from funcionario where idfuncionario = ?");
 			//if(pstm==null)				
 			pstm.setInt(1, funcionario.getIdfuncionario());
-			pstm.setString(2, funcionario.getMatricula());
+			//pstm.setString(2, funcionario.getMatricula());
 			ResultSet rs = pstm.executeQuery();
 			
 			if (rs.next()) {
@@ -72,7 +80,7 @@ public class FuncionarioDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ERRO AO INCLUIR");
+			System.out.println("ERRO AO BUSCAR PARA EDIÇÃO");			
 		}
 		return achou;
 	}
@@ -92,6 +100,9 @@ public class FuncionarioDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			if(e instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException){
+				JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL EFETUAR INCLUSÃO",null, JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 

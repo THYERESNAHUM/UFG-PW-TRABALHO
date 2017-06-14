@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.FuncionarioDAO;
 import model.Funcionario;
+import controller.ExibeMensagem;
 
 
 @WebServlet(name="ServletFuncionario", urlPatterns = "/funcionario")
@@ -30,7 +31,8 @@ public class ServletFuncionario extends HttpServlet {
 	private String matricula;
 	private String email;
 	private String senha;
-	private String message = "";
+	private ExibeMensagem msg;
+	private String message;
 	private boolean acao = false;
 
 	
@@ -41,7 +43,9 @@ public class ServletFuncionario extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {		
-		 
+		
+		acao = false;
+		
 		try {
 			
 			idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
@@ -51,45 +55,27 @@ public class ServletFuncionario extends HttpServlet {
 		 }catch(NumberFormatException number){
 			acao = true;
 			adicionafuncionario(request, response);
-			message = "Funcionario inserido com sucessso"; 		
-			request.setAttribute("message", message);
+			message = "Registro Gravado com Sucesso";			
 			destino = "/c_funcionario.jsp";
 		 }
 		
+		
 		if (acao==false){
-		//	if(funcionarioDAO.existe(funcionario)){
-				editarfuncionario(request, response);	    		
-	    		message = "Funcionario alterado com sucessso"; 		
-				request.setAttribute("message", message);
+			funcionario.setIdfuncionario(idfuncionario);
+			funcionarioDAO.existe(funcionario);
+			if(funcionarioDAO.existe(funcionario)==true){
+				editarfuncionario(request, response);
+				message = "Registro Alterado Com Sucesso";
 				destino = "/c_funcionario.jsp";
-		//	}	
+			}	
 		}
 		
-	        /*else{
-	            List<Employee> result = employeeService.getAllEmployees();
-	            forwardListEmployees(req, resp, result);
-	        }
-		 */
-		/*try {		            
-        	
-        	idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
-	        matricula = request.getParameter("matricula");
-	        funcionario.setIdfuncionario(idfuncionario);
-			funcionario.setMatricula(matricula);
-        
-        }catch(NumberFormatException number){        
-        	if(!funcionarioDAO.existe(funcionario))
-        		adicionafuncionario(request, response); 
-        		System.out.println("NA VARIAVEL: " + idfuncionario);        	
-        }
-        
-        if(idfuncionario!=0){       	
-        	if(funcionarioDAO.existe(funcionario))
-	    		editarfuncionario(request, response, idfuncionario);				
-        }*/
-	    
-	    RequestDispatcher rd = request.getRequestDispatcher(destino);
-	    rd.forward(request, response);  
+			/*System.out.println("NA VARIAVEL ACAO: " + acao);
+			System.out.println("NO metodo existe " + funcionarioDAO.existe(funcionario)); */
+	       	    
+			request.setAttribute("message", message);    
+			RequestDispatcher rd = request.getRequestDispatcher(destino);
+		    rd.forward(request, response);  
 	}	
 	
 	protected void adicionafuncionario(HttpServletRequest request,
@@ -107,25 +93,12 @@ public class ServletFuncionario extends HttpServlet {
 			funcionario.setNome(nome);
 			funcionario.setFuncao(funcao);
 			funcionario.setEmail(email);
-			funcionario.setSenha(senha);
-			
-			/*request.setAttribute("resultado", resultado);*/	        
+			funcionario.setSenha(senha);			
+        
 		}catch(Exception e){
 			System.out.println("Parametro incorreto.");
-			//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);				
-		}
-		
-		try {			
-	   		funcionarioDAO.inserir(funcionario);        		
-			} catch (Exception e) {			
-				message = "Verifique os dados informados";   			
-				System.out.println(e);
-				e.printStackTrace();
-				//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);
-			}		
-				message = "Funcionario inserido com sucessso"; 		
-				request.setAttribute("message", message);
-				destino = "/c_funcionario.jsp";		 
+		}	
+   			funcionarioDAO.inserir(funcionario);        		
 		
 	}	
 	
@@ -153,26 +126,11 @@ public class ServletFuncionario extends HttpServlet {
 			funcionario.setNome(nome);
 			funcionario.setFuncao(funcao);
 			funcionario.setEmail(email);
-			funcionario.setSenha(senha);
-			
-			/*request.setAttribute("resultado", resultado);*/	        
+			funcionario.setSenha(senha);			
+			        
 		}catch(Exception e){
-			System.out.println("Parametro incorreto.");
-			//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);				
+			System.out.println("Parametro incorreto.");			
 		}
-		
-		try {
-			
-	   		funcionarioDAO.alterar(funcionario); 
-	   		
-			} catch (Exception e) {			
-				message = "Verifique os dados informados";   			
-				System.out.println(e);
-				e.printStackTrace();
-				//this.getServletContext().getRequestDispatcher("/funcionario.jsp").forward(request, response);
-			}		
-			message = "Funcionario alterado com sucessso";   			
-			request.setAttribute("message", message);
-			destino = "/c_funcionario.jsp";	
+			funcionarioDAO.alterar(funcionario);			
 	}	
 }

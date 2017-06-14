@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.FuncionarioDAO;
 import model.Funcionario;
 
-
 @WebServlet(name="ServletBuscaFuncionario", urlPatterns = "/buscafuncionario")
 public class ServletBuscaFuncionario extends HttpServlet {
 	
