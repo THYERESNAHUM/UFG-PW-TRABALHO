@@ -21,7 +21,9 @@ public class FuncionarioDAO extends ConectaBanco {
 	
 	ExibeMensagem msg = new ExibeMensagem();
 	
-	public void alterar(Funcionario funcionario) {
+	public boolean alterar(Funcionario funcionario) {
+		boolean erro = false;
+
 		try {
 			Connection conexao = getConexao();
 
@@ -36,15 +38,12 @@ public class FuncionarioDAO extends ConectaBanco {
 			pstmt.execute();
 			pstmt.close();
 			conexao.close();
+			pstmt.close();
+			conexao.close();
 			}catch (Exception e) {
-				//e.printStackTrace();
-				if(e instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException){
-					//System.out.println("ERRO AO INCLUIR");
-					msg.erro();
-				}else
-					msg.sucesso();
-					
+				erro = true;					
 			}
+		return erro;
 	}
 
 	public void excluir(Funcionario funcionario) {
@@ -85,7 +84,8 @@ public class FuncionarioDAO extends ConectaBanco {
 		return achou;
 	}
 
-	public void inserir(Funcionario funcionario) {
+	public boolean inserir(Funcionario funcionario) {
+		boolean erro = false;
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
@@ -99,11 +99,9 @@ public class FuncionarioDAO extends ConectaBanco {
 			pstm.close();
 			conexao.close();
 		} catch (Exception e) {
-			e.printStackTrace();
-			if(e instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException){
-				JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL EFETUAR INCLUSÃO",null, JOptionPane.ERROR_MESSAGE);
-			}
+			erro = true;	
 		}
+		return erro;
 	}
 
 	public List<Funcionario> listar(String par_nome, String par_funcao, String par_matricula) {

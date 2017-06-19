@@ -55,7 +55,6 @@ public class ServletFuncionario extends HttpServlet {
 		 }catch(NumberFormatException number){
 			acao = true;
 			adicionafuncionario(request, response);
-			message = "Registro Gravado com Sucesso";			
 			destino = "/c_funcionario.jsp";
 		 }
 		
@@ -65,7 +64,6 @@ public class ServletFuncionario extends HttpServlet {
 			funcionarioDAO.existe(funcionario);
 			if(funcionarioDAO.existe(funcionario)==true){
 				editarfuncionario(request, response);
-				message = "Registro Alterado Com Sucesso";
 				destino = "/c_funcionario.jsp";
 			}	
 		}
@@ -98,7 +96,11 @@ public class ServletFuncionario extends HttpServlet {
 		}catch(Exception e){
 			System.out.println("Parametro incorreto.");
 		}	
-   			funcionarioDAO.inserir(funcionario);        		
+   			if(funcionarioDAO.inserir(funcionario)==true)
+   				message = "Erro ao Gravar Registro";		
+   			else
+   				message = "Registro Gravado com Sucesso";	
+   				  				
 		
 	}	
 	
@@ -131,6 +133,10 @@ public class ServletFuncionario extends HttpServlet {
 		}catch(Exception e){
 			System.out.println("Parametro incorreto.");			
 		}
-			funcionarioDAO.alterar(funcionario);			
+			
+			if(funcionarioDAO.alterar(funcionario)==true)
+   				message = "Erro ao Alterar Registro";			
+			else
+   				message = "Registro Alterado com Sucesso";
 	}	
 }
