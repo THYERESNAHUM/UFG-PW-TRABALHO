@@ -2,9 +2,6 @@ package controller;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.FuncionarioDAO;
 import model.Funcionario;
-import controller.ExibeMensagem;
-
 
 @WebServlet(name="ServletFuncionario", urlPatterns = "/funcionario")
 public class ServletFuncionario extends HttpServlet {
@@ -23,15 +18,13 @@ public class ServletFuncionario extends HttpServlet {
 	
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Funcionario funcionario = new Funcionario();
-	private String[] parametropesquisa = new String[3];
-	String destino = "";
+	private String destino = "";
 	private int idfuncionario;
 	private String nome;
 	private String funcao;
 	private String matricula;
 	private String email;
 	private String senha;
-	private ExibeMensagem msg;
 	private String message;
 	private boolean acao = false;
 
@@ -113,13 +106,12 @@ public class ServletFuncionario extends HttpServlet {
 		 email = request.getParameter("email");
 		 senha = request.getParameter("senha");		 
 		 
-		  System.out.println("no EDITAR: " + idfuncionario);
+		  /*System.out.println("no EDITAR: " + idfuncionario);
 		  System.out.println("no EDITAR: " + nome);
 		  System.out.println("no EDITAR: " + matricula);
 		  System.out.println("no EDITAR: " + email);
 		  System.out.println("no EDITAR: " + funcao);
-		  System.out.println("no EDITAR: " + senha);
-
+		  System.out.println("no EDITAR: " + senha);*/
 		
 		try {
 			
