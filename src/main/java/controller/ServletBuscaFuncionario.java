@@ -21,10 +21,14 @@ public class ServletBuscaFuncionario extends HttpServlet {
 	
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Funcionario funcionario = new Funcionario();
+	private String[] parametropesquisa = new String[3];
 	private int idfuncionario;
 	private String destino = "";
 	private String acao;
 	private String message;
+	private String textopesquisa1; 
+	private String textopesquisa2; 
+	private String textopesquisa3; 
 
 	
 	protected void doGet(HttpServletRequest request,
@@ -36,7 +40,11 @@ public class ServletBuscaFuncionario extends HttpServlet {
 					consultareditarfuncionario(request, response);
 					RequestDispatcher rd = request.getRequestDispatcher(destino);
 				    rd.forward(request, response); 
-				}		
+				}else if(acao.equalsIgnoreCase("Excluir")){
+					excluirfuncionario(request,response);
+					RequestDispatcher rd = request.getRequestDispatcher(destino);
+				    rd.forward(request, response); 
+				}
 			}					
 	}
 
@@ -50,12 +58,18 @@ public class ServletBuscaFuncionario extends HttpServlet {
 	protected void buscarfuncionario(HttpServletRequest request,
 		    HttpServletResponse response) throws ServletException, IOException {
 
-			String textopesquisa1 = request.getParameter("txtpesquisa1");
-			String textopesquisa2 = request.getParameter("txtpesquisa2");		
-			String textopesquisa3 = request.getParameter("txtpesquisa3");		
+			textopesquisa1 = request.getParameter("txtpesquisa1");
+			textopesquisa2 = request.getParameter("txtpesquisa2");		
+			textopesquisa3 = request.getParameter("txtpesquisa3");		
 			
 	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
-		   	 
+	        	for(int i=0;i<parametropesquisa.length;i++){					
+	    			parametropesquisa[i]="";					
+	    		}        	
+	        		 parametropesquisa[0] = textopesquisa1;
+					 parametropesquisa[1] = textopesquisa2;
+					 parametropesquisa[2] = textopesquisa3;
+					 
 	        	List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
 	        	listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
 				request.setAttribute("listafuncionario", listafuncionario);
@@ -63,7 +77,7 @@ public class ServletBuscaFuncionario extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
 		 	     rd.forward(request, response);
 		     }else{
-		    	 message = "Informa um parametro para pesquisa";				
+		    	 message = "Informe um parametro para pesquisa";				
 			   	 request.setAttribute("message", message);
 			   	 destino = "/c_funcionario.jsp";
 		    	 RequestDispatcher rd = request.getRequestDispatcher(destino);
@@ -78,5 +92,18 @@ public class ServletBuscaFuncionario extends HttpServlet {
 				request.setAttribute("funcionario", funcionario);
 				funcionario = funcionarioDAO.consultar_editar(funcionario);		
 				destino = "/funcionario.jsp";	
+		}
+	 
+	 protected void excluirfuncionario(HttpServletRequest request,
+	 		    HttpServletResponse response) throws ServletException, IOException {
+
+		 		idfuncionario = Integer.parseInt(request.getParameter("idfuncionario"));
+				funcionario.setIdfuncionario(idfuncionario);			
+				request.setAttribute("funcionario", funcionario);
+				funcionarioDAO.excluir(funcionario);
+				List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
+	        	listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
+				request.setAttribute("listafuncionario", listafuncionario);				
+				destino = "/c_funcionario.jsp";	
 		}
 }

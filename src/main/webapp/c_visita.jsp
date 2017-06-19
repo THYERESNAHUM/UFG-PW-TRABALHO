@@ -13,6 +13,8 @@
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap select -->
+  	<link href="css/bootstrap-select.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Datatables -->
@@ -42,155 +44,107 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
+                  <div class="x_content">					
+                <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscafuncionario">
+					<div class="form-group col-lg-3 col-xs-12">
+						<label>Agente</label>
+						<input name="txtpesquisa1" class="form-control input-sm" type="text">
+						</div>					
+						
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Tipo </label> 	  
+			            	<select name="txtpesquisa2" title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="lote">Lote</option>
+                              <option value="casa">Casa</option>
+                              <option value="apartamento">Apartamento</option>
+                              <option value="deposito">Depósito</option>
+                              <option value="loja">Loja</option>
+                              <option value="sala">Sala comercial</option>
+                            </select>
+			           		    				
+						</div>							
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Estagio</label> 	  
+			            <select name="txtpesquisa3" title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="ovo">Ovo</option>
+                              <option value="larva">Larva</option>
+                              <option value="pupa">Pupa</option>
+                              <option value="mosquito">Mosquito</option>							  
+                            </select>
+			           		    				
+						</div>
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Cidade </label> 	  
+			            	<select name="txtpesquisa4"  title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="goiania">Goiânia</option>
+                              <option value="aparecida">Aparecida de Goiânia</option>
+                              <option value="senadorcanedo">Senador Canedo</option>
+                              <option value="trindade">Trindade</option>
+                            </select>			           		    				
+						</div>	
+					<c:if test="${not empty message}">
+								<div class="col-lg-4 col-xs-12">
+									<div class="alert alert-info fade in">
+											<a href="#" class="close" data-dismiss="alert">&times;</a>
+									<strong>${message}</strong>
+									</div>
+								</div>			
+					</c:if>	
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
+                     <p class="text-muted font-13 m-b-30">
                       <a href="visita.jsp">
-                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Nova DenÃºncia">
+                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Novo Funcionário">
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
-                      <a href="c_visita.html">
-                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Atualizar Listagem">
+                      <a href="c_funcionario.jsp">
+                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Limpar Listagem">
                           <i class="fa fa-refresh"></i>
                         </button>
-                      </a>
-                    </p>
+                      </a>					  
+                        <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
+                          <i class="fa fa-search"></i>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Visualizar no Mapa">
+                          <i class="fa fa-globe"></i>
+                        </button>                       
+                    </p>   
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Agente</th>
-                          <th>Data/Hora</th>
-                          <th>Atividade</th>
+                          <th>Tipo de Imovel </th>
+                          <th>Estagio</th>                                                    
                           <th>Cidade</th>
-                          <th>AÃ§Ãµes</th>
+                          <th>Ações</th>
                         </tr>
                       </thead>
-
-
-                      <tbody>
-                        <tr>
-                          <td>Douglas de FranÃ§a Alves</td>
-                          <td>18/02/2017 17:30</td>
-                          <td>FiscalizaÃ§Ã£o</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Douglas de FranÃ§a Alves</td>
-                          <td>22/04/2016 14:00</td>
-                          <td>Retirada de Foco</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Douglas de FranÃ§a Alves</td>
-                          <td>20/02/2017 15:30</td>
-                          <td>Retirada de Foco</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>DÃ©bora Alves Santos</td>
-                          <td>20/02/2017 16:30</td>
-                          <td>FiscalizaÃ§Ã£o</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>DÃ©bora Alves Santos</td>
-                          <td>14/04/2017 18:00</td>
-                          <td>FiscalizaÃ§Ã£o</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>DÃ©bora Alves Santos</td>
-                          <td>21/05/2017 12:30</td>
-                          <td>FiscalizaÃ§Ã£o</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Bruno Bryan</td>
-                          <td>18/02/2017 14:30</td>
-                          <td>Retirada de Foco</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Bruno Bryan</td>
-                          <td>18/02/2017 14:30</td>
-                          <td>Retirada de Foco</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Alberto Gomes</td>
-                          <td>21/01/2017 14:30</td>
-                          <td>FiscalizaÃ§Ã£o</td>
-                          <td>GoiÃ¢nia</td>
-                          <td>
-                            <a href="visita.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        
+                      <tbody> 
+                      	<c:forEach var="visita" items="${listavisita}">
+							<tr>								
+								<td>${visita.}</td>
+								<td>${visita.}</td>
+								<td>${visita.}</td>
+								<td>${visita.}</td>
+					<td><div class="btn-group">
+					  <button type="button" class="btn dropdown-toggle btn btn-success btn-xs" data-toggle="dropdown">Opções <span class="caret"></span></button>
+					  <ul class="dropdown-menu">
+					    <li><a href="buscavisita?acao=Consultar&idvisita=${visita.idvisita}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
+					    <li><a onclick="confirmaexclusao(${visita.idvisita})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
+					   	<li><a data-target="#visualizar" data-toggle="modal"><span class="glyphicon glyphicon-globe"></span> Visualizar no Mapa</a></li>					 
+					  </ul>
+					</div>
+					</td>				
+					</tr>
+				</c:forEach>  
                       </tbody>
                     </table>
                   </div>
@@ -213,6 +167,8 @@
                         </div>
                       </div>
                     </div>
+                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -248,7 +204,8 @@
     <script src="vendors/jszip/dist/jszip.min.js"></script>
     <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-
+	 <!-- Bootstrap select -->
+    <script src="js/bootstrap-select.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 	

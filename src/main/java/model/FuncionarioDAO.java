@@ -46,7 +46,8 @@ public class FuncionarioDAO extends ConectaBanco {
 		return erro;
 	}
 
-	public void excluir(Funcionario funcionario) {
+	public boolean excluir(Funcionario funcionario) {
+		boolean erro = false;
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
@@ -56,9 +57,9 @@ public class FuncionarioDAO extends ConectaBanco {
 			pstm.close();
 			conexao.close();
 		} catch (Exception e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL EFETUAR EXCLUSÃO",null, JOptionPane.ERROR_MESSAGE);
+			erro = true;
 		}
+		return erro;
 	}
 
 	public boolean existe(Funcionario funcionario) {

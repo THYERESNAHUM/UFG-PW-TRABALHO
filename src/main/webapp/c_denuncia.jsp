@@ -57,18 +57,24 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      <a href="denuncia.jsp">
-                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Nova DenÃºncia">
+                   <p class="text-muted font-13 m-b-30">
+                      <a href="visita.jsp">
+                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Novo Funcionário">
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
-                      <a href="c_denuncia.html">
-                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Atualizar Listagem">
+                      <a href="c_denuncia.jsp">
+                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Limpar Listagem">
                           <i class="fa fa-refresh"></i>
                         </button>
-                      </a>
-                    </p>
+                      </a>					  
+                        <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
+                          <i class="fa fa-search"></i>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Visualizar no Mapa">
+                          <i class="fa fa-globe"></i>
+                        </button>                       
+                    </p>   
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -80,126 +86,7 @@
 
 
                       <tbody>
-                        <tr>
-                          <td>JoÃ£o Alves da Silva</td>
-                          <td>18/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>JoÃ£o Alves da Silva</td>
-                          <td>18/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>JoÃ£o Alves da Silva</td>
-                          <td>18/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>JoÃ£o Alves da Silva</td>
-                          <td>17/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Maria Antonieta Nunes da Silva</td>
-                          <td>16/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Joaquim JosÃ© da Silva</td>
-                          <td>16/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Maria Eduarda Medeiros</td>
-                          <td>15/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Carlos JosÃ© Pereira</td>
-                          <td>14/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Marco AntÃ´nio de Paula</td>
-                          <td>14/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Leonardo Nascimento</td>
-                          <td>14/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Paula Renata Munhoz de Oliveira</td>
-                          <td>13/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Carmen LÃºcia de Sousa</td>
-                          <td>12/02/2017</td>
-                          <td>
-                            <a href="denuncia.jsp">
-                                <i class="fa fa-edit" title="editar"></i>
-                            </a>
-                            <i class="fa fa-remove" title="excluir" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-                          </td>
-                        </tr>
+                       
                         
                       </tbody>
                     </table>

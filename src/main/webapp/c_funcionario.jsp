@@ -43,15 +43,6 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
@@ -68,8 +59,8 @@
 						<label>Funcao </label> 	  
 			            	<select data-live-search="true" class="form-control placeholder input-sm selectpicker" title="" name="txtpesquisa2">			            
 		                        <option selected="selected"></option>
-		                        <option value="atendente">Atendente</option>
-		                        <option value="agente">Agente</option>
+		                        <option value="Atendente">Atendente</option>
+		                        <option value="Agente">Agente</option>
 		                    </select>
 			           		    				
 						</div>							
@@ -100,7 +91,10 @@
                       </a>					  
                         <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
                           <i class="fa fa-search"></i>
-                        </button>                      
+                        </button>
+                        <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Visualizar no Mapa">
+                          <i class="fa fa-globe"></i>
+                        </button>                       
                     </p>                     
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
@@ -124,7 +118,7 @@
 					  <ul class="dropdown-menu">
 					    <li><a href="buscafuncionario?acao=Consultar&idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
 					    <li><a onclick="confirmaexclusao(${funcionario.idfuncionario})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
-					   	<li><a data-target="#imprimir" data-toggle="modal"><span class="glyphicon glyphicon-print"></span> Visualizar</a></li>					 
+					   	<li><a data-target="#visualizar" data-toggle="modal"><span class="glyphicon glyphicon-globe"></span> Visualizar no Mapa</a></li>					 
 					  </ul>
 					</div>
 					</td>				
@@ -152,7 +146,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>                  
+                  </div>                 
                   </form>
                   </div>
                 </div>
@@ -168,6 +162,15 @@
         </footer>
     </div>
     </div>
+    <script>
+    function confirmaexclusao(id) {
+   	     var resposta = confirm("Deseja remover o registro?");
+   	 
+   	     if (resposta == true) {
+   	          window.location.href = "buscafuncionario?acao=Excluir&idfuncionario="+id;
+   	     }
+   	}
+    </script>
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -188,7 +191,6 @@
     <script src="vendors/jszip/dist/jszip.min.js"></script>
     <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
