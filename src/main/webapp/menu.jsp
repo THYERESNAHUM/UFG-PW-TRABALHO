@@ -74,7 +74,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Sair" href="index.html">
+              <a data-toggle="tooltip" data-placement="top" title="Sair" href="index.jsp">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -96,8 +96,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li><a href="index.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                    <li><a href="index.jsp"><i class="fa fa-sign-out pull-right"></i>Sair</a></li>
                   </ul>
                 </li>          
               </ul>
