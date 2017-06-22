@@ -76,20 +76,20 @@
 								<c:if test = "${fn:contains(message, 'Erro')}">
 											<div class="alert alert-danger fade in">
 													<a href="#" class="close" data-dismiss="alert">&times;</a>
-													<strong>${message}</strong>
+													<p>${message}</p>
 											</div>      				
 		    					</c:if>
 		    					<c:if test = "${fn:contains(message, 'pesquisa')}">											
 											<div class="alert alert-warning fade in">
 													<a href="#" class="close" data-dismiss="alert">&times;</a>
-													<strong>${message}</strong>
+													<p>${message}</p>
 											</div>      				
 								
 		    					</c:if>		    					
 								<c:if test = "${fn:contains(message, 'Sucesso')}">											
 											<div class="alert alert-info fade in">
 													<a href="#" class="close" data-dismiss="alert">&times;</a>
-													<strong>${message}</strong>
+													<p>${message}</p>
 											</div>      				
 								
 		    					</c:if>	
@@ -206,9 +206,6 @@
     <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="vendors/jszip/dist/jszip.min.js"></script>
-    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>

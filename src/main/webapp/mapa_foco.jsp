@@ -85,8 +85,8 @@
                                             function initMap() {
 
                                                 var map = new google.maps.Map(document.getElementById('map'), {
-                                                    zoom: 10,
-                                                    center: {lat: -16.689497, lng: -49.266216}
+                                                    zoom: 13,
+                                                    center: locations[0]
                                                 });
 
                                                 // Criar uma matriz de caracteres alfabéticos usados para rotular os marcadores.
