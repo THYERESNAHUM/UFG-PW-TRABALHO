@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,14 +70,31 @@
 						<label>Matricula </label>
 						<input name="txtpesquisa3" class="form-control input-sm" type="text">
 						</div>
-					<c:if test="${not empty message}">
-								<div class="col-lg-4 col-xs-12">
-									<div class="alert alert-info fade in">
-											<a href="#" class="close" data-dismiss="alert">&times;</a>
-									<strong>${message}</strong>
-									</div>
-								</div>			
-					</c:if>				
+						
+						<c:if test="${not empty message}">
+							<div class="col-lg-4 col-xs-12">					
+								<c:if test = "${fn:contains(message, 'Erro')}">
+											<div class="alert alert-danger fade in">
+													<a href="#" class="close" data-dismiss="alert">&times;</a>
+													<strong>${message}</strong>
+											</div>      				
+		    					</c:if>
+		    					<c:if test = "${fn:contains(message, 'pesquisa')}">											
+											<div class="alert alert-warning fade in">
+													<a href="#" class="close" data-dismiss="alert">&times;</a>
+													<strong>${message}</strong>
+											</div>      				
+								
+		    					</c:if>		    					
+								<c:if test = "${fn:contains(message, 'Sucesso')}">											
+											<div class="alert alert-info fade in">
+													<a href="#" class="close" data-dismiss="alert">&times;</a>
+													<strong>${message}</strong>
+											</div>      				
+								
+		    					</c:if>	
+						</div>
+						</c:if>																			
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       <a href="funcionario.jsp">

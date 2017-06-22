@@ -82,8 +82,8 @@
                       <div class="col-lg-4 col-xs-12">
                       <select required id="funcao" name="funcao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                         <option selected="selected">${funcionario.funcao}</option>
-                        <option value="atendente">Atendente</option>
-                        <option value="agente">Agente</option>
+                        <option value="Atendente">Atendente</option>
+                        <option value="Agente">Agente</option>
                       </select>
                       <div class="help-block with-errors"></div>
                       </div>
@@ -107,8 +107,8 @@
                     <div class="item form-group">
                       <label for="senha2" class="control-label col-md-3">Confirmar Senha <span class="required">*</span></label>
                       <div class="col-lg-6 col-xs-12">
-                        <input id="senha2" type="password" name="senha2" placeholder="ex: #s3nh4*"  class="form-control input-md" required="required">
-                        <data-match="#senha" data-match-error="As senhas não são equivalentes!">
+                        <input id="senha2" type="password" name="senha2" value="${funcionario.senha}" placeholder="ex: #s3nh4*"  class="form-control input-md" required="required" 
+                        data-match="#senha" data-match-error="As senhas não são equivalentes!">
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>	
