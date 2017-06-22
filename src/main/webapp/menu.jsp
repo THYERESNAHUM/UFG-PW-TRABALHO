@@ -28,7 +28,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+				<img src="images/user.png" alt="..." class="img-circle profile_img">				
               </div>
               <div class="profile_info">
                 <span>Bem-vindo,</span>
@@ -92,7 +92,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Administrador
+                    <img src="images/user.png" alt="">Administrador
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
