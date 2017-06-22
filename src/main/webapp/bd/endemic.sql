@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `dbendemic`.`visita` (
   `data_visita` DATETIME NOT NULL,
   `bairro` VARCHAR(30) NOT NULL,
   `rua` VARCHAR(45) NOT NULL,
-  `quadra` VARCHAR(5) NOT NULL,
+  `quadra` VARCHAR(5) ULL DEFAULT NULL,
   `lote` INT(11) NULL DEFAULT NULL,
   `numero` VARCHAR(5) NULL DEFAULT NULL,
   `cep` INT(11) NOT NULL,
