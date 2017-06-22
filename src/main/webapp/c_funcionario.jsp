@@ -57,7 +57,7 @@
 						</div>					
 						
 						<div class="form-group  col-lg-3 col-xs-12">
-						<label>Funcao </label> 	  
+						<label>Função </label> 	  
 			            	<select data-live-search="true" class="form-control placeholder input-sm selectpicker" title="" name="txtpesquisa2">			            
 		                        <option selected="selected"></option>
 		                        <option value="Atendente">Atendente</option>
@@ -109,10 +109,7 @@
                       </a>					  
                         <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
                           <i class="fa fa-search"></i>
-                        </button>
-                        <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Visualizar no Mapa">
-                          <i class="fa fa-globe"></i>
-                        </button>                       
+                        </button>                   
                     </p>                     
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
@@ -120,7 +117,7 @@
                           <th>Matrícula</th>
                           <th>Nome</th>
                           <th>E-mail</th>
-                          <th>Funcao</th>
+                          <th>Função</th>
                           <th>Ações</th>
                         </tr>
                       </thead>
@@ -132,11 +129,10 @@
 								<td>${funcionario.email}</td>
 								<td>${funcionario.funcao}</td>
 					<td><div class="btn-group">
-					  <button type="button" class="btn dropdown-toggle btn btn-success btn-xs" data-toggle="dropdown">Opções <span class="caret"></span></button>
+					  <button type="button" class="btn dropdown-toggle btn btn-info btn-sm" data-toggle="dropdown">Opções <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
 					    <li><a href="buscafuncionario?acao=Consultar&idfuncionario=${funcionario.idfuncionario}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
-					    <li><a onclick="confirmaexclusao(${funcionario.idfuncionario})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
-					   	<li><a data-target="#visualizar" data-toggle="modal"><span class="glyphicon glyphicon-globe"></span> Visualizar no Mapa</a></li>					 
+					    <li><a onclick="confirmaexclusao(${funcionario.idfuncionario})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>					   				 
 					  </ul>
 					</div>
 					</td>				

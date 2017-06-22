@@ -152,7 +152,7 @@
 								<td>${visita.}</td>
 								<td>${visita.}</td>
 					<td><div class="btn-group">
-					  <button type="button" class="btn dropdown-toggle btn btn-success btn-xs" data-toggle="dropdown">Opções <span class="caret"></span></button>
+					  <button type="button" class="btn dropdown-toggle btn btn-info btn-sm" data-toggle="dropdown">Opções <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
 					    <li><a href="buscavisita?acao=Consultar&idvisita=${visita.idvisita}"><span class="glyphicon glyphicon-pencil"></span> Editar</a></li>
 					    <li><a onclick="confirmaexclusao(${visita.idvisita})"><span class="glyphicon glyphicon-trash"></span> Excluir</a></li>
