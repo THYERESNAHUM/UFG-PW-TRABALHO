@@ -92,14 +92,15 @@
                                       <label class="control-label col-md-3" for="quadra">Quadra <span class="required">*</span></label>
                                       <div class="col-lg-1 col-xs-12">
                                         <input type="text" id="quadra" name="quadra" required="required" class="form-control input-md">
+                                        <div class="help-block with-errors"></div>
                                       </div>
-                                      <label class="control-label col-md-1" for="lote">Lote <span class="required">*</span></label>
+                                      <label class="control-label col-md-1" for="lote">Lote* <span class="required">*</span></label>
                                       <div class="col-lg-1 col-xs-12">
                                         <input type="text" id="lote" name="lote" required="required" class="form-control input-md">
                                       </div>
                                       <label class="control-label col-md-1" for="numero">Nº <span class="required">*</span></label>
                                       <div class="col-lg-1 col-xs-12">
-                                        <input type="text" id="numero" name="numero" class="form-control input-md">
+                                        <input type="text" id="numero" name="numero" required="required" class="form-control input-md">
                                       </div>
                                     </div>            
                             <!--Bairro Input-->
