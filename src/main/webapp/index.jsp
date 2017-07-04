@@ -1,6 +1,7 @@
-<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -63,45 +64,48 @@
 								placeholder="Senha" required="" />
 						</div>
 						<div>
-							<button id="send" type="submit" class="btn btn-default submit">Logar
-								</button>
-							<a class="reset_pass" href="#">Esqueceu sua senha?</a>
+							<button id="send" type="submit" class="btn btn-default submit">Logar</button>
+							<!--<a class="reset_pass" href="#">Esqueceu sua senha?</a>   -->
 						</div>
-
+							
 						<div class="clearfix"></div>
 
 						<div class="separator">
-							<p class="change_link">
-								<a href="#signup" class="to_register"> Não possui usuário?
-								</a>
-							</p>
-
-							<div class="clearfix"></div>
-							<br />
-
 							<div>
 								<p>
 									Trabalho de Programação Web 2017-1: <a
 										href="https://github.com/dougfalves/UFG-PW-TRABALHO">Github</a>
 								</p>
 							</div>
+							<p class="change_link">
+							<!-- 	<a href="#signup" class="to_register"> Não possui usuário? 	</a> -->
+							
+							</p>
+
+							<div class="clearfix"></div>
+							<br />
+
+
 						</div>
-					</form>
-				</section>
-
-
-				<strong>${message}</strong>
-
-
-				
+						<c:if test="${not empty message}">
+							<div>					
+								<c:if test = "${fn:contains(message, 'Falha')}">
+											<div class="alert alert-danger fade in">													
+													<p>${message}</p>
+											</div>      				
+		    					</c:if>						
+						</div>
+				</c:if>
+			</form>
+		</section>									
 			</div>
 
 			<div id="register" class="animate form registration_form">
 				<section class="login_content">
 					<form>
-						<h1>Solicitar UsuÃ¡rio</h1>
+						<h1>Solicitar Usuário</h1>
 						<div>
-							<input type="text" class="form-control" placeholder="UsuÃ¡rio"
+							<input type="text" class="form-control" placeholder="Matricula"
 								required="" />
 						</div>
 						<div>
@@ -139,6 +143,9 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

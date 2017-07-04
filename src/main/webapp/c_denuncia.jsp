@@ -39,18 +39,9 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>DenÃºncias <small>Endemic Sys</small></h2>
+                    <h2>Denuncias <small>Endemic Sys</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
                       </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
@@ -81,7 +72,7 @@
                         <tr>
                           <th>Denunciante</th>
                           <th>Data</th>
-                          <th>AÃ§Ãµes</th>
+                          <th>Ações</th>
                         </tr>
                       </thead>
 
@@ -100,10 +91,10 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ã</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel2">ConfirmaÃ§Ã£o</h4>
+                          <h4 class="modal-title" id="myModalLabel2">Confirmação</h4>
                         </div>
                         <div class="modal-body">
-                          <p>Deseja realmente executar essa aÃ§Ã£o?</p>
+                          <p>Deseja realmente executar essa ação?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

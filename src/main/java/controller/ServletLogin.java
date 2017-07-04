@@ -22,14 +22,10 @@ public class ServletLogin extends HttpServlet {
 
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Funcionario funcionario = new Funcionario();
-	private String[] parametropesquisa = new String[3];
 	private int idfuncionario;
 	private String destino = "";
 	private String acao;
 	private String message;
-	private String textopesquisa1;
-	private String textopesquisa2;
-	private String textopesquisa3;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -56,7 +52,7 @@ public class ServletLogin extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher(destino);
 				rd.forward(request, response);
 			} else {
-				message = "Falha no login.";
+				message = "Falha no login, verifique os dados.";
 				request.setAttribute("message", message);
 				destino = "/index.jsp";
 				RequestDispatcher rd = request.getRequestDispatcher(destino);

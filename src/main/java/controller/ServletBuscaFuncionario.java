@@ -52,7 +52,8 @@ public class ServletBuscaFuncionario extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {	
 
 			buscarfuncionario(request, response);
-		
+			RequestDispatcher rd = request.getRequestDispatcher(destino);
+	     	rd.forward(request, response);
 		
 	}
 	protected void buscarfuncionario(HttpServletRequest request,
@@ -70,18 +71,14 @@ public class ServletBuscaFuncionario extends HttpServlet {
 					 parametropesquisa[1] = textopesquisa2;
 					 parametropesquisa[2] = textopesquisa3;
 					 
-	        	List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
-	        	listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
+				List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
+				listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
 				request.setAttribute("listafuncionario", listafuncionario);
-				
-				RequestDispatcher rd = request.getRequestDispatcher("/c_funcionario.jsp");
-		 	     rd.forward(request, response);
+				destino = "/c_funcionario.jsp";
 		     }else{
-		    	 message = "Informe um parametro para pesquisa";				
-			   	 request.setAttribute("message", message);
-			   	 destino = "/c_funcionario.jsp";
-		    	 RequestDispatcher rd = request.getRequestDispatcher(destino);
-		     	 rd.forward(request, response);
+				message = "Informe um parametro para pesquisa";				
+				request.setAttribute("message", message);
+				destino = "/c_funcionario.jsp";		    	 
 		     }	 
 	}  
 	 protected void consultareditarfuncionario(HttpServletRequest request,
