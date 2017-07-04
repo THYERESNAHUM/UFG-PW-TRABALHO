@@ -13,8 +13,8 @@ public class ConectaBanco {
 	public Connection getConexao() {
 		Connection conexao = null;
 		String usuario = "root";
-		String senha = "123456";
-		//String senha = "spot0011";
+		//String senha = "123456";
+		String senha = "spot0011";
 		String nomeBancoDados = "dbendemic";
 
 		try {

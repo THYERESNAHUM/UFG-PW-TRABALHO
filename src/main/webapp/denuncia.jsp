@@ -1,3 +1,8 @@
+<%
+	// verificando se tem um atributo login na sessao
+	// se tiver vai continuar e mostrar o menu
+	if(session.getAttribute("nome") != null) {
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

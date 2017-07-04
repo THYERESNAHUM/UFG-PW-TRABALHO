@@ -1,3 +1,8 @@
+<%
+	// verificando se tem um atributo login na sessao
+	// se tiver vai continuar e mostrar o menu
+	if(session.getAttribute("nome") != null) {
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -159,3 +164,12 @@
     <script src="js/validator.min.js"></script>	
   </body>
 </html>
+<%
+	// se não existir um login na sessao, 
+	// vai enviar para a página de login novamente
+	} else {
+%>
+	<jsp:forward page="index.jsp"></jsp:forward>
+<%
+}
+%>
