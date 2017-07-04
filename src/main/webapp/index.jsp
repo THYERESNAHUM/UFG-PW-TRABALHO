@@ -1,118 +1,144 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="pt">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sistema de Endemias - Foco da Dengue!</title>
+<title>Sistema de Endemias - Foco da Dengue!</title>
 
-    <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="vendors/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link href="vendors/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- NProgress -->
+<link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- Animate.css -->
+<link href="vendors/animate.css/animate.min.css" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet">
+<!-- Custom Theme Style -->
+<link href="build/css/custom.min.css" rel="stylesheet">
 
-      
-    <!-- login -->
-    <style>
-       #formlogin { 
-           background-color: #DCDCDC; 
-           padding: 0px 10px 0px 10px;
-           border: 1px solid #d0d0d0; 
-           border-radius:7px;                    
-           text-align:center;  
-        }           
-    </style>  
-  
-  </head>
 
-  <body class="login">
-     
-      <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
+<!-- login -->
+<style>
+#formlogin {
+	background-color: #DCDCDC;
+	padding: 0px 10px 0px 10px;
+	border: 1px solid #d0d0d0;
+	border-radius: 7px;
+	text-align: center;
+}
+</style>
 
-      <div class="login_wrapper">
-        <div class="animate form login_form" id="formlogin">
-          <section class="login_content">
-            <form>
-            <div><img src="images/logosis.png"  width="280px"/></div>
-            <br/>
-              <!--<h1>Sistema de Endemias</h1>-->
-              <div>
-                <input type="text" class="form-control" placeholder="Usuário" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Senha" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="pagina_inicial.jsp">Logar</a>
-                <a class="reset_pass" href="#">Esqueceu sua senha?</a>
-              </div>
+</head>
 
-              <div class="clearfix"></div>
+<body class="login">
 
-              <div class="separator">
-                <p class="change_link">
-                  <a href="#signup" class="to_register"> Não possui usuário? </a>
-                </p>
+	<div>
+		<a class="hiddenanchor" id="signup"></a> <a class="hiddenanchor"
+			id="signin"></a>
 
-                <div class="clearfix"></div>
-                <br />
+		<div class="login_wrapper">
+			<div class="animate form login_form" id="formlogin">
+				<section class="login_content">
+					<form method="post" action="login">
+						<div>
+							<img src="images/logosis.png" width="280px" />
+						</div>
+						<br />
+						<!--<h1>Sistema de Endemias</h1>-->
+						<div>
+							<input type="text" name="login" class="form-control"
+								placeholder="Usuário" required="" />
+						</div>
+						<div>
+							<input type="password" name="senha" class="form-control"
+								placeholder="Senha" required="" />
+						</div>
+						<div>
+							<button id="send" type="submit" class="btn btn-default submit">Logar
+								</button>
+							<a class="reset_pass" href="#">Esqueceu sua senha?</a>
+						</div>
 
-                <div>
-                   <p>Trabalho de Programação Web 2017-1: <a href="https://github.com/dougfalves/UFG-PW-TRABALHO">Github</a></p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
+						<div class="clearfix"></div>
 
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>Solicitar Usuário</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Usuário" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Senha" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="login.html">Solicitar</a>
-              </div>
+						<div class="separator">
+							<p class="change_link">
+								<a href="#signup" class="to_register"> Não possui usuário?
+								</a>
+							</p>
 
-              <div class="clearfix"></div>
+							<div class="clearfix"></div>
+							<br />
 
-              <div class="separator">
-                <p class="change_link">Já possui usuário ?
-                  <a href="#signin" class="to_register"> Logar </a>
-                </p>
+							<div>
+								<p>
+									Trabalho de Programação Web 2017-1: <a
+										href="https://github.com/dougfalves/UFG-PW-TRABALHO">Github</a>
+								</p>
+							</div>
+						</div>
+					</form>
+				</section>
 
-                <div class="clearfix"></div>
-                <br />
 
-                <div>
-                   <p>Trabalho de Programação Web 2017-1: <a href="https://github.com/dougfalves/UFG-PW-TRABALHO">Github</a></p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
-      </div>
-    </div>
-    
-  </body>      
+				<strong>${message}</strong>
+
+
+				
+			</div>
+
+			<div id="register" class="animate form registration_form">
+				<section class="login_content">
+					<form>
+						<h1>Solicitar UsuÃ¡rio</h1>
+						<div>
+							<input type="text" class="form-control" placeholder="UsuÃ¡rio"
+								required="" />
+						</div>
+						<div>
+							<input type="email" class="form-control" placeholder="Email"
+								required="" />
+						</div>
+						<div>
+							<input type="password" class="form-control" placeholder="Senha"
+								required="" />
+						</div>
+						<div>
+							<a class="btn btn-default submit" href="login.html">Solicitar</a>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<div class="separator">
+							<p class="change_link">
+								Já possui usuário ? <a href="#signin" class="to_register">
+									Logar </a>
+							</p>
+
+							<div class="clearfix"></div>
+							<br />
+
+							<div>
+								<p>
+									Trabalho de Programação Web 2017-1: <a
+										href="https://github.com/dougfalves/UFG-PW-TRABALHO">Github</a>
+								</p>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>

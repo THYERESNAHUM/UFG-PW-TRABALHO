@@ -154,4 +154,28 @@ public class FuncionarioDAO extends ConectaBanco {
 		}
 		return funcionario;
 	}
+	
+	public Funcionario buscarPorMatricula(String matricula) {
+		Funcionario funcionario = new Funcionario();
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from funcionario where matricula = ?");
+			pstm.setString(1, matricula);
+			ResultSet rs = pstm.executeQuery();
+			if (rs.next()) {
+				funcionario.setIdfuncionario(rs.getInt("idfuncionario"));
+				funcionario.setMatricula(rs.getString("matricula"));
+				funcionario.setNome(rs.getString("nome"));
+				funcionario.setFuncao(rs.getString("funcao"));
+				funcionario.setEmail(rs.getString("email"));
+				funcionario.setSenha(rs.getString("senha"));
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return funcionario;
+	}
 }

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
               </div>
               <div class="profile_info">
                 <span>Bem-vindo,</span>
-                <h2>Administrador</h2>
+                <h2><% out.print(session.getAttribute("nome")); %></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
