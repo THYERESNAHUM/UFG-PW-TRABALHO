@@ -49,8 +49,6 @@ public class VisitaDAO extends ConectaBanco {
 			pstmt.execute();
 			pstmt.close();
 			conexao.close();
-			pstmt.close();
-			conexao.close();
 			}catch (Exception e) {
 				erro = true;					
 			}
