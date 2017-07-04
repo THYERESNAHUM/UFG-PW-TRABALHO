@@ -5,17 +5,181 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JOptionPane;
+
 import model.Visita;
 
 /**
  * 
  * Classe de PersistÃªncia de dados dos objetos de Visita
- * É "filha" da Classe ConectaBanco. 
+ * ï¿½ "filha" da Classe ConectaBanco. 
  *
  */
 
 public class VisitaDAO extends ConectaBanco {
+	
+	public boolean alterar(Visita visita) {
+		boolean erro = false;
 
+		try {
+			Connection conexao = getConexao();
+
+			PreparedStatement pstmt = conexao
+					.prepareStatement("Update visita SET agente = ?, data_visita = ?, bairro = ?, rua = ?, quadra = ?, "
+									+ "lote = ?, numero = ?, cep = ?, cidade = ?, latitude = ?, longitude = ?, "
+									+ "tp_imovel = ?, estagio = ?, tp_larvicida = ?, ac_corretiva = ?, local_foco ? WHERE idvisita = ? ");
+			pstmt.setString(1, visita.getAgente());			
+			pstmt.setDate(2, visita.getData_visita());
+			pstmt.setString(3, visita.getBairro());
+			pstmt.setString(4, visita.getRua());
+			pstmt.setString(5, visita.getQuadra());
+			pstmt.setInt(6, visita.getLote());
+			pstmt.setString(7, visita.getNumero());
+			pstmt.setInt(8, visita.getCep());
+			pstmt.setString(9, visita.getCidade());
+			pstmt.setString(10, visita.getLatitude());
+			pstmt.setString(11, visita.getLongitude());
+			pstmt.setString(12, visita.getTp_imovel());
+			pstmt.setString(13, visita.getEstagio());
+			pstmt.setString(14, visita.getTp_larvicida());
+			pstmt.setString(15, visita.getAc_corretiva());
+			pstmt.setString(16, visita.getLocal_foco());			
+			pstmt.setInt(17, visita.getIdvisita());
+			pstmt.execute();
+			pstmt.close();
+			conexao.close();
+			pstmt.close();
+			conexao.close();
+			}catch (Exception e) {
+				erro = true;					
+			}
+		return erro;
+	}
+
+	public boolean excluir(Visita visita) {
+		boolean erro = false;
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Delete from visita where idvisita = ?");
+			pstm.setInt(1, visita.getIdvisita());
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			erro = true;
+		}
+		return erro;
+	}
+
+	public boolean existe(Visita visita) {
+		boolean achou = false;
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select idvisita from visita where idvisita = ?");
+			//if(pstm==null)				
+			pstm.setInt(1, visita.getIdvisita());
+			ResultSet rs = pstm.executeQuery();
+			
+			if (rs.next()) {
+				achou = true;
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERRO AO BUSCAR PARA EDIï¿½ï¿½O");			
+		}
+		return achou;
+	}
+
+	public boolean inserir(Visita visita) {
+		boolean erro = false;
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Insert into	visita (agente, data_visita, bairro, rua, quadra,lote, numero, cep, cidade, latitude, "
+							+ "longitide,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			
+			pstm.setString(1, visita.getAgente());			
+			pstm.setDate(2, visita.getData_visita());
+			pstm.setString(3, visita.getBairro());
+			pstm.setString(4, visita.getRua());
+			pstm.setString(5, visita.getQuadra());
+			pstm.setInt(6, visita.getLote());
+			pstm.setString(7, visita.getNumero());
+			pstm.setInt(8, visita.getCep());
+			pstm.setString(9, visita.getCidade());
+			pstm.setString(10, visita.getLatitude());
+			pstm.setString(11, visita.getLongitude());
+			pstm.setString(12, visita.getTp_imovel());
+			pstm.setString(13, visita.getEstagio());
+			pstm.setString(14, visita.getTp_larvicida());
+			pstm.setString(15, visita.getAc_corretiva());
+			pstm.setString(16, visita.getLocal_foco());	
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			erro = true;	
+		}
+		return erro;
+	}
+
+	public List<Visita> listar(String par_nome, String par_funcao, String par_matricula) {
+		
+		List<Visita> lista = new ArrayList<Visita>();
+		
+		try {
+			/*Statement stm = conexao.createStatement();*/
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from visita where nome like ? and funcao like ? and matricula like ? order by nome asc");
+			pstm.setString(1, "%" + par_nome +"%");
+			pstm.setString(2, "%" + par_funcao +"%");
+			pstm.setString(3, "%" + par_matricula +"%");
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Visita visita = new Visita();
+				visita.setIdvisita(rs.getInt("idvisita"));
+				visita.setMatricula(rs.getString("matricula"));
+				visita.setNome(rs.getString("nome"));
+				visita.setFuncao(rs.getString("funcao"));
+				visita.setEmail(rs.getString("email"));
+				visita.setSenha(rs.getString("senha"));
+				lista.add(visita);
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+
+	public Visita consultar_editar(Visita visita) {
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from visita where idvisita = ?");
+			pstm.setInt(1, visita.getIdvisita());
+			ResultSet rs = pstm.executeQuery();
+			if (rs.next()) {
+				visita.setIdvisita(rs.getInt("idvisita"));
+				visita.setMatricula(rs.getString("matricula"));
+				visita.setNome(rs.getString("nome"));
+				visita.setFuncao(rs.getString("funcao"));
+				visita.setEmail(rs.getString("email"));
+				visita.setSenha(rs.getString("senha"));
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visita;
+	}
 	
 }
