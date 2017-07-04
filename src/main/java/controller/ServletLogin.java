@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,7 +27,11 @@ public class ServletLogin extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		acao = request.getParameter("acao");
+		if (acao.equals("logout")) {
+			logout(request, response);
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,24 +43,35 @@ public class ServletLogin extends HttpServlet {
 
 	protected void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			funcionario = funcionarioDAO.buscarPorMatricula(request.getParameter("login"));
-			String senha = request.getParameter("senha");
+		funcionario = funcionarioDAO.buscarPorMatricula(request.getParameter("login"));
+		String senha = request.getParameter("senha");
 
-			if (funcionario.getSenha() != null && funcionario.getSenha().equals(senha)) {
-				HttpSession sessao = request.getSession();
-				// setando um atributo da sessao
-				sessao.setAttribute("nome", funcionario.getNome());
-				destino = "/pagina_inicial.jsp";
-				RequestDispatcher rd = request.getRequestDispatcher(destino);
-				rd.forward(request, response);
-			} else {
-				message = "Falha no login, verifique os dados.";
-				request.setAttribute("message", message);
-				destino = "/index.jsp";
-				RequestDispatcher rd = request.getRequestDispatcher(destino);
-				rd.forward(request, response);
-			}
-		
+		if (funcionario.getSenha() != null && funcionario.getSenha().equals(senha)) {
+			HttpSession sessao = request.getSession();
+			// setando um atributo da sessao
+			sessao.setAttribute("nome", funcionario.getNome());
+			destino = "pagina_inicial.jsp";
+			response.sendRedirect(destino);			
+		} else {
+			message = "Falha no login, verifique os dados.";
+			request.setAttribute("message", message);
+			destino = "/index.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(destino);
+			rd.forward(request, response);
+		}
+
+	}
+
+	protected void logout(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// no logout invalido a sessao
+		HttpSession sessao = request.getSession();
+		sessao.removeAttribute("nome");
+		sessao.invalidate();
+		destino = "/index.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(destino);
+		rd.forward(request, response);
+
 	}
 
 }
