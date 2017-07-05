@@ -10,7 +10,7 @@ public class Visita {
 	private String bairro;
 	private String rua;
 	private String quadra;
-	private String lote;	
+	private int lote;	
 	private String numero;
 	private int cep;
 	private String cidade;
@@ -57,10 +57,10 @@ public class Visita {
 	public void setQuadra(String quadra) {
 		this.quadra = quadra;
 	}
-	public String getLote() {
+	public int getLote() {
 		return lote;
 	}
-	public void setLote(String lote) {
+	public void setLote(int lote) {
 		this.lote = lote;
 	}
 	public String getNumero() {
@@ -122,7 +122,9 @@ public class Visita {
 	}
 	public void setLocal_foco(String local_foco) {
 		this.local_foco = local_foco;
-	}	@Override
+	}	
+	
+	@Override
 	public String toString() {
 		return "Visita [idvisita=" + idvisita + ", agente=" + agente + ", data_visita=" + data_visita + ", bairro="
 				+ bairro + ", rua=" + rua + ", quadra=" + quadra + ", lote=" + lote + ", numero=" + numero + ", cep="
