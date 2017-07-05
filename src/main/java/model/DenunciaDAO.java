@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -10,11 +11,164 @@ import model.Denuncia;
 
 /**
  * 
- * Classe de PersistÃªncia de dados dos objetos de Denuncia
- * É "filha" da Classe ConectaBanco. 
+ * Classe de PersistÃªncia de dados dos objetos de Denuncia É "filha" da Classe
+ * ConectaBanco.
  *
  */
 
 public class DenunciaDAO extends ConectaBanco {
+	
+	public boolean alterar(Denuncia denuncia) {
+		boolean erro = false;
 
+		try {
+			Connection conexao = getConexao();
+
+			PreparedStatement pstmt = conexao
+					.prepareStatement("Update funcionario SET data_denuncia = ?, bairro = ?, rua = ?, quadra = ?, lote = ?, numero = ?, cidade = ?, tp_imovel = ?, desc_den = ? WHERE iddenuncia = ? ");
+			pstmt.setDate(1, denuncia.getData_denuncia());
+			pstmt.setString(2, denuncia.getBairro());
+			pstmt.setString(3, denuncia.getRua());
+			pstmt.setString(4, denuncia.getQuadra());
+			pstmt.setString(5, denuncia.getLote());
+			pstmt.setString(6, denuncia.getNumero());
+			pstmt.setString(7, denuncia.getCidade());
+			pstmt.setString(8, denuncia.getTp_imovel());
+			pstmt.setString(9, denuncia.getDesc_den());
+			pstmt.setInt(10, denuncia.getIddenuncia());
+			pstmt.execute();
+			pstmt.close();
+			conexao.close();
+			pstmt.close();
+			conexao.close();
+			}catch (Exception e) {
+				erro = true;					
+			}
+		return erro;
 	}
+
+	public boolean excluir(Denuncia denuncia) {
+		boolean erro = false;
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Delete from denuncia where iddenuncia = ?");
+			pstm.setInt(1, denuncia.getIddenuncia());
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			erro = true;
+		}
+		return erro;
+	}
+
+	public boolean existe(Denuncia denuncia) {
+		boolean achou = false;
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select iddenuncia from denuncia where iddenuncia = ?");
+			//if(pstm==null)				
+			pstm.setInt(1, denuncia.getIddenuncia());
+			//pstm.setString(2, funcionario.getMatricula());
+			ResultSet rs = pstm.executeQuery();
+			
+			if (rs.next()) {
+				achou = true;
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ERRO AO BUSCAR PARA EDIÇÃO");			
+		}
+		return achou;
+	}
+
+	public boolean inserir(Denuncia denuncia) {
+		boolean erro = false;
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Insert into	denuncia (data_denuncia, bairro, rua, quadra, lote, numero, cidade, tp_imovel, desc_den) values	(?,?,?,?,?,?,?,?,?)");
+			pstm.setDate(1, denuncia.getData_denuncia());
+			pstm.setString(2, denuncia.getBairro());
+			pstm.setString(3, denuncia.getRua());
+			pstm.setString(4, denuncia.getQuadra());
+			pstm.setString(5, denuncia.getLote());
+			pstm.setString(6, denuncia.getNumero());
+			pstm.setString(7, denuncia.getCidade());
+			pstm.setString(8, denuncia.getTp_imovel());
+			pstm.setString(9, denuncia.getDesc_den());
+			pstm.execute();
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			erro = true;	
+		}
+		return erro;
+	}
+
+	public List<Denuncia> listar(String par_bairro, Date par_data_denuncia, String par_tp_imovel) {
+		
+		List<Denuncia> lista = new ArrayList<Denuncia>();
+		
+		try {
+			/*Statement stm = conexao.createStatement();*/
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from denuncia where bairro like ? and data_denuncia like ? and tp_imovel like ? order by data_denuncia asc");
+			pstm.setString(1, "%" + par_bairro +"%");
+			pstm.setString(2, "%" + par_data_denuncia +"%");
+			pstm.setString(3, "%" + par_tp_imovel +"%");
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Denuncia denuncia = new Denuncia();
+				denuncia.setIddenuncia(rs.getInt("iddenuncia"));
+				denuncia.setData_denuncia(rs.getDate("data_denuncia"));
+				denuncia.setBairro(rs.getString("bairro"));
+				denuncia.setRua(rs.getString("rua"));
+				denuncia.setLote(rs.getString("lote"));
+				denuncia.setNumero(rs.getString("numero"));
+				denuncia.setCidade(rs.getString("cidade"));
+				denuncia.setTp_imovel(rs.getString("tp_imovel"));
+				denuncia.setDesc_den(rs.getString("desc_den"));
+				lista.add(denuncia);
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+
+	public Denuncia consultar_editar(Denuncia denuncia) {
+		try {
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from denuncia where iddenuncia = ?");
+			pstm.setInt(1, denuncia.getIddenuncia());
+			ResultSet rs = pstm.executeQuery();
+			if (rs.next()) {
+				denuncia.setIddenuncia(rs.getInt("iddenuncia"));
+				denuncia.setData_denuncia(rs.getDate("data_denuncia"));
+				denuncia.setBairro(rs.getString("bairro"));
+				denuncia.setRua(rs.getString("rua"));
+				denuncia.setLote(rs.getString("lote"));
+				denuncia.setNumero(rs.getString("numero"));
+				denuncia.setCidade(rs.getString("cidade"));
+				denuncia.setTp_imovel(rs.getString("tp_imovel"));
+				denuncia.setDesc_den(rs.getString("desc_den"));
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return denuncia;
+	}
+	
+	
+}

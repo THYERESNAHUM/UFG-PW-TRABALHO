@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Denuncia {
 	
-	private int iddencuncia;
+	private int iddenuncia;
 	private Date data_denuncia;
 	private String bairro;
 	private String rua;
@@ -15,11 +15,12 @@ public class Denuncia {
 	private String tp_imovel;
 	private String desc_den;
 	
-	public int getIddencuncia() {
-		return iddencuncia;
+	
+	public int getIddenuncia() {
+		return iddenuncia;
 	}
-	public void setIddencuncia(int iddencuncia) {
-		this.iddencuncia = iddencuncia;
+	public void setIddenuncia(int iddenuncia) {
+		this.iddenuncia = iddenuncia;
 	}
 	public Date getData_denuncia() {
 		return data_denuncia;
@@ -78,7 +79,7 @@ public class Denuncia {
 	
 	@Override
 	public String toString() {
-		return "Denuncia [iddencuncia=" + iddencuncia + ", data_denuncia=" + data_denuncia + ", bairro=" + bairro
+		return "Denuncia [iddencuncia=" + iddenuncia + ", data_denuncia=" + data_denuncia + ", bairro=" + bairro
 				+ ", rua=" + rua + ", quadra=" + quadra + ", lote=" + lote + ", numero=" + numero + ", cidade=" + cidade
 				+ ", tp_imovel=" + tp_imovel + ", desc_den=" + desc_den + "]";
 	}
