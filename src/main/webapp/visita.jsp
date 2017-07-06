@@ -1,9 +1,3 @@
-<%
-	// verificando se tem um atributo login na sessao
-	// se tiver vai continuar e mostrar o menu
-	if(session.getAttribute("nome") != null) {
-%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -73,7 +67,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="agente">Agente <span class="required">*</span></label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text" id="agente" name="agente" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
+                                        <input type="text" id="agente" name="agente" value="${visita.agente}" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -81,7 +75,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="text" id="data_visita" name="data_visita" required="required" class="form-control input-md">
+                                        <input type="text" id="data_visita" name="data_visita" value="${visita.data_visita}"required="required" class="form-control input-md">
                                          <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -89,7 +83,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="rua">Rua <span class="required">*</span></label>
                                       <div class="col-lg-5 col-xs-12">
-                                        <input type="text" id="rua" name="rua" required="required" class="form-control input-md">
+                                        <input type="text" id="rua" name="rua" value="${visita.rua}"required="required" class="form-control input-md">
                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -97,23 +91,23 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="quadra">Quadra <span class="required">*</span></label>
                                       <div class="col-lg-1 col-xs-12">
-                                        <input type="text" id="quadra" name="quadra" required="required" class="form-control input-md">
+                                        <input type="text" id="quadra" name="quadra" value="${visita.quadra}"required="required" class="form-control input-md">
                                         <div class="help-block with-errors"></div>
                                       </div>
                                       <label class="control-label col-md-1" for="lote">Lote <span class="required">*</span></label>
                                       <div class="col-lg-1 col-xs-12">
-                                        <input type="text" id="lote" name="lote" required="required" class="form-control input-md">
+                                        <input type="text" id="lote" name="lote" value="${visita.lote}"required="required" class="form-control input-md">
                                       </div>
                                       <label class="control-label col-md-1" for="numero">Nº <span class="required">*</span></label>
                                       <div class="col-lg-1 col-xs-12">
-                                        <input type="text" id="numero" name="numero" required="required" class="form-control input-md">
+                                        <input type="text" id="numero" name="numero" value="${visita.numero}"required="required" class="form-control input-md">
                                       </div>
                                     </div>            
                             <!--Bairro Input-->
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="bairro">Bairro/Setor <span class="required">*</span></label>
                                       <div class="col-lg-3 col-xs-12">
-                                        <input type="text" id="bairro" name="bairro" required="required" class="form-control input-md">
+                                        <input type="text" id="bairro" name="bairro" value="${visita.bairro}" required="required" class="form-control input-md">
                                          <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -121,7 +115,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="cep">CEP <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="tel" id="cep" name="cep" required="required" class="form-control input-md" pattern="[0-9]+$" 
+                                        <input type="tel" id="cep" name="cep" value="${visita.cep}" required="required" class="form-control input-md" pattern="[0-9]+$" 
                                          data-error="Informe um CEP somente com numeros.">
                                          <div class="help-block with-errors"></div>
                                       </div>
@@ -130,7 +124,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="cidade" name="cidades"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select required id="cidade" name="cidades" value="${visita.cidade}"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Goiânia">Goiânia</option>
                               <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
                               <option value="Senador Canedo">Senador Canedo</option>
@@ -143,12 +137,12 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="coordenadas">Coordenadas <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="text" id="latitude" name="latitude" required="required" class="form-control input-md">
+                                        <input type="text" id="latitude" name="latitude" value="${visita.latitude}"required="required" class="form-control input-md">
                                         <div class="help-block with-errors"></div>
                                         <div class="help">Latitude</div>
                                       </div>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="text" id="longitude" name="longitude" required="required" class="form-control input-md">
+                                        <input type="text" id="longitude" name="longitude" value="${visita.longitude}"required="required" class="form-control input-md">
                                         <div class="help-block with-errors"></div>
                                         <div class="help">Longitude</div>
                                       </div>                     
@@ -157,7 +151,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="tipo">Tipo do Imovel <span class="required">*</span></label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="tp_imovel" name="tp_imovel" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select required id="tp_imovel" name="tp_imovel" value="${visita.tp_imovel}" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Lote">Lote</option>
                               <option value="Casa">Casa</option>
                               <option value="Apartamento">Apartamento</option>
@@ -172,7 +166,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="estagio">Estagio do Ciclo </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select  id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select  id="estagio" name="estagio" value="${visita.estagio}"title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Ovo">Ovo</option>
                               <option value="Larva">Larva</option>
                               <option value="Pupa">Pupa</option>
@@ -184,7 +178,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="tp_larvicida">Larvicida </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select  id="tp_larvicida" name="tp_larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select  id="tp_larvicida" name="tp_larvicida" value="${visita.tp_larvicida}" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Tipo 1">Tipo 1</option>
                               <option value="Tipo 2">Tipo 2</option>
                               <option value="Tipo 3">Tipo 3</option>
@@ -195,7 +189,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="ac_corretiva">Ação Corretiva </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select  id="ac_corretiva" name="ac_corretiva" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
+                            <select  id="ac_corretiva" name="ac_corretiva" value="${visita.ac_corretiva}"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
                               <option value="Nebolizacao">Nebolização</option>
                               <option value="Borrifacao">Borrifação</option>
                             </select>
@@ -205,7 +199,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="local_foco">Local do Foco </label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text" id="local_foco" name="local_foco" placeholder="ex: caixa d'agua,vaso sanitário" class="form-control input-md">
+                                        <input type="text" id="local_foco" name="local_foco" value="${visita.local_foco}" placeholder="ex: caixa d'agua,vaso sanitário" class="form-control input-md">
                                       </div>
                                     </div>				 
                         <!--Botões-->    
@@ -281,12 +275,4 @@
     </script>
   </body>
 </html>
-<%
-	// se não existir um login na sessao, 
-	// vai enviar para a página de login novamente
-	} else {
-%>
-	<jsp:forward page="index.jsp"></jsp:forward>
-<%
-}
-%>
+

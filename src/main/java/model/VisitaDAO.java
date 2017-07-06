@@ -1,7 +1,7 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class VisitaDAO extends ConectaBanco {
 									+ "lote = ?, numero = ?, cep = ?, cidade = ?, latitude = ?, longitude = ?, "
 									+ "tp_imovel = ?, estagio = ?, tp_larvicida = ?, ac_corretiva = ?, local_foco ? WHERE idvisita = ? ");
 			pstmt.setString(1, visita.getAgente());			
-			pstmt.setDate(2, (Date) visita.getData_visita()); 
+			pstmt.setDate(2, visita.getData_visita()); 
 			pstmt.setString(3, visita.getBairro());
 			pstmt.setString(4, visita.getRua());
 			pstmt.setString(5, visita.getQuadra());
@@ -100,10 +100,10 @@ public class VisitaDAO extends ConectaBanco {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
 					.prepareStatement("Insert into	visita (agente, data_visita, bairro, rua, quadra,lote, numero, cep, cidade, latitude, "
-							+ "longitide,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+							+ "longitude,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			pstm.setString(1, visita.getAgente());			
-			pstm.setDate(2, (Date) visita.getData_visita());
+			pstm.setDate(2, visita.getData_visita());
 			pstm.setString(3, visita.getBairro());
 			pstm.setString(4, visita.getRua());
 			pstm.setString(5, visita.getQuadra());
@@ -123,6 +123,8 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			erro = true;	
+			e.printStackTrace();
+			System.out.println("ERRO AO BUSCAR PARA EDIÇÃO");	
 		}
 		return erro;
 	}
