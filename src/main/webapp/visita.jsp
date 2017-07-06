@@ -35,7 +35,7 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-  <c:import url="menu.jsp" /> 
+  		<c:import url="menu.jsp" /> 
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
@@ -60,7 +60,7 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                   <form class="form-horizontal form-label-left" data-toggle="validator" method="get">				 
+                   <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="visita">				 
                             <p>Atenção aos campos requeridos<code>*</code></p>
                                     <!-- <span class="section">Dados do Agente</span>-->					  
                            <!--IDbanco Input-->
@@ -71,9 +71,9 @@
                               </div>
                           <!--Nome Input-->
                                     <div class="form-group">
-                                      <label class="control-label col-md-3" for="nome">Agente <span class="required">*</span></label>
+                                      <label class="control-label col-md-3" for="agente">Agente <span class="required">*</span></label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text" id="nome" name="nome" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
+                                        <input type="text" id="agente" name="agente" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -81,7 +81,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="text" id="data" name="data" required="required" class="form-control input-md">
+                                        <input type="text" id="data_visita" name="data_visita" required="required" class="form-control input-md">
                                          <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -157,7 +157,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="tipo">Tipo do Imovel <span class="required">*</span></label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="tipo" name="tipo" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select required id="tp_imovel" name="tp_imovel" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Lote">Lote</option>
                               <option value="Casa">Casa</option>
                               <option value="Apartamento">Apartamento</option>
@@ -182,9 +182,9 @@
                           </div>	
                           <!--Larvicida select-->
                           <div class="form-group">
-                          <label class="control-label col-md-3" for="larvicida">Larvicida </label>
+                          <label class="control-label col-md-3" for="tp_larvicida">Larvicida </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select  id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select  id="tp_larvicida" name="tp_larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Tipo 1">Tipo 1</option>
                               <option value="Tipo 2">Tipo 2</option>
                               <option value="Tipo 3">Tipo 3</option>
@@ -193,9 +193,9 @@
                           </div>
                           <!--Ação select-->
                           <div class="form-group">
-                          <label class="control-label col-md-3" for="acao">Ação Corretiva </label>
+                          <label class="control-label col-md-3" for="ac_corretiva">Ação Corretiva </label>
                             <div class="col-lg-3 col-xs-12">
-                            <select  id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
+                            <select  id="ac_corretiva" name="ac_corretiva" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
                               <option value="Nebolizacao">Nebolização</option>
                               <option value="Borrifacao">Borrifação</option>
                             </select>
@@ -203,9 +203,9 @@
                           </div>						  
                           <!--Local input-->
                                     <div class="form-group">
-                                      <label class="control-label col-md-3" for="local">Local do Foco </label>
+                                      <label class="control-label col-md-3" for="local_foco">Local do Foco </label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text" id="local" name="local" placeholder="ex: caixa d'agua,vaso sanitário" class="form-control input-md">
+                                        <input type="text" id="local_foco" name="local_foco" placeholder="ex: caixa d'agua,vaso sanitário" class="form-control input-md">
                                       </div>
                                     </div>				 
                         <!--Botões-->    
@@ -269,12 +269,12 @@
     
     <script type="text/javascript">
     $(function() {
-        $('input[name="data"]').daterangepicker({
+        $('input[name="data_visita"]').daterangepicker({
             singleDatePicker: true,
             timePicker: true,
             timePickerIncrement: 1,
             locale: {
-                format: 'DD/MM/YYYY h:mm A'
+                format: 'DD/MM/YYYY HH:mm A'
             }
         });
     });

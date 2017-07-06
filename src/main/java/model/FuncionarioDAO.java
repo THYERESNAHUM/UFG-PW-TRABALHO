@@ -96,7 +96,8 @@ public class FuncionarioDAO extends ConectaBanco {
 			pstm.close();
 			conexao.close();
 		} catch (Exception e) {
-			erro = true;	
+			erro = true;
+			e.printStackTrace();
 		}
 		return erro;
 	}

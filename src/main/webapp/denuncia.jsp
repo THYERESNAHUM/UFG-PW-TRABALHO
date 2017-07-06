@@ -3,6 +3,7 @@
 	// se tiver vai continuar e mostrar o menu
 	if(session.getAttribute("nome") != null) {
 %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -126,10 +127,10 @@
                         <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
                           <div class="col-lg-3 col-xs-12">
                           <select required id="cidades" name="cidades"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                            <option value="goiania">Goiânia</option>
-                            <option value="aparecida">Aparecida de Goiânia</option>
-                            <option value="senadorcanedo">Senador Canedo</option>
-                            <option value="trindade">Trindade</option>
+                            <option value="Goiania">Goiânia</option>
+                            <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
+                            <option value="Senador Canedo">Senador Canedo</option>
+                            <option value="Trindade">Trindade</option>
                           </select>
                            <div class="help-block with-errors"></div>
                           </div>
@@ -140,12 +141,12 @@
                         <label class="control-label col-md-3" for="imovel">Tipo do Imovel <span class="required">*</span></label>
                           <div class="col-lg-4 col-xs-12">
                           <select required id="imovel" name="imovel" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                            <option value="atendente">Lote</option>
-                            <option value="atendente">Casa</option>
-                            <option value="agente">Apartamento</option>
-                            <option value="agente">Depósito</option>
-                            <option value="agente">Loja</option>
-                            <option value="agente">Sala comercial</option>
+                            <option value="Lote">Lote</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Apartemaento">Apartamento</option>
+                            <option value="Deposito">Depósito</option>
+                            <option value="Loja">Loja</option>
+                            <option value="Sala comercial">Sala comercial</option>
                           </select>
                            <div class="help-block with-errors"></div>
                           </div>
@@ -206,7 +207,7 @@
             timePicker: true,
             timePickerIncrement: 1,
             locale: {
-                format: 'DD/MM/YYYY h:mm A'
+                format: 'DD/MM/YYYY HH:mm A'
             }
         });
     });

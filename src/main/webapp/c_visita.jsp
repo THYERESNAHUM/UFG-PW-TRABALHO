@@ -60,7 +60,7 @@
 			 			
 			 			<div class="form-group  col-lg-3 col-xs-12">
 						<label>Bairro </label> 	
-                                <input type="text" id="bairro" name="bairro" required="required" class="form-control input-md">
+                                <input type="text" id="bairro" name="bairro" class="form-control input-md">
                                  <div class="help-block with-errors"></div>
                          </div>						
 						<div class="form-group  col-lg-3 col-xs-12">
@@ -100,7 +100,7 @@
 						</div>
 						
 								<c:if test="${not empty message}">
-									<div class="col-lg-4 col-xs-12">					
+									<div class="col-lg-3 col-xs-12">					
 										<c:if test = "${fn:contains(message, 'Erro')}">
 													<div class="alert alert-danger fade in">
 															<a href="#" class="close" data-dismiss="alert">&times;</a>

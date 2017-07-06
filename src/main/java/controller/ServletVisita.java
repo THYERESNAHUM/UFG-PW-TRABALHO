@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.VisitaDAO;
 import model.Visita;
 
-@WebServlet(name = "ServletVisita", urlPatterns = "/Visita")
+@WebServlet(name = "ServletVisita", urlPatterns = "/visita")
 public class ServletVisita extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -108,7 +108,7 @@ public class ServletVisita extends HttpServlet {
 			
 			visita.setAgente(agente);
 			 try {
-		            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		        	Date data_visita = (Date) formato.parse(data_string);
 		        	visita.setData_visita(data_visita);
 		        } catch (ParseException e) {
@@ -164,7 +164,7 @@ public class ServletVisita extends HttpServlet {
 			
 		   visita.setAgente(agente);
 			 try {
-		            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		        	Date data_visita = (Date) formato.parse(data_string);
 		        	visita.setData_visita(data_visita);
 		        } catch (ParseException e) {
