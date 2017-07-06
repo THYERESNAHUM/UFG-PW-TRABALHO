@@ -66,7 +66,7 @@
                            <!--IDbanco Input-->
                               <div class="form-group">
                                         <div class="col-md-2 col-xs-12">
-                                            <input  type="hidden" readonly="readonly" type="text" id="idvisita" name="idfuncionario" value="${denuncia.iddenuncia}" class="form-control input-md">
+                                            <input  type="hidden" readonly="readonly" type="text" id="idvisita" name="idvisita" value="${visita.idvisita}" class="form-control input-md">
                                         </div>
                               </div>
                           <!--Nome Input-->
@@ -131,10 +131,10 @@
                           <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
                             <div class="col-lg-3 col-xs-12">
                             <select required id="cidade" name="cidades"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                              <option value="goiania">Goiânia</option>
-                              <option value="aparecida">Aparecida de Goiânia</option>
-                              <option value="senadorcanedo">Senador Canedo</option>
-                              <option value="trindade">Trindade</option>
+                              <option value="Goiânia">Goiânia</option>
+                              <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
+                              <option value="Senador Canedo">Senador Canedo</option>
+                              <option value="Trindade">Trindade</option>
                             </select>
                              <div class="help-block with-errors"></div>
                             </div>
@@ -158,12 +158,12 @@
                           <label class="control-label col-md-3" for="tipo">Tipo do Imovel <span class="required">*</span></label>
                             <div class="col-lg-3 col-xs-12">
                             <select required id="tipo" name="tipo" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                              <option value="lote">Lote</option>
-                              <option value="casa">Casa</option>
-                              <option value="apartamento">Apartamento</option>
-                              <option value="deposito">Depósito</option>
-                              <option value="loja">Loja</option>
-                              <option value="sala">Sala comercial</option>
+                              <option value="Lote">Lote</option>
+                              <option value="Casa">Casa</option>
+                              <option value="Apartamento">Apartamento</option>
+                              <option value="Deposito">Depósito</option>
+                              <option value="Loja">Loja</option>
+                              <option value="Sala">Sala comercial</option>
                             </select>
                             <div class="help-block with-errors"></div>
                             </div>
@@ -173,10 +173,10 @@
                           <label class="control-label col-md-3" for="estagio">Estagio do Ciclo </label>
                             <div class="col-lg-3 col-xs-12">
                             <select  id="estagio" name="estagio" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                              <option value="ovo">Ovo</option>
-                              <option value="larva">Larva</option>
-                              <option value="pupa">Pupa</option>
-                              <option value="mosquito">Mosquito</option>							  
+                              <option value="Ovo">Ovo</option>
+                              <option value="Larva">Larva</option>
+                              <option value="Pupa">Pupa</option>
+                              <option value="Mosquito">Mosquito</option>							  
                             </select>
                             </div>
                           </div>	
@@ -185,9 +185,9 @@
                           <label class="control-label col-md-3" for="larvicida">Larvicida </label>
                             <div class="col-lg-3 col-xs-12">
                             <select  id="larvicida" name="larvicida"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
-                              <option value="tipo1">Tipo 1</option>
-                              <option value="tipo2">Tipo 2</option>
-                              <option value="tipo3">Tipo 3</option>
+                              <option value="Tipo 1">Tipo 1</option>
+                              <option value="Tipo 2">Tipo 2</option>
+                              <option value="Tipo 3">Tipo 3</option>
                             </select>
                             </div>
                           </div>
@@ -196,8 +196,8 @@
                           <label class="control-label col-md-3" for="acao">Ação Corretiva </label>
                             <div class="col-lg-3 col-xs-12">
                             <select  id="acao" name="acao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
-                              <option value="nebolizacao">Nebolização</option>
-                              <option value="borrifacao">Borrifação</option>
+                              <option value="Nebolizacao">Nebolização</option>
+                              <option value="Borrifacao">Borrifação</option>
                             </select>
                             </div>
                           </div>						  

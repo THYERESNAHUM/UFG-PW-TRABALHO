@@ -57,21 +57,33 @@
                   </div>
                   <div class="x_content">					
                 <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscavisita">
-					<div class="form-group col-lg-3 col-xs-12">
-						<label>Agente</label>
-						<input name="txtpesquisa1" class="form-control input-sm" type="text">
-						</div>					
+			 			
+			 			<div class="form-group  col-lg-3 col-xs-12">
+						<label>Bairro </label> 	
+                                <input type="text" id="bairro" name="bairro" required="required" class="form-control input-md">
+                                 <div class="help-block with-errors"></div>
+                         </div>						
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Cidade </label> 	  
+			            	<select name="txtpesquisa4"  title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="Goiânia">Goiânia</option>
+                              <option value="Aparecida de Goiaânia">Aparecida de Goiânia</option>
+                              <option value="Senador Canedo">Senador Canedo</option>
+                              <option value="Trindade">Trindade</option>
+                            </select>			           		    				
+						</div>	
 						
 						<div class="form-group  col-lg-3 col-xs-12">
-						<label>Tipo </label> 	  
+						<label>Tipo de Imovel </label> 	  
 			            	<select name="txtpesquisa2" title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
-                              <option value="lote">Lote</option>
-                              <option value="casa">Casa</option>
-                              <option value="apartamento">Apartamento</option>
-                              <option value="deposito">Depósito</option>
-                              <option value="loja">Loja</option>
-                              <option value="sala">Sala comercial</option>
+                              <option value="Lote">Lote</option>
+                              <option value="Casa">Casa</option>
+                              <option value="Apartamento">Apartamento</option>
+                              <option value="Deposito">Depósito</option>
+                              <option value="Loja">Loja</option>
+                              <option value="Sala">Sala comercial</option>
                             </select>
 			           		    				
 						</div>							
@@ -79,23 +91,14 @@
 						<label>Estagio</label> 	  
 			            <select name="txtpesquisa3" title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
-                              <option value="ovo">Ovo</option>
-                              <option value="larva">Larva</option>
-                              <option value="pupa">Pupa</option>
-                              <option value="mosquito">Mosquito</option>							  
+                              <option value="Ovo">Ovo</option>
+                              <option value="Larva">Larva</option>
+                              <option value="Pupa">Pupa</option>
+                              <option value="Mosquito">Mosquito</option>							  
                             </select>
 			           		    				
 						</div>
-						<div class="form-group  col-lg-3 col-xs-12">
-						<label>Cidade </label> 	  
-			            	<select name="txtpesquisa4"  title="" class="form-control input-md selectpicker" data-live-search="true">
-                              <option selected="selected"></option>
-                              <option value="Goiânia">Goiânia</option>
-                              <option value="Aparecida">Aparecida de Goiânia</option>
-                              <option value="Senador Canedo">Senador Canedo</option>
-                              <option value="Trindade">Trindade</option>
-                            </select>			           		    				
-						</div>	
+						
 								<c:if test="${not empty message}">
 									<div class="col-lg-4 col-xs-12">					
 										<c:if test = "${fn:contains(message, 'Erro')}">
@@ -142,7 +145,7 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Agente</th>
+                          <th>Bairro</th>
                           <th>Tipo de Imovel </th>
                           <th>Estagio</th>                                                    
                           <th>Cidade</th>
@@ -152,10 +155,10 @@
                       <tbody> 
                       	<c:forEach var="visita" items="${listavisita}">
 							<tr>								
-								<td>${visita.}</td>
-								<td>${visita.}</td>
-								<td>${visita.}</td>
-								<td>${visita.}</td>
+								<td>${visita.bairro}</td>
+								<td>${visita.tp_imovel}</td>
+								<td>${visita.estagio}</td>
+								<td>${visita.cidade}</td>
 					<td><div class="btn-group">
 					  <button type="button" class="btn dropdown-toggle btn btn-info btn-sm" data-toggle="dropdown">Opções <span class="caret"></span></button>
 					  <ul class="dropdown-menu">

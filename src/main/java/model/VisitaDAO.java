@@ -88,7 +88,7 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ERRO AO BUSCAR PARA EDIï¿½ï¿½O");			
+			System.out.println("ERRO AO BUSCAR PARA EDIÇÃO");			
 		}
 		return achou;
 	}
@@ -126,7 +126,7 @@ public class VisitaDAO extends ConectaBanco {
 		return erro;
 	}
 
-	public List<Visita> listar(String par_nome, String par_funcao, String par_matricula) {
+	public List<Visita> listar(String par_bairro, String par_cidade, String par_tipo, String par_estagio) {
 		
 		List<Visita> lista = new ArrayList<Visita>();
 		
@@ -134,19 +134,20 @@ public class VisitaDAO extends ConectaBanco {
 			/*Statement stm = conexao.createStatement();*/
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("Select * from visita where nome like ? and funcao like ? and matricula like ? order by nome asc");
-			pstm.setString(1, "%" + par_nome +"%");
-			pstm.setString(2, "%" + par_funcao +"%");
-			pstm.setString(3, "%" + par_matricula +"%");
+					.prepareStatement("Select * from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by nome asc");
+			pstm.setString(1, "%" + par_bairro +"%");
+			pstm.setString(2, "%" + par_cidade +"%");
+			pstm.setString(3, "%" + par_tipo +"%");
+			pstm.setString(4, "%" + par_estagio +"%");
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
 				Visita visita = new Visita();
 				visita.setIdvisita(rs.getInt("idvisita"));
-				visita.setMatricula(rs.getString("matricula"));
-				visita.setNome(rs.getString("nome"));
-				visita.setFuncao(rs.getString("funcao"));
-				visita.setEmail(rs.getString("email"));
-				visita.setSenha(rs.getString("senha"));
+				visita.setBairro(rs.getString("bairro"));
+				visita.setCidade(rs.getString("cidade"));
+				visita.setTp_imovel(rs.getString("tp_imovel"));
+				visita.setEstagio(rs.getString("estagio"));
+				
 				lista.add(visita);
 			}
 			pstm.close();
@@ -166,11 +167,22 @@ public class VisitaDAO extends ConectaBanco {
 			ResultSet rs = pstm.executeQuery();
 			if (rs.next()) {
 				visita.setIdvisita(rs.getInt("idvisita"));
-				visita.setMatricula(rs.getString("matricula"));
-				visita.setNome(rs.getString("nome"));
-				visita.setFuncao(rs.getString("funcao"));
-				visita.setEmail(rs.getString("email"));
-				visita.setSenha(rs.getString("senha"));
+				visita.setAgente(rs.getString("agente"));			
+				visita.setData_visita(rs.getDate("data_visita"));
+				visita.setBairro(rs.getString("bairro"));
+				visita.setRua(rs.getString("rua"));
+				visita.setQuadra(rs.getString("quadra"));
+				visita.setLote(rs.getInt("lote"));
+				visita.setNumero(rs.getString("numero"));
+				visita.setCep(rs.getInt("cep"));
+				visita.setCidade(rs.getString("cidade"));
+				visita.setLatitude(rs.getString("latitude"));
+				visita.setLongitude(rs.getString("longitude"));
+				visita.setTp_imovel(rs.getString("tp_imovel"));
+				visita.setEstagio(rs.getString("estagio"));
+				visita.setTp_larvicida(rs.getString("tp_larvicida"));
+				visita.setAc_corretiva(rs.getString("ac_corretiva"));
+				visita.setLocal_foco(rs.getString("local_foco"));	
 			}
 			pstm.close();
 			conexao.close();
