@@ -93,16 +93,17 @@ public class ServletBuscaVisita extends HttpServlet {
 			 
 			 	idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
 				visita.setIdvisita(idvisita);			
-				request.setAttribute("visita", visita);
+				visita = visitaDAO.consultar_editar(visita);
 					Date data_formatada = visita.getData_visita();
 					SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");					
-			        System.out.println(formato.format(data_formatada));
-		        try {
-		        	visita.setData_visita(formato.parse(formato.format(data_formatada)));
-		        }catch(Exception e){		        	
-		        }
-		        visita = visitaDAO.consultar_editar(visita);		           
-		        
+					//formato.setLenient(false);					
+					try {
+						visita.setData_visita(formato.parse(formato.format(data_formatada)));
+					}catch(Exception e){
+						System.out.println(data_formatada);
+					}
+		        		           
+		        request.setAttribute("visita", visita);
 				destino = "/visita.jsp";	
 		}
 	 
