@@ -167,7 +167,7 @@ public class ServletVisita extends HttpServlet {
 		   visita.setAgente(agente);
 			 try {
 	            	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-		        	Date data_visita = (Date) formato.parse(data_string);
+		        	data_visita = (Date) formato.parse(data_string);
 		        	visita.setData_visita(data_visita);
 		        } catch (ParseException e) {
 		        } 		
