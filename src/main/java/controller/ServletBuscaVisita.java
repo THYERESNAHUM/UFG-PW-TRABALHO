@@ -2,7 +2,9 @@ package controller;
 
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -92,7 +94,15 @@ public class ServletBuscaVisita extends HttpServlet {
 			 	idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
 				visita.setIdvisita(idvisita);			
 				request.setAttribute("visita", visita);
-				visita = visitaDAO.consultar_editar(visita);		
+					Date data_formatada = visita.getData_visita();
+					SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");					
+			        System.out.println(formato.format(data_formatada));
+		        try {
+		        	visita.setData_visita(formato.parse(formato.format(data_formatada)));
+		        }catch(Exception e){		        	
+		        }
+		        visita = visitaDAO.consultar_editar(visita);		           
+		        
 				destino = "/visita.jsp";	
 		}
 	 
