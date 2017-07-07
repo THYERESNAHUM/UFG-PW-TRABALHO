@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Visita {
 	
@@ -21,6 +21,7 @@ public class Visita {
 	private String tp_larvicida;
 	private String ac_corretiva;
 	private String local_foco;
+	
 	public int getIdvisita() {
 		return idvisita;
 	}

@@ -50,7 +50,8 @@ public class ServletBuscaFuncionario extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {	
-
+			
+			request.setCharacterEncoding("UTF8");
 			buscarfuncionario(request, response);
 			RequestDispatcher rd = request.getRequestDispatcher(destino);
 	     	rd.forward(request, response);

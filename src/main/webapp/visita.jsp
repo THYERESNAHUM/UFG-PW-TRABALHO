@@ -73,7 +73,7 @@
                                     </div>
                           <!--data Input-->
                                     <div class="form-group">
-                                      <label class="control-label col-md-3" for="data">Data da visita <span class="required">*</span></label>
+                                      <label class="control-label col-md-3" for="data_visita">Data da visita <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
                                         <input type="text" id="data_visita" name="data_visita" value="${visita.data_visita}"required="required" class="form-control input-md">
                                          <div class="help-block with-errors"></div>
@@ -124,7 +124,7 @@
                           <div class="form-group">
                           <label class="control-label col-md-3" for="cidade">Cidade <span class="required">*</span></label>
                             <div class="col-lg-3 col-xs-12">
-                            <select required id="cidade" name="cidades" value="${visita.cidade}"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
+                            <select required id="cidade" name="cidade" value="${visita.cidade}"  title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                               <option value="Goiânia">Goiânia</option>
                               <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
                               <option value="Senador Canedo">Senador Canedo</option>
@@ -267,8 +267,9 @@
             singleDatePicker: true,
             timePicker: true,
             timePickerIncrement: 1,
+            showMeridian:false,
             locale: {
-                format: 'DD/MM/YYYY HH:mm A'
+                format: 'DD/MM/YYYY HH:mm'
             }
         });
     });

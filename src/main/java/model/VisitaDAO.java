@@ -1,20 +1,17 @@
 package model;
 
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
 import model.Visita;
 
 /**
  * 
  * Classe de PersistÃªncia de dados dos objetos de Visita
- * ï¿½ "filha" da Classe ConectaBanco. 
+ * é "filha" da Classe ConectaBanco. 
  *
  */
 
@@ -31,7 +28,7 @@ public class VisitaDAO extends ConectaBanco {
 									+ "lote = ?, numero = ?, cep = ?, cidade = ?, latitude = ?, longitude = ?, "
 									+ "tp_imovel = ?, estagio = ?, tp_larvicida = ?, ac_corretiva = ?, local_foco ? WHERE idvisita = ? ");
 			pstmt.setString(1, visita.getAgente());			
-			pstmt.setDate(2, visita.getData_visita()); 
+			pstmt.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime())); 
 			pstmt.setString(3, visita.getBairro());
 			pstmt.setString(4, visita.getRua());
 			pstmt.setString(5, visita.getQuadra());
@@ -51,6 +48,7 @@ public class VisitaDAO extends ConectaBanco {
 			pstmt.close();
 			conexao.close();
 			}catch (Exception e) {
+				e.printStackTrace();
 				erro = true;					
 			}
 		return erro;
@@ -67,6 +65,7 @@ public class VisitaDAO extends ConectaBanco {
 			pstm.close();
 			conexao.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 			erro = true;
 		}
 		return erro;
@@ -89,7 +88,7 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ERRO AO BUSCAR PARA EDIÇÃO");			
+			System.out.println("ERRO AO EDITAR");			
 		}
 		return achou;
 	}
@@ -103,7 +102,8 @@ public class VisitaDAO extends ConectaBanco {
 							+ "longitude,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			
 			pstm.setString(1, visita.getAgente());			
-			pstm.setDate(2, visita.getData_visita());
+			//pstm.setDate(2, new java.sql.Date(visita.getData_visita().getTime()));
+			pstm.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime())); 
 			pstm.setString(3, visita.getBairro());
 			pstm.setString(4, visita.getRua());
 			pstm.setString(5, visita.getQuadra());
@@ -124,7 +124,7 @@ public class VisitaDAO extends ConectaBanco {
 		} catch (Exception e) {
 			erro = true;	
 			e.printStackTrace();
-			System.out.println("ERRO AO BUSCAR PARA EDIÇÃO");	
+			System.out.println("ERRO AO INSERIR");	
 		}
 		return erro;
 	}

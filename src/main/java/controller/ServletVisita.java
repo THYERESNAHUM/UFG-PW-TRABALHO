@@ -3,7 +3,7 @@ package controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,6 +25,7 @@ public class ServletVisita extends HttpServlet {
 	private int idvisita;
 	private String agente;			
 	private String data_string;
+	private Date data_visita;
 	private String bairro;
 	private String rua;
 	private String quadra;
@@ -49,7 +50,8 @@ public class ServletVisita extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		request.setCharacterEncoding("UTF8");
 		acao = false;
 
 		try {
@@ -88,6 +90,7 @@ public class ServletVisita extends HttpServlet {
 		
 		  agente = request.getParameter("agente");
 		  data_string = request.getParameter("data_visita");
+		  System.out.println("NO DATA_STRING: "  + data_string);
 		  bairro =  request.getParameter("bairro");
 		  rua =  request.getParameter("rua");
 		  quadra = request.getParameter("quadra");
@@ -107,21 +110,20 @@ public class ServletVisita extends HttpServlet {
 		try {
 			
 			visita.setAgente(agente);
-			 try {
-		            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-		        	Date data_visita = (Date) formato.parse(data_string);
-		        	visita.setData_visita(data_visita);
-		        } catch (ParseException e) {
-		            System.out.println("Erro de conversão da data");
-		            return; //para a execução do método
-		        } 		
-			visita.setBairro(bairro);						
+            try {
+            	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            	 System.out.println(data_visita = (Date) formato.parse(data_string));                   
+             	 visita.setData_visita(data_visita);     		
+            }catch (Exception e){
+            }
+			
+            visita.setBairro(bairro);						
 			visita.setRua(rua);
 			visita.setQuadra(quadra);
 			visita.setLote(lote);
 			visita.setNumero(numero);
 			visita.setCep(cep);
-			visita.setCidade(cidade);
+			visita.setCidade(cidade);  
 			visita.setLatitude(latitude);
 			visita.setLongitude(longitude);
 			visita.setTp_imovel(tp_imovel);
@@ -164,12 +166,10 @@ public class ServletVisita extends HttpServlet {
 			
 		   visita.setAgente(agente);
 			 try {
-		            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	            	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");
 		        	Date data_visita = (Date) formato.parse(data_string);
 		        	visita.setData_visita(data_visita);
 		        } catch (ParseException e) {
-		            System.out.println("Erro de conversão da data");
-		            return; //para a execução do método
 		        } 		
 			visita.setIdvisita(idvisita);
 			visita.setBairro(bairro);					
