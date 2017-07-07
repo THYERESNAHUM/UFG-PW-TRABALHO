@@ -29,7 +29,6 @@
     <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -68,7 +67,7 @@
 			            	<select name="txtpesquisa2"  title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Goiânia">Goiânia</option>
-                              <option value="Aparecida de Goiaânia">Aparecida de Goiânia</option>
+                              <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
                               <option value="Senador Canedo">Senador Canedo</option>
                               <option value="Trindade">Trindade</option>
                             </select>			           		    				
@@ -208,6 +207,15 @@
         </footer>
       </div>
     </div>
+     <script>
+    function confirmaexclusao(id) {
+   	     var resposta = confirm("Deseja remover o registro?");
+   	 
+   	     if (resposta == true) {
+   	          window.location.href = "buscavisita?acao=Excluir&idvisita="+id;
+   	     }
+   	}
+    </script>
 
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -226,9 +234,6 @@
     <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="vendors/jszip/dist/jszip.min.js"></script>
-    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
 	 <!-- Bootstrap select -->
     <script src="js/bootstrap-select.min.js"></script>
     <!-- Custom Theme Scripts -->

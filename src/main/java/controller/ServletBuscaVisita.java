@@ -64,9 +64,10 @@ public class ServletBuscaVisita extends HttpServlet {
 			textopesquisa1 = request.getParameter("txtpesquisa1");
 			textopesquisa2 = request.getParameter("txtpesquisa2");		
 			textopesquisa3 = request.getParameter("txtpesquisa3");
-			textopesquisa3 = request.getParameter("txtpesquisa4");	
+			textopesquisa4 = request.getParameter("txtpesquisa4");	
 			
-	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
+	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) 
+	        		||(textopesquisa3!="" && textopesquisa3!=null) ||(textopesquisa4!="" && textopesquisa4!=null)){
 	        	for(int i=0;i<parametropesquisa.length;i++){					
 	    			parametropesquisa[i]="";					
 	    		}        	

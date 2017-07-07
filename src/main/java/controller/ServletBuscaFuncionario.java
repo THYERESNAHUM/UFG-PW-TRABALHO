@@ -88,7 +88,7 @@ public class ServletBuscaFuncionario extends HttpServlet {
 			 	idfuncionario = Integer.parseInt(request.getParameter("idfuncionario")); 			
 				funcionario.setIdfuncionario(idfuncionario);			
 				request.setAttribute("funcionario", funcionario);
-				funcionario = funcionarioDAO.consultar_editar(funcionario);		
+//				funcionario = funcionarioDAO.consultar_editar(funcionario);		
 				destino = "/funcionario.jsp";	
 		}
 	 

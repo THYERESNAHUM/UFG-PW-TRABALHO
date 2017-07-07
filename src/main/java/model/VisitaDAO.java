@@ -3,7 +3,9 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.Visita;
@@ -26,9 +28,9 @@ public class VisitaDAO extends ConectaBanco {
 			PreparedStatement pstmt = conexao
 					.prepareStatement("Update visita SET agente = ?, data_visita = ?, bairro = ?, rua = ?, quadra = ?, "
 									+ "lote = ?, numero = ?, cep = ?, cidade = ?, latitude = ?, longitude = ?, "
-									+ "tp_imovel = ?, estagio = ?, tp_larvicida = ?, ac_corretiva = ?, local_foco ? WHERE idvisita = ? ");
+									+ "tp_imovel = ?, estagio = ?, tp_larvicida = ?, ac_corretiva = ?, local_foco = ? WHERE idvisita = ? ");
 			pstmt.setString(1, visita.getAgente());			
-			pstmt.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime())); 
+			pstmt.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime()));  
 			pstmt.setString(3, visita.getBairro());
 			pstmt.setString(4, visita.getRua());
 			pstmt.setString(5, visita.getQuadra());
@@ -137,7 +139,7 @@ public class VisitaDAO extends ConectaBanco {
 			/*Statement stm = conexao.createStatement();*/
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("Select * from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by nome asc");
+					.prepareStatement("Select * from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by bairro asc");
 			pstm.setString(1, "%" + par_bairro +"%");
 			pstm.setString(2, "%" + par_cidade +"%");
 			pstm.setString(3, "%" + par_tipo +"%");
@@ -162,6 +164,7 @@ public class VisitaDAO extends ConectaBanco {
 	}
 
 	public Visita consultar_editar(Visita visita) {
+		
 		try {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
@@ -170,7 +173,7 @@ public class VisitaDAO extends ConectaBanco {
 			ResultSet rs = pstm.executeQuery();
 			if (rs.next()) {
 				visita.setIdvisita(rs.getInt("idvisita"));
-				visita.setAgente(rs.getString("agente"));			
+				visita.setAgente(rs.getString("agente"));    
 				visita.setData_visita(rs.getDate("data_visita"));
 				visita.setBairro(rs.getString("bairro"));
 				visita.setRua(rs.getString("rua"));
