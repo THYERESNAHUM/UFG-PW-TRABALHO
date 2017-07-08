@@ -58,13 +58,16 @@
                 <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscavisita">
 			 			
 			 			<div class="form-group  col-lg-3 col-xs-12">
-						<label>Bairro </label> 	
+						<label>Agente </label> 	
                                 <input type="text" name="txtpesquisa1" class="form-control input-md">
-                                 <div class="help-block with-errors"></div>
-                         </div>						
+                        </div>
+			 			<div class="form-group  col-lg-3 col-xs-12">
+						<label>Bairro </label> 	
+                                <input type="text" name="txtpesquisa2" class="form-control input-md">
+                        </div>						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Cidade </label> 	  
-			            	<select name="txtpesquisa2"  title="" class="form-control input-md selectpicker" data-live-search="true">
+			            	<select name="txtpesquisa3"  title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Goiânia">Goiânia</option>
                               <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
@@ -75,7 +78,7 @@
 						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Tipo de Imovel </label> 	  
-			            	<select name="txtpesquisa3" title="" class="form-control input-md selectpicker" data-live-search="true">
+			            	<select name="txtpesquisa4" title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Lote">Lote</option>
                               <option value="Casa">Casa</option>
@@ -88,7 +91,7 @@
 						</div>							
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Estagio</label> 	  
-			            <select name="txtpesquisa4" title="" class="form-control input-md selectpicker" data-live-search="true">
+			            <select name="txtpesquisa5" title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Ovo">Ovo</option>
                               <option value="Larva">Larva</option>
