@@ -148,7 +148,7 @@ public class VisitaDAO extends ConectaBanco {
 			while (rs.next()) {
 				Visita visita = new Visita();
 				visita.setIdvisita(rs.getInt("idvisita"));
-				visita.setAgente("agente");
+				visita.setAgente(rs.getString("agente"));
 				visita.setBairro(rs.getString("bairro"));
 				visita.setCidade(rs.getString("cidade"));
 				visita.setTp_imovel(rs.getString("tp_imovel"));
@@ -174,7 +174,7 @@ public class VisitaDAO extends ConectaBanco {
 			if (rs.next()) {
 				visita.setIdvisita(rs.getInt("idvisita"));
 				visita.setAgente(rs.getString("agente"));    
-				visita.setData_visita(rs.getDate("data_visita"));
+				visita.setData_visita(rs.getTimestamp("data_visita"));
 				visita.setBairro(rs.getString("bairro"));
 				visita.setRua(rs.getString("rua"));
 				visita.setQuadra(rs.getString("quadra"));
@@ -188,7 +188,7 @@ public class VisitaDAO extends ConectaBanco {
 				visita.setEstagio(rs.getString("estagio"));
 				visita.setTp_larvicida(rs.getString("tp_larvicida"));
 				visita.setAc_corretiva(rs.getString("ac_corretiva"));
-				visita.setLocal_foco(rs.getString("local_foco"));	
+				visita.setLocal_foco(rs.getString("local_foco"));
 			}
 			pstm.close();
 			conexao.close();

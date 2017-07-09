@@ -33,6 +33,7 @@ public class ServletBuscaVisita extends HttpServlet {
 	private String textopesquisa3;
 	private String textopesquisa4;
 	private String textopesquisa5; 
+	private Date data_formatada;
 
 	
 	protected void doGet(HttpServletRequest request,
@@ -97,19 +98,11 @@ public class ServletBuscaVisita extends HttpServlet {
 	}  
 	 protected void consultareditarvisita(HttpServletRequest request,
 	 		    HttpServletResponse response) throws ServletException, IOException {
-			 
-			 	idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
+			 	
+		 		String auxiliar = ""; 	 	
+		 		idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
 				visita.setIdvisita(idvisita);			
-				visita = visitaDAO.consultar_editar(visita);
-					Date data_formatada = visita.getData_visita();
-					SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");					
-					//formato.setLenient(false);					
-					try {
-						visita.setData_visita(formato.parse(formato.format(data_formatada)));
-					}catch(Exception e){
-						System.out.println(data_formatada);
-					}
-		        		           
+				visita = visitaDAO.consultar_editar(visita);					
 		        request.setAttribute("visita", visita);
 				destino = "/visita.jsp";	
 		}

@@ -132,7 +132,7 @@
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
-                      <a href="c_funcionario.jsp">
+                      <a href="c_visita.jsp">
                         <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Limpar Listagem">
                           <i class="fa fa-refresh"></i>
                         </button>
@@ -147,6 +147,7 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
+                          <th>Agente</th>
                           <th>Bairro</th>
                           <th>Tipo de Imovel </th>
                           <th>Estagio</th>                                                    
@@ -157,6 +158,7 @@
                       <tbody> 
                       	<c:forEach var="visita" items="${listavisita}">
 							<tr>								
+								<td>${visita.agente}</td>
 								<td>${visita.bairro}</td>
 								<td>${visita.tp_imovel}</td>
 								<td>${visita.estagio}</td>
