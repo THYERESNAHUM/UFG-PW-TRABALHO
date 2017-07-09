@@ -169,3 +169,12 @@
     <script src="js/validator.min.js"></script>	
     </body>
 </html>
+<%
+	// se não existir um login na sessao, 
+	// vai enviar para a página de login novamente
+	} else {
+%>
+	<jsp:forward page="index.jsp"></jsp:forward>
+<%
+}
+%>

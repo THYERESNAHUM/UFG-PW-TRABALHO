@@ -101,8 +101,10 @@
 			           		    				
 						</div>
 						
+                  <div class="x_content">
+                  <div class="row">
 								<c:if test="${not empty message}">
-									<div class="col-lg-3 col-xs-12">					
+									<div class="col-lg-12 col-xs-12">					
 										<c:if test = "${fn:contains(message, 'Erro')}">
 													<div class="alert alert-danger fade in">
 															<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -125,7 +127,7 @@
 				    					</c:if>	
 								</div>
 								</c:if>
-                  <div class="x_content">
+								</div>
                      <p class="text-muted font-13 m-b-30">
                       <a href="visita.jsp">
                         <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Novo Funcionário">
