@@ -23,7 +23,7 @@ public class ServletBuscaVisita extends HttpServlet {
 	
 	private VisitaDAO visitaDAO = new VisitaDAO();
 	private Visita visita = new Visita();
-	private String[] parametropesquisa = new String[4];
+	private String[] parametropesquisa = new String[5];
 	private int idvisita;
 	private String destino = "";
 	private String acao;
@@ -31,7 +31,9 @@ public class ServletBuscaVisita extends HttpServlet {
 	private String textopesquisa1; 
 	private String textopesquisa2; 
 	private String textopesquisa3;
-	private String textopesquisa4; 
+	private String textopesquisa4;
+	private String textopesquisa5; 
+	private Date data_formatada;
 
 	
 	protected void doGet(HttpServletRequest request,
@@ -67,9 +69,14 @@ public class ServletBuscaVisita extends HttpServlet {
 			textopesquisa2 = request.getParameter("txtpesquisa2");		
 			textopesquisa3 = request.getParameter("txtpesquisa3");
 			textopesquisa4 = request.getParameter("txtpesquisa4");	
+			textopesquisa5 = request.getParameter("txtpesquisa5");
 			
-	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) 
-	        		||(textopesquisa3!="" && textopesquisa3!=null) ||(textopesquisa4!="" && textopesquisa4!=null)){
+	        if((textopesquisa1!="" && textopesquisa1!=null)
+	        		|| (textopesquisa2!="" && textopesquisa2!=null)
+	        		|| (textopesquisa3!="" && textopesquisa3!=null)
+	        		|| (textopesquisa4!="" && textopesquisa4!=null)
+	        		|| (textopesquisa5!="" && textopesquisa5!=null)){
+	        	
 	        	for(int i=0;i<parametropesquisa.length;i++){					
 	    			parametropesquisa[i]="";					
 	    		}        	
@@ -77,9 +84,10 @@ public class ServletBuscaVisita extends HttpServlet {
 					 parametropesquisa[1] = textopesquisa2;
 					 parametropesquisa[2] = textopesquisa3;
 					 parametropesquisa[3] = textopesquisa4;
+					 parametropesquisa[4] = textopesquisa5;
 					 
 				List<Visita> listavisita = new ArrayList<Visita>();    		
-				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4);
+				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);
 				request.setAttribute("listavisita", listavisita);
 				destino = "/c_visita.jsp";
 		     }else{
@@ -90,9 +98,11 @@ public class ServletBuscaVisita extends HttpServlet {
 	}  
 	 protected void consultareditarvisita(HttpServletRequest request,
 	 		    HttpServletResponse response) throws ServletException, IOException {
-			 
-			 	idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
+			 	
+		 		String auxiliar = ""; 	 	
+		 		idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
 				visita.setIdvisita(idvisita);			
+<<<<<<< HEAD
 				visita = visitaDAO.consultar_editar(visita);
 				System.out.println(visita.getData_visita());
 				/*	Date data_formatada = visita.getData_visita();
@@ -104,6 +114,9 @@ public class ServletBuscaVisita extends HttpServlet {
 						System.out.println(data_formatada);
 					}*/
 		        		           
+=======
+				visita = visitaDAO.consultar_editar(visita);					
+>>>>>>> 2743ca5673a95be058b68bb605052e0fb93f86c7
 		        request.setAttribute("visita", visita);
 				destino = "/visita.jsp";	
 		}
@@ -116,7 +129,7 @@ public class ServletBuscaVisita extends HttpServlet {
 				request.setAttribute("visita", visita);
 				visitaDAO.excluir(visita);
 				List<Visita> listavisita = new ArrayList<Visita>();    		
-	        	listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4);
+	        	listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);
 				request.setAttribute("listavisita", listavisita);				
 				destino = "/c_visita.jsp";	
 		}

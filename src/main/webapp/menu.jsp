@@ -22,8 +22,8 @@
    <body>    
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="pagina_inicial.jsp" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
+            <div class="navbar nav_title" style="border: 20;">
+              <a href="pagina_inicial.jsp" class="site_title"><span class="fa fa-desktop"></span><span>   SysEndemc</span></a>
             </div>
             <div class="clearfix"></div>
             <!-- menu profile quick info -->
@@ -34,6 +34,8 @@
               <div class="profile_info">
                 <span>Bem-vindo,</span>
                 <h2><% out.print(session.getAttribute("nome")); %></h2>
+                <span>Função</span>
+                <h2><% out.print(session.getAttribute("funcao")); %></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -41,7 +43,10 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                <div class="menu_section">
-                <h3>Visualização</h3>
+                <ul class="nav side-menu">
+                <li><a href="pagina_inicial.jsp"><i class="fa fa-home"></i> Início</a></li>
+                </ul>
+                <h3>Visualização</h3>                
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -52,22 +57,66 @@
               </div>
               <div class="menu_section">
                 <h3>INFORMAÇÕES</h3>
-                <ul class="nav side-menu">
-                	<li><a href="pagina_inicial.jsp"><i class="fa fa-home"></i> Início</a></li>
-                  <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="funcionario.jsp">Funcionário</a></li>
-                      <li><a href="visita.jsp">Visita</a></li>
-                      <li><a href="denuncia.jsp">Denúncia</a></li>
-                    </ul>
-                  </li>
+                <ul class="nav side-menu">                	
+                  <% if (session.getAttribute("funcao").equals("Administrador")) {
+                   %>
+                   <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                   		<ul class="nav child_menu">                   
+                    		<li><a href="funcionario.jsp">Funcionário</a></li>
+                            <li><a href="visita.jsp">Visita</a></li>
+                           	<li><a href="denuncia.jsp">Denúncia</a></li>
+                    	</ul> 
+                    </li>       
+                    <% 
+                    } else if (session.getAttribute("funcao").equals("Atendente")) {                    	
+                        	  
+                    %>
+                     <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                     	<ul class="nav child_menu">
+                           	<li><a href="denuncia.jsp">Denúncia</a></li>
+                    	</ul> 
+                    </li>
+                    <%
+					} else if (session.getAttribute("funcao").equals("Agente")) {
+
+              		%>
+              		<li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                    	<ul class="nav child_menu">
+                           	<li><a href="visita.jsp">Visita</a></li>
+                   		</ul> 
+                    </li>		
+              		<%
+                    }
+                    %>                    
+                  <% if (session.getAttribute("funcao").equals("Administrador")) {
+                   %>
                   <li><a><i class="fa fa-search"></i> Busca <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="c_funcionario.jsp">Funcionários</a></li>
                       <li><a href="c_visita.jsp">Visitas</a></li>
                       <li><a href="c_denuncia.jsp">Denúncias</a></li>                      
                     </ul>
-                  </li>               
+                  </li>
+                   <% 
+                    } else if (session.getAttribute("funcao").equals("Atendente")) {
+                    %>                    
+                    <li><a><i class="fa fa-edit"></i> Busca <span class="fa fa-chevron-down"></span></a>
+                     	<ul class="nav child_menu">
+                           	<li><a href="c_denuncia.jsp">Denúncia</a></li>
+                    	</ul> 
+                    </li>
+                   <%
+                    } else if (session.getAttribute("funcao").equals("Agente")) {                    	
+                  	  
+              		%>
+              		<li><a><i class="fa fa-edit"></i> Busca <span class="fa fa-chevron-down"></span></a>
+                    	<ul class="nav child_menu">
+                           	<li><a href="c_visita.jsp">Visita</a></li>
+                   		</ul> 
+                    </li>		
+              		<%
+                    }
+                    %>             
                  </ul>
               </div>   
             </div>

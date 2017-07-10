@@ -88,6 +88,7 @@
                       <div class="col-lg-4 col-xs-12">
                       <select required id="funcao" name="funcao" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">
                         <option selected="selected">${funcionario.funcao}</option>
+                        <option value="Administrador">Administrador</option>
                         <option value="Atendente">Atendente</option>
                         <option value="Agente">Agente</option>
                       </select>

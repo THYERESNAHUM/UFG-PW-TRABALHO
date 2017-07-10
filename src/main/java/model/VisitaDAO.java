@@ -101,8 +101,7 @@ public class VisitaDAO extends ConectaBanco {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
 					.prepareStatement("Insert into	visita (agente, data_visita, bairro, rua, quadra,lote, numero, cep, cidade, latitude, "
-							+ "longitude,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			
+							+ "longitude,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");			
 			pstm.setString(1, visita.getAgente());			
 			//pstm.setDate(2, new java.sql.Date(visita.getData_visita().getTime()));
 			pstm.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime())); 
@@ -131,7 +130,7 @@ public class VisitaDAO extends ConectaBanco {
 		return erro;
 	}
 
-	public List<Visita> listar(String par_bairro, String par_cidade, String par_tipo, String par_estagio) {
+	public List<Visita> listar(String agente, String par_bairro, String par_cidade, String par_tipo, String par_estagio) {
 		
 		List<Visita> lista = new ArrayList<Visita>();
 		
@@ -139,20 +138,21 @@ public class VisitaDAO extends ConectaBanco {
 			/*Statement stm = conexao.createStatement();*/
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
-					.prepareStatement("Select * from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by bairro asc");
-			pstm.setString(1, "%" + par_bairro +"%");
-			pstm.setString(2, "%" + par_cidade +"%");
-			pstm.setString(3, "%" + par_tipo +"%");
-			pstm.setString(4, "%" + par_estagio +"%");
+					.prepareStatement("Select * from visita where agente like ? and bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by bairro asc");
+			pstm.setString(1, "%" + agente +"%");
+			pstm.setString(2, par_bairro +"%");
+			pstm.setString(3, par_cidade +"%");
+			pstm.setString(4, "%" + par_tipo +"%");
+			pstm.setString(5, "%" + par_estagio +"%");
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
 				Visita visita = new Visita();
 				visita.setIdvisita(rs.getInt("idvisita"));
+				visita.setAgente(rs.getString("agente"));
 				visita.setBairro(rs.getString("bairro"));
 				visita.setCidade(rs.getString("cidade"));
 				visita.setTp_imovel(rs.getString("tp_imovel"));
-				visita.setEstagio(rs.getString("estagio"));
-				
+				visita.setEstagio(rs.getString("estagio"));				
 				lista.add(visita);
 			}
 			pstm.close();
@@ -174,7 +174,11 @@ public class VisitaDAO extends ConectaBanco {
 			if (rs.next()) {
 				visita.setIdvisita(rs.getInt("idvisita"));
 				visita.setAgente(rs.getString("agente"));    
+<<<<<<< HEAD
 				visita.setData_visita(rs.getTimestamp(columnLabel)("data_visita"));
+=======
+				visita.setData_visita(rs.getTimestamp("data_visita"));
+>>>>>>> 2743ca5673a95be058b68bb605052e0fb93f86c7
 				visita.setBairro(rs.getString("bairro"));
 				visita.setRua(rs.getString("rua"));
 				visita.setQuadra(rs.getString("quadra"));
@@ -188,7 +192,7 @@ public class VisitaDAO extends ConectaBanco {
 				visita.setEstagio(rs.getString("estagio"));
 				visita.setTp_larvicida(rs.getString("tp_larvicida"));
 				visita.setAc_corretiva(rs.getString("ac_corretiva"));
-				visita.setLocal_foco(rs.getString("local_foco"));	
+				visita.setLocal_foco(rs.getString("local_foco"));
 			}
 			pstm.close();
 			conexao.close();

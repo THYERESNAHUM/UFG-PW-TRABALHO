@@ -1,5 +1,12 @@
+<%
+	// verificando se tem um atributo login na sessao
+	// se tiver vai continuar e mostrar o menu
+	if(session.getAttribute("nome") != null) {
+
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -75,7 +82,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="data_visita">Data da visita <span class="required">*</span></label>
                                       <div class="col-lg-2 col-xs-12">
-                                        <input type="text" id="data_visita" name="data_visita" value="${visita.data_visita}"required="required" class="form-control input-md">
+                                        <input type="text" id="data_visita" name="data_visita" value="<fmt:formatDate value="${visita.data_visita}" pattern="dd/MM/yyyy HH:mm:ss"/>" required="required" class="form-control input-md">
                                          <div class="help-block with-errors"></div>
                                       </div>
                                     </div>
@@ -281,4 +288,12 @@
     </script>
   </body>
 </html>
-
+<%
+	// se não existir um login na sessao, 
+	// vai enviar para a página de login novamente
+	} else {
+%>
+	<jsp:forward page="index.jsp"></jsp:forward>
+<%
+}
+%>

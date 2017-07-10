@@ -54,26 +54,23 @@
                   </div>
                   <div class="x_content">					
                 <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscafuncionario">
-					<div class="form-group col-lg-5 col-xs-12">
-						<label>Nome</label>
-						<input name="txtpesquisa1" class="form-control input-sm" type="text">
+						<div class="form-group col-lg-3 col-xs-12">
+							<label>Matricula </label>
+							<input name="txtpesquisa3" class="form-control input-sm" type="text">
+						</div>
+						<div class="form-group col-lg-6 col-xs-12">
+							<label>Nome</label>
+							<input name="txtpesquisa1" class="form-control input-sm" type="text">
 						</div>					
-						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Função </label> 	  
 			            	<select data-live-search="true" class="form-control placeholder input-sm selectpicker" title="" name="txtpesquisa2">			            
 		                        <option selected="selected"></option>
+		                        <option value="Administrador">Administrador</option>
 		                        <option value="Atendente">Atendente</option>
 		                        <option value="Agente">Agente</option>
-		                    </select>
-			           		    				
-						</div>							
-						
-						<div class="form-group col-lg-3 col-xs-12">
-						<label>Matricula </label>
-						<input name="txtpesquisa3" class="form-control input-sm" type="text">
-						</div>
-						
+		                    </select>			           		    				
+						</div>		
 						<c:if test="${not empty message}">
 							<div class="col-lg-4 col-xs-12">					
 								<c:if test = "${fn:contains(message, 'Erro')}">

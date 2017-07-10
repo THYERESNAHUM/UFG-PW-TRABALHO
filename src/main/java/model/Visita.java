@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Visita {
@@ -124,6 +125,7 @@ public class Visita {
 	public void setLocal_foco(String local_foco) {
 		this.local_foco = local_foco;
 	}	
+
 	
 	@Override
 	public String toString() {

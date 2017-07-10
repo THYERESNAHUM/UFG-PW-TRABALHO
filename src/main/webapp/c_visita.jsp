@@ -58,13 +58,16 @@
                 <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscavisita">
 			 			
 			 			<div class="form-group  col-lg-3 col-xs-12">
-						<label>Bairro </label> 	
+						<label>Agente </label> 	
                                 <input type="text" name="txtpesquisa1" class="form-control input-md">
-                                 <div class="help-block with-errors"></div>
-                         </div>						
+                        </div>
+			 			<div class="form-group  col-lg-3 col-xs-12">
+						<label>Bairro </label> 	
+                                <input type="text" name="txtpesquisa2" class="form-control input-md">
+                        </div>						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Cidade </label> 	  
-			            	<select name="txtpesquisa2"  title="" class="form-control input-md selectpicker" data-live-search="true">
+			            	<select name="txtpesquisa3"  title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Goiânia">Goiânia</option>
                               <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
@@ -75,7 +78,7 @@
 						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Tipo de Imovel </label> 	  
-			            	<select name="txtpesquisa3" title="" class="form-control input-md selectpicker" data-live-search="true">
+			            	<select name="txtpesquisa4" title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Lote">Lote</option>
                               <option value="Casa">Casa</option>
@@ -88,7 +91,7 @@
 						</div>							
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Estagio</label> 	  
-			            <select name="txtpesquisa4" title="" class="form-control input-md selectpicker" data-live-search="true">
+			            <select name="txtpesquisa5" title="" class="form-control input-md selectpicker" data-live-search="true">
                               <option selected="selected"></option>
                               <option value="Ovo">Ovo</option>
                               <option value="Larva">Larva</option>
@@ -98,8 +101,10 @@
 			           		    				
 						</div>
 						
+                  <div class="x_content">
+                  <div class="row">
 								<c:if test="${not empty message}">
-									<div class="col-lg-3 col-xs-12">					
+									<div class="col-lg-12 col-xs-12">					
 										<c:if test = "${fn:contains(message, 'Erro')}">
 													<div class="alert alert-danger fade in">
 															<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -122,14 +127,14 @@
 				    					</c:if>	
 								</div>
 								</c:if>
-                  <div class="x_content">
+								</div>
                      <p class="text-muted font-13 m-b-30">
                       <a href="visita.jsp">
                         <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Novo Funcionário">
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
-                      <a href="c_funcionario.jsp">
+                      <a href="c_visita.jsp">
                         <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Limpar Listagem">
                           <i class="fa fa-refresh"></i>
                         </button>
@@ -144,6 +149,7 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
+                          <th>Agente</th>
                           <th>Bairro</th>
                           <th>Tipo de Imovel </th>
                           <th>Estagio</th>                                                    
@@ -154,6 +160,7 @@
                       <tbody> 
                       	<c:forEach var="visita" items="${listavisita}">
 							<tr>								
+								<td>${visita.agente}</td>
 								<td>${visita.bairro}</td>
 								<td>${visita.tp_imovel}</td>
 								<td>${visita.estagio}</td>

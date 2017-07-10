@@ -105,7 +105,6 @@ public class ServletVisita extends HttpServlet {
 		  tp_larvicida =  request.getParameter("tp_larvicida");
 		  ac_corretiva =  request.getParameter("ac_corretiva");
 		  local_foco =  request.getParameter("local_foco");
-
 			
 		try {
 			
@@ -164,13 +163,13 @@ public class ServletVisita extends HttpServlet {
 		  
 		try {
 			
-		   visita.setAgente(agente);
-			 try {
+			 visita.setAgente(agente);
+	            try {
 	            	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-		        	data_visita = (Date) formato.parse(data_string);
-		        	visita.setData_visita(data_visita);
-		        } catch (ParseException e) {
-		    } 		
+	            	 System.out.println(data_visita = (Date) formato.parse(data_string));                   
+	             	 visita.setData_visita(data_visita);     		
+	            }catch (Exception e){
+	            }
 			visita.setIdvisita(idvisita);
 			visita.setBairro(bairro);					
 			visita.setRua(rua);

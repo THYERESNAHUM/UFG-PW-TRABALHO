@@ -6,6 +6,8 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -71,7 +73,7 @@
                                 <div class="form-group">
                                   <label class="control-label col-md-3" for="data">Data da Denuncia <span class="required">*</span></label>
                                   <div class="col-lg-2 col-xs-12">
-                                    <input type="text" id="data" name="data" required="required" class="form-control input-md">
+                                    <input type="text" id="data" name="data" value="<fmt:formatDate value="${denucnia.data_denuncia}" pattern="dd/MM/yyyy HH:mm:ss"/>" required="required" class="form-control input-md">
                                      <div class="help-block with-errors"></div>
                                   </div>
                                 </div> 

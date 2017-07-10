@@ -50,6 +50,7 @@ public class ServletLogin extends HttpServlet {
 			HttpSession sessao = request.getSession();
 			// setando um atributo da sessao
 			sessao.setAttribute("nome", funcionario.getNome());
+			sessao.setAttribute("funcao", funcionario.getFuncao());
 			destino = "pagina_inicial.jsp";
 			response.sendRedirect(destino);			
 		} else {
