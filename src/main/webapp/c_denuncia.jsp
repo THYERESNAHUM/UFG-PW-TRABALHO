@@ -6,7 +6,7 @@
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -23,6 +23,8 @@
 <!-- Bootstrap -->
 <link href="vendors/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+<!-- Bootstrap select -->
+<link href="css/bootstrap-select.min.css" rel="stylesheet">
 <!-- Font Awesome -->
 <link href="vendors/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet">
@@ -170,7 +172,9 @@
 													<c:forEach var="denuncia" items="${listadenuncia}">
 														<tr>
 															<td>${denuncia.denunciante}</td>
-															<td><fmt:formatDate value="${denuncia.data_denuncia}" type="both" pattern="dd/MM/yyyy" dateStyle="full"/></td>
+															<td><fmt:formatDate
+																	value="${denuncia.data_denuncia}" type="both"
+																	pattern="dd/MM/yyyy" dateStyle="full" /></td>
 															<td><div class="btn-group">
 																	<button type="button"
 																		class="btn dropdown-toggle btn btn-info btn-sm"
@@ -244,7 +248,8 @@
 		<script src="vendors/jszip/dist/jszip.min.js"></script>
 		<script src="vendors/pdfmake/build/pdfmake.min.js"></script>
 		<script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-
+		<!-- Bootstrap select -->
+		<script src="js/bootstrap-select.min.js"></script>
 		<!-- Custom Theme Scripts -->
 		<script src="build/js/custom.min.js"></script>
 </body>

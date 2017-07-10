@@ -167,8 +167,7 @@
 													data-live-search="true">
 													<option selected="selected">${denuncia.cidade}</option>
 													<option value="Goiania">Goiânia</option>
-													<option value="Aparecida de Goiânia">Aparecida de
-														Goiânia</option>
+													<option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
 													<option value="Senador Canedo">Senador Canedo</option>
 													<option value="Trindade">Trindade</option>
 												</select>
@@ -235,7 +234,6 @@
 			</footer>
 		</div>
 
-<<<<<<< HEAD
         <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -265,37 +263,7 @@
         });
     });
     </script>	
-  </body>
-=======
-		<!-- jQuery -->
-		<script src="vendors/jquery/dist/jquery.min.js"></script>
-		<!-- Bootstrap -->
-		<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-		<!-- Bootstrap select -->
-		<script src="js/bootstrap-select.min.js"></script>
-		<!-- FastClick -->
-		<script src="vendors/fastclick/lib/fastclick.js"></script>
-		<!-- bootstrap-daterangepicker -->
-		<script src="vendors/moment/min/moment.min.js"></script>
-		<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-		<!-- Custom Theme Scripts -->
-		<script src="build/js/custom.min.js"></script>
-		<!-- bootstrap-VALIDATOR -->
-		<script src="js/validator.min.js"></script>
-		<script>
-			$(function() {
-				$('input[name="data_denuncia"]').daterangepicker({
-					singleDatePicker : true,
-					timePicker : true,
-					timePickerIncrement : 1,
-					locale : {
-						format : 'DD/MM/YYYY HH:mm A'
-					}
-				});
-			});
-		</script>
 </body>
->>>>>>> 02a2c6dccc5b8add6397f88fe0aaf11ca6731ca2
 </html>
 
 <%
