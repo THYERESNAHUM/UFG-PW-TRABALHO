@@ -21,7 +21,7 @@ public class ConectaBanco {
 			Class.forName("com.mysql.jdbc.Driver");
 			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + nomeBancoDados, usuario, senha);
 		} catch (Exception e) {
-			//e.printStackTrace();
+			 e.printStackTrace();
 			 JOptionPane.showMessageDialog(null, "Erro na Conexão com o banco dbendemic","Aviso",JOptionPane.ERROR_MESSAGE);
 		}
 		return conexao;

@@ -69,6 +69,8 @@ public class VisitaDAO extends ConectaBanco {
 		} catch (Exception e) {
 			e.printStackTrace();
 			erro = true;
+			System.out.println("Erro ao Editar Registro na base");			
+
 		}
 		return erro;
 	}
@@ -90,7 +92,7 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ERRO AO EDITAR");			
+			System.out.println("Erro ao Verificar Registro na base");			
 		}
 		return achou;
 	}
@@ -103,7 +105,6 @@ public class VisitaDAO extends ConectaBanco {
 					.prepareStatement("Insert into	visita (agente, data_visita, bairro, rua, quadra,lote, numero, cep, cidade, latitude, "
 							+ "longitude,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");			
 			pstm.setString(1, visita.getAgente());			
-			//pstm.setDate(2, new java.sql.Date(visita.getData_visita().getTime()));
 			pstm.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime())); 
 			pstm.setString(3, visita.getBairro());
 			pstm.setString(4, visita.getRua());
@@ -125,7 +126,7 @@ public class VisitaDAO extends ConectaBanco {
 		} catch (Exception e) {
 			erro = true;	
 			e.printStackTrace();
-			System.out.println("ERRO AO INSERIR");	
+			System.out.println("Erro ao Inserir Registro na base");			
 		}
 		return erro;
 	}
@@ -159,6 +160,8 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Erro ao Buscar Registro na base");			
+
 		}
 		return lista;
 	}
@@ -194,6 +197,8 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Erro ao Selecionar Registro para edição na base");			
+
 		}
 		return visita;
 	}
