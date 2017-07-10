@@ -189,7 +189,7 @@
 													<option selected="selected">${denuncia.tp_imovel}</option>
 													<option value="Lote">Lote</option>
 													<option value="Casa">Casa</option>
-													<option value="Apartemaento">Apartamento</option>
+													<option value="Apartamento">Apartamento</option>
 													<option value="Deposito">Depósito</option>
 													<option value="Loja">Loja</option>
 													<option value="Sala comercial">Sala comercial</option>

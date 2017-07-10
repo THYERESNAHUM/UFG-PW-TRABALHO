@@ -152,7 +152,7 @@ public class ServletDenuncia extends HttpServlet {
 			denuncia.setCidade(cidade);
 			denuncia.setTp_imovel(tp_imovel);
 			denuncia.setDesc_den(desc_den);
-			System.out.println(denuncia.getDesc_den());
+			
 
 		} catch (Exception e) {
 			System.out.println("Parametro incorreto.");
