@@ -23,7 +23,6 @@ public class ServletBuscaVisita extends HttpServlet {
 	
 	private VisitaDAO visitaDAO = new VisitaDAO();
 	private Visita visita = new Visita();
-	private String[] parametropesquisa = new String[5];
 	private int idvisita;
 	private String destino = "";
 	private String acao;
@@ -76,16 +75,7 @@ public class ServletBuscaVisita extends HttpServlet {
 	        		|| (textopesquisa3!="" && textopesquisa3!=null)
 	        		|| (textopesquisa4!="" && textopesquisa4!=null)
 	        		|| (textopesquisa5!="" && textopesquisa5!=null)){
-	        	
-	        	for(int i=0;i<parametropesquisa.length;i++){					
-	    			parametropesquisa[i]="";					
-	    		}        	
-	        		 parametropesquisa[0] = textopesquisa1;
-					 parametropesquisa[1] = textopesquisa2;
-					 parametropesquisa[2] = textopesquisa3;
-					 parametropesquisa[3] = textopesquisa4;
-					 parametropesquisa[4] = textopesquisa5;
-					 
+
 				List<Visita> listavisita = new ArrayList<Visita>();    		
 				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);
 				request.setAttribute("listavisita", listavisita);

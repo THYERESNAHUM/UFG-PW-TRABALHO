@@ -22,7 +22,6 @@ public class ServletBuscaDenuncia extends HttpServlet {
 
 	private DenunciaDAO denunciaDAO = new DenunciaDAO();
 	private Denuncia denuncia = new Denuncia();
-	private String[] parametropesquisa = new String[5];
 	private int iddenuncia;
 	private String destino = "";
 	private String acao;

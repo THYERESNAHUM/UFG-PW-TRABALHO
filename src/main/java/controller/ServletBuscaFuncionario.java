@@ -21,7 +21,6 @@ public class ServletBuscaFuncionario extends HttpServlet {
 	
 	private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 	private Funcionario funcionario = new Funcionario();
-	private String[] parametropesquisa = new String[3];
 	private int idfuncionario;
 	private String destino = "";
 	private String acao;
@@ -65,13 +64,7 @@ public class ServletBuscaFuncionario extends HttpServlet {
 			textopesquisa3 = request.getParameter("txtpesquisa3");		
 			
 	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
-	        	for(int i=0;i<parametropesquisa.length;i++){					
-	    			parametropesquisa[i]="";					
-	    		}        	
-	        		 parametropesquisa[0] = textopesquisa1;
-					 parametropesquisa[1] = textopesquisa2;
-					 parametropesquisa[2] = textopesquisa3;
-					 
+
 				List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
 				listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
 				request.setAttribute("listafuncionario", listafuncionario);
