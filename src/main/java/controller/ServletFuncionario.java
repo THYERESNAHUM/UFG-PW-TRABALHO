@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.FuncionarioDAO;
 import model.Funcionario;
 
-
 @WebServlet(name = "ServletFuncionario", urlPatterns = "/funcionario")
 public class ServletFuncionario extends HttpServlet {
 

@@ -173,11 +173,7 @@ public class VisitaDAO extends ConectaBanco {
 			if (rs.next()) {
 				visita.setIdvisita(rs.getInt("idvisita"));
 				visita.setAgente(rs.getString("agente"));    
-<<<<<<< HEAD
-				visita.setData_visita(rs.getTimestamp(columnLabel)("data_visita"));
-=======
 				visita.setData_visita(rs.getTimestamp("data_visita"));
->>>>>>> 2743ca5673a95be058b68bb605052e0fb93f86c7
 				visita.setBairro(rs.getString("bairro"));
 				visita.setRua(rs.getString("rua"));
 				visita.setQuadra(rs.getString("quadra"));

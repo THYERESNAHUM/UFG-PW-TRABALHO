@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -101,21 +102,7 @@ public class ServletBuscaVisita extends HttpServlet {
 		 		String auxiliar = ""; 	 	
 		 		idvisita = Integer.parseInt(request.getParameter("idvisita")); 			
 				visita.setIdvisita(idvisita);			
-<<<<<<< HEAD
-				visita = visitaDAO.consultar_editar(visita);
-				System.out.println(visita.getData_visita());
-				/*	Date data_formatada = visita.getData_visita();
-					SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");					
-					//formato.setLenient(false);					
-					try {
-						visita.setData_visita(formato.parse(formato.format(data_formatada)));
-					}catch(Exception e){
-						System.out.println(data_formatada);
-					}*/
-		        		           
-=======
 				visita = visitaDAO.consultar_editar(visita);					
->>>>>>> 2743ca5673a95be058b68bb605052e0fb93f86c7
 		        request.setAttribute("visita", visita);
 				destino = "/visita.jsp";	
 		}
