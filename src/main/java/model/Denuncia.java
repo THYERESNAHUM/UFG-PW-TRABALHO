@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Denuncia {
 	
@@ -9,11 +9,13 @@ public class Denuncia {
 	private String bairro;
 	private String rua;
 	private String quadra;
-	private String lote;
+	private int lote;
 	private String numero;
 	private String cidade;
 	private String tp_imovel;
 	private String desc_den;
+	private String denunciante;
+	private String cep;
 	
 	
 	public int getIddenuncia() {
@@ -46,10 +48,10 @@ public class Denuncia {
 	public void setQuadra(String quadra) {
 		this.quadra = quadra;
 	}
-	public String getLote() {
+	public int getLote() {
 		return lote;
 	}
-	public void setLote(String lote) {
+	public void setLote(int lote) {
 		this.lote = lote;
 	}
 	public String getNumero() {
@@ -77,6 +79,18 @@ public class Denuncia {
 		this.desc_den = desc_den;
 	}
 	
+	public String getDenunciante() {
+		return denunciante;
+	}
+	public void setDenunciante(String denunciante) {
+		this.denunciante = denunciante;
+	}
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 	@Override
 	public String toString() {
 		return "Denuncia [iddencuncia=" + iddenuncia + ", data_denuncia=" + data_denuncia + ", bairro=" + bairro
