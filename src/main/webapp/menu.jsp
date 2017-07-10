@@ -22,8 +22,8 @@
    <body>    
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="pagina_inicial.jsp" class="site_title"><i class="fa fa-desktop"></i> <span>SysEndemias</span></a>
+            <div class="navbar nav_title" style="border: 20;">
+              <a href="pagina_inicial.jsp" class="site_title"><span class="fa fa-desktop"></span><span>   SysEndemc</span></a>
             </div>
             <div class="clearfix"></div>
             <!-- menu profile quick info -->
@@ -43,7 +43,10 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                <div class="menu_section">
-                <h3>Visualização</h3>
+                <ul class="nav side-menu">
+                <li><a href="pagina_inicial.jsp"><i class="fa fa-home"></i> Início</a></li>
+                </ul>
+                <h3>Visualização</h3>                
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-globe"></i> Mapa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -54,8 +57,7 @@
               </div>
               <div class="menu_section">
                 <h3>INFORMAÇÕES</h3>
-                <ul class="nav side-menu">
-                	<li><a href="pagina_inicial.jsp"><i class="fa fa-home"></i> Início</a></li>
+                <ul class="nav side-menu">                	
                   <% if (session.getAttribute("funcao").equals("Administrador")) {
                    %>
                    <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>

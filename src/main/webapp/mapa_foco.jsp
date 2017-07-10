@@ -6,24 +6,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="br">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Sistema de Controle de Endemias</title>
-
-         <!-- Bootstrap -->
-	    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	    <!-- Bootstrap select -->
-	  	<link href="css/bootstrap-select.min.css" rel="stylesheet">
-	    <!-- Font Awesome -->
-	    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
-	    <!-- Custom Theme Style -->
-	    <link href="css/custom.min.css" rel="stylesheet">	
+<html lang="pt">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Controle de Endemias</title>
+    
+      <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap select -->
+  	<link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">	
         <!-- Mapa Style -->
         <style>
             /* Always set the map height explicitly to define the size of the div
@@ -39,10 +38,7 @@
                 margin: 0;
                 padding: 0;
             }
-            
         </style>
-
-
     </head>
 
     <body class="nav-md">
