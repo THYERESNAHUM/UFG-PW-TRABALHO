@@ -58,7 +58,7 @@
 						<!--<h1>Sistema de Endemias</h1>-->
 						<div>
 							<input type="text" name="login" class="form-control"
-								placeholder="Usuário" required="" />
+								placeholder="Matrícula" required="" />
 						</div>
 						<div>
 							<input type="password" name="senha" class="form-control"

@@ -129,6 +129,34 @@ public class FuncionarioDAO extends ConectaBanco {
 		}
 		return lista;
 	}
+	
+public List<Funcionario> listar() {
+		
+		List<Funcionario> lista = new ArrayList<Funcionario>();
+		
+		try {
+			/*Statement stm = conexao.createStatement();*/
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from funcionario order by nome asc");
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Funcionario funcionario = new Funcionario();
+				funcionario.setIdfuncionario(rs.getInt("idfuncionario"));
+				funcionario.setMatricula(rs.getString("matricula"));
+				funcionario.setNome(rs.getString("nome"));
+				funcionario.setFuncao(rs.getString("funcao"));
+				funcionario.setEmail(rs.getString("email"));
+				funcionario.setSenha(rs.getString("senha"));
+				lista.add(funcionario);
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
 
 	public Funcionario consultar_editar(Funcionario funcionario) {
 		try {

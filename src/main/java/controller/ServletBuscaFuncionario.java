@@ -61,19 +61,16 @@ public class ServletBuscaFuncionario extends HttpServlet {
 
 			textopesquisa1 = request.getParameter("txtpesquisa1");
 			textopesquisa2 = request.getParameter("txtpesquisa2");		
-			textopesquisa3 = request.getParameter("txtpesquisa3");		
+			textopesquisa3 = request.getParameter("txtpesquisa3");	
+			List<Funcionario> listafuncionario = new ArrayList<Funcionario>();
 			
 	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
-
-				List<Funcionario> listafuncionario = new ArrayList<Funcionario>();    		
 				listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
-				request.setAttribute("listafuncionario", listafuncionario);
-				destino = "/c_funcionario.jsp";
 		     }else{
-				message = "Informe um parametro para pesquisa";				
-				request.setAttribute("message", message);
-				destino = "/c_funcionario.jsp";		    	 
+		    	listafuncionario = funcionarioDAO.listar();
 		     }	 
+	        request.setAttribute("listafuncionario", listafuncionario);
+			destino = "/c_funcionario.jsp";
 	}  
 	 protected void consultareditarfuncionario(HttpServletRequest request,
 	 		    HttpServletResponse response) throws ServletException, IOException {
