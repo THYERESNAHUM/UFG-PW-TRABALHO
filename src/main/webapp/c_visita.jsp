@@ -135,7 +135,7 @@
 								</div>
                      <p class="text-muted font-13 m-b-30">
                       <a href="visita.jsp">
-                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Novo Funcionário">
+                        <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-placement="bottom" title="Incluir Nova Visita">
                           <i class="fa fa-plus-circle"></i>
                         </button>
                       </a>
