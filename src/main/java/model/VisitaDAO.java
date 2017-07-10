@@ -69,8 +69,6 @@ public class VisitaDAO extends ConectaBanco {
 		} catch (Exception e) {
 			e.printStackTrace();
 			erro = true;
-			System.out.println("Erro ao Editar Registro na base");			
-
 		}
 		return erro;
 	}
@@ -92,7 +90,7 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Erro ao Verificar Registro na base");			
+			System.out.println("ERRO AO EDITAR");			
 		}
 		return achou;
 	}
@@ -126,7 +124,7 @@ public class VisitaDAO extends ConectaBanco {
 		} catch (Exception e) {
 			erro = true;	
 			e.printStackTrace();
-			System.out.println("Erro ao Inserir Registro na base");			
+			System.out.println("ERRO AO INSERIR");	
 		}
 		return erro;
 	}
@@ -160,8 +158,6 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Erro ao Buscar Registro na base");			
-
 		}
 		return lista;
 	}
@@ -197,8 +193,6 @@ public class VisitaDAO extends ConectaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Erro ao Selecionar Registro para edição na base");			
-
 		}
 		return visita;
 	}

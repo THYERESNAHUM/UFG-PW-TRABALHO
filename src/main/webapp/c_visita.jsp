@@ -65,6 +65,10 @@
 			 			<div class="form-group  col-lg-3 col-xs-12">
 						<label>Bairro </label> 	
                                 <input type="text" name="txtpesquisa2" class="form-control input-md">
+                        </div>
+                        <div class="form-group  col-lg-6 col-xs-12">
+						<label>Rua </label> 	
+                                <input type="text" name="txtpesquisa6" class="form-control input-md">
                         </div>						
 						<div class="form-group  col-lg-3 col-xs-12">
 						<label>Cidade </label> 	  
@@ -98,14 +102,14 @@
                               <option value="Larva">Larva</option>
                               <option value="Pupa">Pupa</option>
                               <option value="Mosquito">Mosquito</option>							  
-                            </select>
-			           		    				
+                            </select>			           		    				
 						</div>
+						
 						
                   <div class="x_content">
                   <div class="row">
 								<c:if test="${not empty message}">
-									<div class="col-lg-12 col-xs-12">					
+									<div class="col-lg-4 col-xs-12">					
 										<c:if test = "${fn:contains(message, 'Erro')}">
 													<div class="alert alert-danger fade in">
 															<a href="#" class="close" data-dismiss="alert">&times;</a>

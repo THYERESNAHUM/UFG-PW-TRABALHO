@@ -207,6 +207,8 @@
 	    singleDatePicker: true,
             timePicker: true,
             timePickerIncrement: 1,
+            showMeridian:false,
+            timePicker24Hour:true,
             locale: {
                 format: 'DD/MM/YYYY HH:mm A'
             }
