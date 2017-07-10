@@ -23,7 +23,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 20;">
-              <a href="pagina_inicial.jsp" class="site_title"><span class="fa fa-desktop"></span><span>   SysEndemc</span></a>
+              <a href="pagina_inicial.jsp" class="site_title"><span class="fa fa-desktop"></span><span>   Endemic Sys</span></a>
             </div>
             <div class="clearfix"></div>
             <!-- menu profile quick info -->

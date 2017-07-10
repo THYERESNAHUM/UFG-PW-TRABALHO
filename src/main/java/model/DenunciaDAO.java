@@ -189,7 +189,7 @@ public class DenunciaDAO extends ConectaBanco {
 			ResultSet rs = pstm.executeQuery();
 			if (rs.next()) {
 				denuncia.setIddenuncia(rs.getInt("iddenuncia"));
-				denuncia.setData_denuncia(rs.getDate("data_denuncia"));
+				denuncia.setData_denuncia(rs.getTimestamp("data_denuncia"));
 				denuncia.setBairro(rs.getString("bairro"));
 				denuncia.setRua(rs.getString("rua"));
 				denuncia.setLote(rs.getInt("lote"));

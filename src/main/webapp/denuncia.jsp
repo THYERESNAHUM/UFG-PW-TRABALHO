@@ -83,7 +83,7 @@
 											<label class="control-label col-md-3" for="data">Data
 												da Denúncia <span class="required">*</span>
 											</label>
-											<div class="col-lg-2 col-xs-12">
+											<div class="col-lg-4 col-xs-12">
 												<input type="text" id="data_denuncia" name="data_denuncia"
 													value="<fmt:formatDate value="${denuncia.data_denuncia}" pattern="dd/MM/yyyy HH:mm:ss"/>"
 													required="required" class="form-control input-md">
@@ -251,7 +251,7 @@
     <script src="js/validator.min.js"></script>
     <script>	 
         $(function() {
-        $('input[name="data"]').daterangepicker({            
+        $('input[name="data_denuncia"]').daterangepicker({            
 	    singleDatePicker: true,
             timePicker: true,
             timePickerIncrement: 1,
