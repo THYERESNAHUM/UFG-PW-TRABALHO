@@ -63,6 +63,7 @@
 						<label>Função </label> 	  
 			            	<select data-live-search="true" class="form-control placeholder input-sm selectpicker" title="" name="txtpesquisa2">			            
 		                        <option selected="selected"></option>
+		                        <option value="Administrador">Administrador</option>
 		                        <option value="Atendente">Atendente</option>
 		                        <option value="Agente">Agente</option>
 		                    </select>
