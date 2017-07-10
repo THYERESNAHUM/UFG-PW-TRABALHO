@@ -3,15 +3,18 @@
   <welcome-file-list>
     <welcome-file>/index.jsp</welcome-file>
   </welcome-file-list>
-<error-page>
-    <!-- Pagina não Encontrada -->
-<error-code>404</error-code>
-    <location>/erro404.jsp</location>
-</error-page>
-<error-page>
-    <!-- Exceção não tratada -->
-    <error-code>500</error-code>
-    <location>/erro500.jsp</location>
-</error-page>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
+	<error-page>
+	    <!-- Pagina não Encontrada -->
+	<error-code>404</error-code>
+	    <location>/erro404.jsp</location>
+	</error-page>
+	<error-page>
+	    <!-- Exceção não tratada -->
+	    <error-code>500</error-code>
+	    <location>/erro500.jsp</location>
+	</error-page>
 </web-app>
 

@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import model.FuncionarioDAO;
 import model.Funcionario;
 
@@ -32,7 +34,7 @@ public class ServletBuscaFuncionario extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+			
 			acao = request.getParameter("acao");	
 			if(acao!=null){
 				if(acao.equalsIgnoreCase("Consultar")){
@@ -64,11 +66,11 @@ public class ServletBuscaFuncionario extends HttpServlet {
 			textopesquisa3 = request.getParameter("txtpesquisa3");	
 			List<Funcionario> listafuncionario = new ArrayList<Funcionario>();
 			
-	        if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
+	         // if((textopesquisa1!="" && textopesquisa1!=null)  || (textopesquisa2!="" && textopesquisa2!=null) ||(textopesquisa3!="" && textopesquisa3!=null)){
 				listafuncionario = funcionarioDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3);
-		     }else{
-		    	listafuncionario = funcionarioDAO.listar();
-		     }	 
+		     //}else{
+			 //	listafuncionario = funcionarioDAO.listar();
+		     // }	 
 	        request.setAttribute("listafuncionario", listafuncionario);
 			destino = "/c_funcionario.jsp";
 	}  

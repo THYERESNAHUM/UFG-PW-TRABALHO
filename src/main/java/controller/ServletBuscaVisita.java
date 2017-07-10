@@ -71,17 +71,17 @@ public class ServletBuscaVisita extends HttpServlet {
 			textopesquisa5 = request.getParameter("txtpesquisa5");
 			List<Visita> listavisita = new ArrayList<Visita>();
 			
-	        if((textopesquisa1!="" && textopesquisa1!=null)
-	        		|| (textopesquisa2!="" && textopesquisa2!=null)
-	        		|| (textopesquisa3!="" && textopesquisa3!=null)
-	        		|| (textopesquisa4!="" && textopesquisa4!=null)
-	        		|| (textopesquisa5!="" && textopesquisa5!=null)){
+	      //  if((textopesquisa1!="" && textopesquisa1!=null)
+	      //  		|| (textopesquisa2!="" && textopesquisa2!=null)
+	      //  		|| (textopesquisa3!="" && textopesquisa3!=null)
+	      //  		|| (textopesquisa4!="" && textopesquisa4!=null)
+	      //  		|| (textopesquisa5!="" && textopesquisa5!=null)){
 
 				    		
 				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);				
-		     }else{
-		    	listavisita = visitaDAO.listar();	
-		     }	 
+		   //  }else{
+		   // 	listavisita = visitaDAO.listar();	
+		   // }	 
 	        request.setAttribute("listavisita", listavisita);
 			destino = "/c_visita.jsp";
 	}  

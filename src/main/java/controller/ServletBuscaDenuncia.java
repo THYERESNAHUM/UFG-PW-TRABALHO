@@ -68,15 +68,15 @@ public class ServletBuscaDenuncia extends HttpServlet {
 		textopesquisa3 = request.getParameter("txtpesquisa3");
 		textopesquisa4 = request.getParameter("txtpesquisa4");
 
-		if ((textopesquisa1 != "" && textopesquisa1 != null) || (textopesquisa2 != "" && textopesquisa2 != null)
-				|| (textopesquisa3 != "" && textopesquisa3 != null)
-				|| (textopesquisa4 != "" && textopesquisa4 != null)) {
+	//	if ((textopesquisa1 != "" && textopesquisa1 != null) || (textopesquisa2 != "" && textopesquisa2 != null)
+	//			|| (textopesquisa3 != "" && textopesquisa3 != null)
+	//			|| (textopesquisa4 != "" && textopesquisa4 != null)) {
 
 			listadenuncia = denunciaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4);
-		} else {
-			listadenuncia = denunciaDAO.listar();
+	//	} else {
+	//		listadenuncia = denunciaDAO.listar();
 
-		}
+	//	}
 		request.setAttribute("listadenuncia", listadenuncia);
 		destino = "/c_denuncia.jsp";
 	}

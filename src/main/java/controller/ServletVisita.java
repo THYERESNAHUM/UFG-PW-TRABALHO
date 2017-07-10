@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import model.VisitaDAO;
 import model.Visita;
 
@@ -45,6 +47,19 @@ public class ServletVisita extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		try {
+			agente = request.getParameter("agente");
+			if (agente==null) {
+				HttpSession sessao = request.getSession();
+				agente = (String) sessao.getAttribute("nome");
+				visita.setAgente(agente);
+		        request.setAttribute("visita", visita);
+				RequestDispatcher view = request.getRequestDispatcher("/visita.jsp");  
+			    view.forward(request, response);
+			}
+		} catch(NumberFormatException e){
+			e.printStackTrace();
+		}
 
 	}
 
