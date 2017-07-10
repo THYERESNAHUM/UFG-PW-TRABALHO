@@ -201,8 +201,8 @@
                             <div class="col-lg-3 col-xs-12">
                             <select  id="ac_corretiva" name="ac_corretiva" title="Selecione item" class="form-control input-md selectpicker" data-live-search="true">            
                               <option selected="selected">${visita.ac_corretiva}</option>
-                              <option value="Nebolizacao">Nebolização</option>
-                              <option value="Borrifacao">Borrifação</option>
+                              <option value="Nebolização">Nebolização</option>
+                              <option value="Borrifação">Borrifação</option>
                             </select>
                             </div>
                           </div>						  

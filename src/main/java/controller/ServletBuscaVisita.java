@@ -69,6 +69,7 @@ public class ServletBuscaVisita extends HttpServlet {
 			textopesquisa3 = request.getParameter("txtpesquisa3");
 			textopesquisa4 = request.getParameter("txtpesquisa4");	
 			textopesquisa5 = request.getParameter("txtpesquisa5");
+			List<Visita> listavisita = new ArrayList<Visita>();
 			
 	        if((textopesquisa1!="" && textopesquisa1!=null)
 	        		|| (textopesquisa2!="" && textopesquisa2!=null)
@@ -76,15 +77,13 @@ public class ServletBuscaVisita extends HttpServlet {
 	        		|| (textopesquisa4!="" && textopesquisa4!=null)
 	        		|| (textopesquisa5!="" && textopesquisa5!=null)){
 
-				List<Visita> listavisita = new ArrayList<Visita>();    		
-				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);
-				request.setAttribute("listavisita", listavisita);
-				destino = "/c_visita.jsp";
+				    		
+				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);				
 		     }else{
-				message = "Informe um parametro para pesquisa";				
-				request.setAttribute("message", message);
-				destino = "/c_visita.jsp";		    	 
+		    	listavisita = visitaDAO.listar();	
 		     }	 
+	        request.setAttribute("listavisita", listavisita);
+			destino = "/c_visita.jsp";
 	}  
 	 protected void consultareditarvisita(HttpServletRequest request,
 	 		    HttpServletResponse response) throws ServletException, IOException {

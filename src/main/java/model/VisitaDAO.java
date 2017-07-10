@@ -161,6 +161,34 @@ public class VisitaDAO extends ConectaBanco {
 		}
 		return lista;
 	}
+	
+public List<Visita> listar() {
+		
+		List<Visita> lista = new ArrayList<Visita>();
+		
+		try {
+			/*Statement stm = conexao.createStatement();*/
+			Connection conexao = getConexao();
+			PreparedStatement pstm = conexao
+					.prepareStatement("Select * from visita order by bairro asc");
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Visita visita = new Visita();
+				visita.setIdvisita(rs.getInt("idvisita"));
+				visita.setAgente(rs.getString("agente"));
+				visita.setBairro(rs.getString("bairro"));
+				visita.setCidade(rs.getString("cidade"));
+				visita.setTp_imovel(rs.getString("tp_imovel"));
+				visita.setEstagio(rs.getString("estagio"));				
+				lista.add(visita);
+			}
+			pstm.close();
+			conexao.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
 
 	public Visita consultar_editar(Visita visita) {
 		
