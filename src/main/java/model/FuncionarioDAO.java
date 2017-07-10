@@ -64,9 +64,7 @@ public class FuncionarioDAO extends ConectaBanco {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
 					.prepareStatement("Select idfuncionario from funcionario where idfuncionario = ?");
-			//if(pstm==null)				
 			pstm.setInt(1, funcionario.getIdfuncionario());
-			//pstm.setString(2, funcionario.getMatricula());
 			ResultSet rs = pstm.executeQuery();
 			
 			if (rs.next()) {

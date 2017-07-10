@@ -69,9 +69,7 @@ public class DenunciaDAO extends ConectaBanco {
 			Connection conexao = getConexao();
 			PreparedStatement pstm = conexao
 					.prepareStatement("Select iddenuncia from denuncia where iddenuncia = ?");
-			//if(pstm==null)				
 			pstm.setInt(1, denuncia.getIddenuncia());
-			//pstm.setString(2, funcionario.getMatricula());
 			ResultSet rs = pstm.executeQuery();
 			
 			if (rs.next()) {

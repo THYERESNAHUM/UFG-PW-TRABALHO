@@ -8,6 +8,8 @@ public class Funcionario {
 	private String funcao;
 	private String email;
 	private String senha;
+	
+	
 	public int getIdfuncionario() {
 		return idfuncionario;
 	}

@@ -103,7 +103,6 @@ public class VisitaDAO extends ConectaBanco {
 					.prepareStatement("Insert into	visita (agente, data_visita, bairro, rua, quadra,lote, numero, cep, cidade, latitude, "
 							+ "longitude,tp_imovel, estagio, tp_larvicida, ac_corretiva, local_foco) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");			
 			pstm.setString(1, visita.getAgente());			
-			//pstm.setDate(2, new java.sql.Date(visita.getData_visita().getTime()));
 			pstm.setTimestamp(2,  new java.sql.Timestamp(visita.getData_visita().getTime())); 
 			pstm.setString(3, visita.getBairro());
 			pstm.setString(4, visita.getRua());

@@ -14,8 +14,7 @@ public class Denuncia {
 	private String cidade;
 	private String tp_imovel;
 	private String desc_den;
-	
-	
+		
 	public int getIddenuncia() {
 		return iddenuncia;
 	}
