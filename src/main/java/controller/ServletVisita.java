@@ -53,16 +53,20 @@ public class ServletVisita extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF8");
 		acao = false;
+		 System.out.println(agente = request.getParameter("agente"));
 
 		try {
 
 			idvisita = Integer.parseInt(request.getParameter("idvisita"));
 			System.out.println("NA VARIAVEL: " + idvisita);
 
-		} catch (NumberFormatException number) {
-			acao = true;
-			adicionaVisita(request, response);
-			destino = "/c_visita.jsp";
+			if (idvisita<=0){
+				acao = true;
+				adicionaVisita(request, response);
+				destino = "/c_visita.jsp";
+			}
+			
+		} catch (NumberFormatException number) {			
 		}
 
 		if (acao == false) {
@@ -88,7 +92,7 @@ public class ServletVisita extends HttpServlet {
 	protected void adicionaVisita(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		  agente = request.getParameter("agente");
+		  System.out.println(agente = request.getParameter("agente"));
 		  data_string = request.getParameter("data_visita");
 		  System.out.println("NO DATA_STRING: "  + data_string);
 		  bairro =  request.getParameter("bairro");
@@ -134,6 +138,8 @@ public class ServletVisita extends HttpServlet {
 			message = "Erro ao Gravar Registro";
 		else
 			message = "Registro Gravado com Sucesso";
+		
+
 
 	}
 
