@@ -12,8 +12,8 @@ import model.Visita;
 
 /**
  * 
- * Classe de Persistência de dados dos objetos de Visita
- * � "filha" da Classe ConectaBanco. 
+ * Classe de PersistÃªncia de dados dos objetos de Visita
+ * é "filha" da Classe ConectaBanco. 
  *
  */
 
@@ -162,6 +162,68 @@ public class VisitaDAO extends ConectaBanco {
 		}
 		return lista;
 	}
+	
+	public List<Visita> listarmapa(String par_bairro, String par_cidade, String par_tipo, String par_estagio) {
+	
+	List<Visita> lista = new ArrayList<Visita>();
+	
+	try {
+		/*Statement stm = conexao.createStatement();*/
+		Connection conexao = getConexao();
+		PreparedStatement pstm = conexao
+				.prepareStatement("Select * from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by bairro asc");
+		pstm.setString(1, par_bairro +"%");
+		pstm.setString(2, par_cidade +"%");
+		pstm.setString(3, "%" + par_tipo +"%");
+		pstm.setString(4, "%" + par_estagio +"%");
+		ResultSet rs = pstm.executeQuery();
+		while (rs.next()) {
+			Visita visita = new Visita();
+			visita.setBairro(rs.getString("bairro"));
+			visita.setCidade(rs.getString("cidade"));
+			visita.setEstagio(rs.getString("estagio"));
+			visita.setLongitude(rs.getString("longitude"));
+			visita.setLatitude(rs.getString("latitude"));				
+			lista.add(visita);
+		}
+		pstm.close();
+		conexao.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return lista;
+}
+
+public List<Visita> listarmapa() {
+	
+	List<Visita> lista = new ArrayList<Visita>();
+	
+	try {
+		/*Statement stm = conexao.createStatement();*/
+		Connection conexao = getConexao();
+		PreparedStatement pstm = conexao
+				.prepareStatement("Select * from visita order by bairro asc");
+		ResultSet rs = pstm.executeQuery();
+		while (rs.next()) {
+			Visita visita = new Visita();
+			visita.setBairro(rs.getString("bairro"));
+			visita.setCidade(rs.getString("cidade"));
+			visita.setEstagio(rs.getString("estagio"));
+			visita.setLongitude(rs.getString("longitude"));
+			visita.setLatitude(rs.getString("latitude"));					
+			lista.add(visita);
+		}
+		pstm.close();
+		conexao.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return lista;
+}
+	
+	
+	
+	
 	
 public List<Visita> listar() {
 		
