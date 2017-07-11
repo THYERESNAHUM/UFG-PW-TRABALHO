@@ -1,6 +1,6 @@
 # Endemic Sys
 
-Projeto fase 1.
+Projeto fase 2.
 
 ## Para rodar o projeto
 
