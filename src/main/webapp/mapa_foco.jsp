@@ -161,7 +161,9 @@
                         </button>                       
                     </p>   
                     <table id="datatable-buttons" class="table table-striped table-bordered">
-                      <tbody> 
+                      
+			<!--- substituir os atributos e trocar pelo mapa abaixo -->
+			<tbody> 
                       	<c:forEach var="visita" items="${listavisita}">
 							<tr>								
 								<td>${visita.agente}</td>
