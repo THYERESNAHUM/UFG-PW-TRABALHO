@@ -154,7 +154,7 @@ html, body {
 													});
 
 											// Criar uma matriz de caracteres alfabéticos usados para rotular os marcadores.
-											var labels = '+';
+											var labels = 'abcdefghijklmnopqrstuvwxyz';
 
 											// Adicione alguns marcadores ao mapa.
 											// Nota: O código usa o método JavaScript Array.prototype.map () para
@@ -195,15 +195,77 @@ html, body {
 				//System.out.println(textopesquisa3);
 				//System.out.println(textopesquisa4);
 				listavisita = visitaDAO.listarmapa(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4);%>
-										var locations = [ 
+										var locations = [ {
 											<%for (Visita v : listavisita) {
-												
-					//System.out.println(v.getLatitude() + "," + v.getLongitude() + "},{");%>
-												{lat:<%=v.getLatitude()%>,
+					//System.out.println(v.getLatitude());%>
+												lat:<%=v.getLatitude()%>,
 												lng:<%=v.getLongitude()%>
-											},
+											},{
 												<%}%>
-										]
+										}]
+										
+										/*var locations = [ {
+											lat : -16.6086816,
+											lng : -49.2591213
+										}, {
+											lat : -16.6113959,
+											lng : -49.2580484
+										}, {
+											lat : -16.6110669,
+											lng : -49.2567181
+										}, {
+											lat : -16.6108201,
+											lng : -49.2404102
+										}, {
+											lat : -16.6635542,
+											lng : -49.2439349
+										}, {
+											lat : -16.6842329,
+											lng : -49.2597278
+										}, {
+											lat : -16.6828275,
+											lng : -49.2579704
+										}, {
+											lat : -16.6820453,
+											lng : -49.2570518
+										}, {
+											lat : -16.6786720,
+											lng : -49.2573070
+										}, {
+											lat : -16.6936366,
+											lng : -49.2745766
+										}, {
+											lat : -16.6813042,
+											lng : -49.2369828
+										}, {
+											lat : -16.6820441,
+											lng : -49.2367253
+										}, {
+											lat : -16.6864839,
+											lng : -49.2348370
+										}, {
+											lat : -16.6659287,
+											lng : -49.2596421
+										}, {
+											lat : -16.6716843,
+											lng : -49.2567238
+										}, {
+											lat : -16.6720955,
+											lng : -49.2563805
+										}, {
+											lat : -16.6742332,
+											lng : -49.2556085
+										}, {
+											lat : -16.6810575,
+											lng : -49.2552647
+										}, {
+											lat : -16.6859084,
+											lng : -49.2532906
+										}, {
+											lat : -16.6971717,
+											lng : -49.2532906
+										} ]*/
+										
 									</script>
 								<script
 									src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
