@@ -146,10 +146,7 @@
                       </a>					  
                         <button type="submit" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" title="Buscar">
                           <i class="fa fa-search"></i>
-                        </button>
-                        <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Visualizar no Mapa">
-                          <i class="fa fa-globe"></i>
-                        </button>                       
+                        </button>             
                     </p>   
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>

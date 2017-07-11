@@ -75,116 +75,74 @@ html, body {
 								</div>
 
 
-								<div class="x_content">
-									<form class="form-horizontal form-label-left"
-										data-toggle="validator" method="post" action="mapa_foco.jsp">
+								<form class="form-horizontal form-label-left"
+									data-toggle="validator" method="post" action="mapa_foco.jsp">
 
-										<div class="form-group  col-lg-3 col-xs-12">
-											<label>Bairro </label> <input type="text" name="txtpesquisa1"
-												class="form-control input-md">
-										</div>
-										<div class="form-group  col-lg-3 col-xs-12">
-											<label>Cidade </label> <select name="txtpesquisa2" title=""
-												class="form-control input-md selectpicker"
-												data-live-search="true">
-												<option selected="selected"></option>
-												<option value="Goiânia">Goiânia</option>
-												<option value="Aparecida de Goiânia">Aparecida de
-													Goiânia</option>
-												<option value="Senador Canedo">Senador Canedo</option>
-												<option value="Trindade">Trindade</option>
-											</select>
-										</div>
+									<div class="form-group  col-lg-3 col-xs-12">
+										<label>Bairro </label> <input type="text" name="txtpesquisa1"
+											class="form-control input-md">
+									</div>
+									<div class="form-group  col-lg-3 col-xs-12">
+										<label>Cidade </label> <select name="txtpesquisa2" title=""
+											class="form-control input-md selectpicker"
+											data-live-search="true">
+											<option selected="selected"></option>
+											<option value="Goiânia">Goiânia</option>
+											<option value="Aparecida de Goiânia">Aparecida de
+												Goiânia</option>
+											<option value="Senador Canedo">Senador Canedo</option>
+											<option value="Trindade">Trindade</option>
+										</select>
+									</div>
 
-										<div class="form-group  col-lg-3 col-xs-12">
-											<label>Tipo de Imovel </label> <select name="txtpesquisa3"
-												title="" class="form-control input-md selectpicker"
-												data-live-search="true">
-												<option selected="selected"></option>
-												<option value="Lote">Lote</option>
-												<option value="Casa">Casa</option>
-												<option value="Apartamento">Apartamento</option>
-												<option value="Deposito">Depósito</option>
-												<option value="Loja">Loja</option>
-												<option value="Sala">Sala comercial</option>
-											</select>
+									<div class="form-group  col-lg-3 col-xs-12">
+										<label>Tipo de Imovel </label> <select name="txtpesquisa3"
+											title="" class="form-control input-md selectpicker"
+											data-live-search="true">
+											<option selected="selected"></option>
+											<option value="Lote">Lote</option>
+											<option value="Casa">Casa</option>
+											<option value="Apartamento">Apartamento</option>
+											<option value="Deposito">Depósito</option>
+											<option value="Loja">Loja</option>
+											<option value="Sala">Sala comercial</option>
+										</select>
 
-										</div>
-										<div class="form-group  col-lg-3 col-xs-12">
-											<label>Estagio</label> <select name="txtpesquisa4" title=""
-												class="form-control input-md selectpicker"
-												data-live-search="true">
-												<option selected="selected"></option>
-												<option value="Ovo">Ovo</option>
-												<option value="Larva">Larva</option>
-												<option value="Pupa">Pupa</option>
-												<option value="Mosquito">Mosquito</option>
-											</select>
-										</div>
-
-
-										<div class="x_content">
-											<div class="row">
-												<c:if test="${not empty message}">
-													<div class="col-lg-4 col-xs-12">
-														<c:if test="${fn:contains(message, 'Erro')}">
-															<div class="alert alert-danger fade in">
-																<a href="#" class="close" data-dismiss="alert">&times;</a>
-																<p>${message}</p>
-															</div>
-														</c:if>
-														<c:if test="${fn:contains(message, 'pesquisa')}">
-															<div class="alert alert-warning fade in">
-																<a href="#" class="close" data-dismiss="alert">&times;</a>
-																<p>${message}</p>
-															</div>
-
-														</c:if>
-														<c:if test="${fn:contains(message, 'Sucesso')}">
-															<div class="alert alert-info fade in">
-																<a href="#" class="close" data-dismiss="alert">&times;</a>
-																<p>${message}</p>
-															</div>
-
-														</c:if>
-													</div>
-												</c:if>
-											</div>
-
-											<p class="text-muted font-13 m-b-30">
-
-												<a href="mapa_foco.jsp">
-													<button type="button" class="btn btn-primary"
-														data-container="body" data-toggle="popover"
-														data-placement="bottom" title="Limpar Listagem">
-														<i class="fa fa-refresh"></i>
-													</button>
-												</a>
-												<button type="submit" class="btn btn-warning"
-													data-container="body" data-toggle="popover"
-													data-placement="bottom" title="Visualizar no Mapa">
-													<i class="fa fa-globe"></i>
-												</button>
-											</p>
-											<table id="datatable-buttons"
-												class="table table-striped table-bordered">
-												<tbody>
-													<c:forEach var="visita" items="${listavisita}">
-														<tr>
-															<td>${visita.latitude}</td>
-															<td>${visita.longitude}</td>
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
-										</div>
-									</form>
+									</div>
+									<div class="form-group  col-lg-3 col-xs-12">
+										<label>Estagio</label> <select name="txtpesquisa4" title=""
+											class="form-control input-md selectpicker"
+											data-live-search="true">
+											<option selected="selected"></option>
+											<option value="Ovo">Ovo</option>
+											<option value="Larva">Larva</option>
+											<option value="Pupa">Pupa</option>
+											<option value="Mosquito">Mosquito</option>
+										</select>
+									</div>
 
 
-									<!-- Iniciando o mapa -->
+									<div class="x_content">
+										
+										<p class="text-muted font-13 m-b-30">
+											<button type="submit" class="btn btn-warning"
+												data-container="body" data-toggle="popover"
+												data-placement="bottom" title="Visualizar no Mapa">
+												<i class="fa fa-globe"></i>
+											</button>
+										</p>
+										
+									</div>
 
-									<div id="map"></div>
-									<script>
+								</form>
+
+
+								<!-- Iniciando o mapa -->
+
+
+
+								<div id="map"></div>
+								<script>
 										function initMap() {
 
 											var map = new google.maps.Map(
@@ -225,32 +183,25 @@ html, body {
 										<%@  page 
  												import="model.VisitaDAO , model.Visita, java.util.List, java.util.ArrayList"
  											%>
-											<%
-												request.setCharacterEncoding("UTF8");											
- 												VisitaDAO visitaDAO = new VisitaDAO();
-												List<Visita> listavisita = new ArrayList<Visita>();
-												String textopesquisa1 = request.getParameter("txtpesquisa1");
-												String textopesquisa2 = request.getParameter("txtpesquisa2");
-												String textopesquisa3 = request.getParameter("txtpesquisa3");
-												String textopesquisa4 = request.getParameter("txtpesquisa4");
-												//System.out.println(textopesquisa1);
-												//System.out.println(textopesquisa2);
-												//System.out.println(textopesquisa3);
-												//System.out.println(textopesquisa4);
-												listavisita = visitaDAO.listarmapa(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4);
-												
- 											%>
+											<%request.setCharacterEncoding("UTF8");
+				VisitaDAO visitaDAO = new VisitaDAO();
+				List<Visita> listavisita = new ArrayList<Visita>();
+				String textopesquisa1 = request.getParameter("txtpesquisa1");
+				String textopesquisa2 = request.getParameter("txtpesquisa2");
+				String textopesquisa3 = request.getParameter("txtpesquisa3");
+				String textopesquisa4 = request.getParameter("txtpesquisa4");
+				//System.out.println(textopesquisa1);
+				//System.out.println(textopesquisa2);
+				//System.out.println(textopesquisa3);
+				//System.out.println(textopesquisa4);
+				listavisita = visitaDAO.listarmapa(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4);%>
 										var locations = [ {
-											<%
-											for(Visita v : listavisita){
-												//System.out.println(v.getLatitude());
-												%>
+											<%for (Visita v : listavisita) {
+					//System.out.println(v.getLatitude());%>
 												lat:<%=v.getLatitude()%>,
 												lng:<%=v.getLongitude()%>
 											},{
-												<%
-											}
-											%>
+												<%}%>
 										}]
 										
 										/*var locations = [ {
@@ -316,30 +267,30 @@ html, body {
 										} ]*/
 										
 									</script>
-									<script
-										src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+								<script
+									src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
 										
 									</script>
-									<script async defer
-										src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDMW1J5J0TVAdNSO0CCSutqo29mKSKQ5A&callback=initMap">
+								<script async defer
+									src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDMW1J5J0TVAdNSO0CCSutqo29mKSKQ5A&callback=initMap">
 										
 									</script>
-									<!-- Mapa  -->
+								<!-- Mapa  -->
 
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<footer>
-				<div class="pull-center">
-					Trabalho PW2017-1 - Sistema de Controle de Endemias <a
-						href="https://github.com/dougfalves/UFG-PW-TRABALHO">GitHub</a>
-				</div>
-				<div class="clearfix"></div>
-			</footer>
 		</div>
+		<footer>
+			<div class="pull-center">
+				Trabalho PW2017-1 - Sistema de Controle de Endemias <a
+					href="https://github.com/dougfalves/UFG-PW-TRABALHO">GitHub</a>
+			</div>
+			<div class="clearfix"></div>
+		</footer>
+	</div>
 	</div>
 	<!-- jQuery -->
 	<script src="vendors/jquery/dist/jquery.min.js"></script>

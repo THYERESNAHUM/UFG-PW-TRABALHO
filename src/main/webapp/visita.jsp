@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                       <label class="control-label col-md-3" for="agente">Agente <span class="required">*</span></label>
                                       <div class="col-lg-6 col-xs-12">
-                                        <input type="text"   id="agente" name="agente" value="${visita.agente}" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
+                                        <input type="text"   id="agente" readonly="readonly" name="agente" value="${visita.agente}" placeholder="ex: Joao da Silva" required="required" class="form-control input-md">                                        
                                         <div class="help-block with-errors"></div>
                                       </div>
                                     </div>

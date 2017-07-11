@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Visita;
 
-@WebFilter("/teste")
+@WebFilter("/visita.jsp")
 public class ServletFiltroSegurança implements Filter {
 	
 	private Visita visita = new Visita();
@@ -28,19 +28,18 @@ public class ServletFiltroSegurança implements Filter {
 
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest res = (HttpServletRequest) request;
-    HttpServletResponse resp = (HttpServletResponse) response;
 
     try {
 		agente = request.getParameter("agente");
 		if (agente==null) {
 			HttpSession sessao = res.getSession();
 			agente = (String) sessao.getAttribute("nome");
-			//visita.setAgente(agente);
-	        request.setAttribute("agente", agente);
+			visita.setAgente(agente);
+          	request.setAttribute("visita", visita);
 			RequestDispatcher view = request.getRequestDispatcher("/visita.jsp");  
 		    view.forward(request, response);
 		}
-	} catch(NumberFormatException e){
+	} catch(Exception e){
 		e.printStackTrace();
 	}   
   }
