@@ -19,3 +19,9 @@ Para rodar com o Tomcat ignorando as configurações do plugin no `pom.xml`.
 ## Para acessar a aplicação
 
 `http://localhost:9090/endemias` em qualquer navegador.
+
+## Banco de Dados
+
+A aplicação exige instalação prévia no MySQL e o arquivo de conexão com o banco de dados está em: `UFG-PW-TRABALHO\src\main\java\model\ConectaBanco.java`
+
+O script de banco de dados populado está em: `UFG-PW-TRABALHO\src\main\webapp\bd\dbendemic.sql`
