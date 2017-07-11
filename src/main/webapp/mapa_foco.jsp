@@ -4,6 +4,7 @@
 	if(session.getAttribute("nome") != null) {
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -57,31 +58,127 @@
 
                                         <!-- Mapa-->
                                         <h2>Mapa <small></small></h2>
-                                        <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <li class="dropdown">
-                                                <!--
-                                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>                                               
-                                               <ul class="dropdown-menu" role="menu">
-                                                   <li><a href="#">Settings 1</a>
-                                                   </li>
-                                                   <li><a href="#">Settings 2</a>
-                                                   </li>
-                                               </ul>
-                                                -->
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>
-                                        </ul>
+                                       
+                  						 <ul class="nav navbar-right panel_toolbox">
+                     					 	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      						</li>
+                     						 <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      						</li>
+                    					</ul>
+                                        
                                         <div class="clearfix"></div>
                                     </div>
+                                    
+                                    
                                     <div class="x_content">
-                                        <p class="text-muted font-13 m-b-30">
-                                            Focos identificados.
-                                        </p>
+                                     <form class="form-horizontal form-label-left" data-toggle="validator" method="post" action="buscavisita">
+			 			
+			 			<div class="form-group  col-lg-3 col-xs-12">
+						<label>Agente </label> 	
+                                <input type="text" name="txtpesquisa1" class="form-control input-md">
+                        </div>
+			 			<div class="form-group  col-lg-3 col-xs-12">
+						<label>Bairro </label> 	
+                                <input type="text" name="txtpesquisa2" class="form-control input-md">
+                        </div>
+                        <div class="form-group  col-lg-6 col-xs-12">
+						<label>Rua </label> 	
+                                <input type="text" name="txtpesquisa6" class="form-control input-md">
+                        </div>						
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Cidade </label> 	  
+			            	<select name="txtpesquisa3"  title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="Goiânia">Goiânia</option>
+                              <option value="Aparecida de Goiânia">Aparecida de Goiânia</option>
+                              <option value="Senador Canedo">Senador Canedo</option>
+                              <option value="Trindade">Trindade</option>
+                            </select>			           		    				
+						</div>	
+						
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Tipo de Imovel </label> 	  
+			            	<select name="txtpesquisa4" title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="Lote">Lote</option>
+                              <option value="Casa">Casa</option>
+                              <option value="Apartamento">Apartamento</option>
+                              <option value="Deposito">Depósito</option>
+                              <option value="Loja">Loja</option>
+                              <option value="Sala">Sala comercial</option>
+                            </select>
+			           		    				
+						</div>							
+						<div class="form-group  col-lg-3 col-xs-12">
+						<label>Estagio</label> 	  
+			            <select name="txtpesquisa5" title="" class="form-control input-md selectpicker" data-live-search="true">
+                              <option selected="selected"></option>
+                              <option value="Ovo">Ovo</option>
+                              <option value="Larva">Larva</option>
+                              <option value="Pupa">Pupa</option>
+                              <option value="Mosquito">Mosquito</option>							  
+                            </select>			           		    				
+						</div>
+						
+						
+                  <div class="x_content">
+                  <div class="row">
+								<c:if test="${not empty message}">
+									<div class="col-lg-4 col-xs-12">					
+										<c:if test = "${fn:contains(message, 'Erro')}">
+													<div class="alert alert-danger fade in">
+															<a href="#" class="close" data-dismiss="alert">&times;</a>
+															<p>${message}</p>
+													</div>      				
+				    					</c:if>
+				    					<c:if test = "${fn:contains(message, 'pesquisa')}">											
+													<div class="alert alert-warning fade in">
+															<a href="#" class="close" data-dismiss="alert">&times;</a>
+															<p>${message}</p>
+													</div>      				
+										
+				    					</c:if>		    					
+										<c:if test = "${fn:contains(message, 'Sucesso')}">											
+													<div class="alert alert-info fade in">
+															<a href="#" class="close" data-dismiss="alert">&times;</a>
+															<p>${message}</p>
+													</div>      				
+										
+				    					</c:if>	
+								</div>
+								</c:if>
+								</div>
+								
+                     <p class="text-muted font-13 m-b-30">
 
-                                        <!-- Iniciando o mapa -->
+                      <a href="mapa_foco.jsp">
+                        <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" title="Limpar Listagem">
+                          <i class="fa fa-refresh"></i>
+                        </button>
+                      </a>					  
+                        <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="bottom" title="Visualizar no Mapa">
+                          <i class="fa fa-globe"></i>
+                        </button>                       
+                    </p>   
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <tbody> 
+                      	<c:forEach var="visita" items="${listavisita}">
+							<tr>								
+								<td>${visita.agente}</td>
+								<td>${visita.bairro}</td>
+								<td>${visita.tp_imovel}</td>
+								<td>${visita.estagio}</td>
+								<td>${visita.cidade}</td>			
+							</tr>
+						</c:forEach>  
+                      </tbody>
+                    </table>
+                  </div>
+                 </form>                 
+                                    
+                
+                <!-- Iniciando o mapa -->
+                                        
                                         <div id="map"></div>
                                         <script>
                                             function initMap() {
@@ -110,7 +207,7 @@
                                                         {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
                                             }
 
-                                            //pontos
+                                            //pontos /// trocar pelos objetos da lista
                                             var locations = [
                                                 {lat: -16.6086816, lng: -49.2591213},
                                                 {lat: -16.6113959, lng: -49.2580484},
@@ -139,7 +236,8 @@
                                         <script async defer
                                                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDMW1J5J0TVAdNSO0CCSutqo29mKSKQ5A&callback=initMap">
                                         </script>       
-                                        <!-- Mapa  -->     
+                                        <!-- Mapa  -->
+                                             
                                     </div>
                                 </div>
                             </div>
