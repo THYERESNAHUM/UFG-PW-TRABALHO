@@ -223,27 +223,6 @@
                                       </div>
                                     </div>
                       </form>
-
-                    <!-- Modal botao ok -->
-                    <div class="modal fade" id="confirma" role="dialog">
-                      <div class="modal-dialog">
-                         <div class="modal-dialog modal-sm">
-                            <!-- Modal conteudo-->
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Informação</h4>
-                              </div>
-                              <div class="modal-body">
-                                <h5>Dados gravados com sucesso.</h5>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
                     </div>
                   </div>
                 </div>  

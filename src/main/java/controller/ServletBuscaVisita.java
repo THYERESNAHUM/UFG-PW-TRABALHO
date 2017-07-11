@@ -32,6 +32,7 @@ public class ServletBuscaVisita extends HttpServlet {
 	private String textopesquisa3;
 	private String textopesquisa4;
 	private String textopesquisa5; 
+	private String textopesquisa6;
 	private Date data_formatada;
 
 	
@@ -69,7 +70,10 @@ public class ServletBuscaVisita extends HttpServlet {
 			textopesquisa3 = request.getParameter("txtpesquisa3");
 			textopesquisa4 = request.getParameter("txtpesquisa4");	
 			textopesquisa5 = request.getParameter("txtpesquisa5");
+			textopesquisa6 = request.getParameter("txtpesquisa6");
+
 			List<Visita> listavisita = new ArrayList<Visita>();
+			
 			
 	      //  if((textopesquisa1!="" && textopesquisa1!=null)
 	      //  		|| (textopesquisa2!="" && textopesquisa2!=null)
@@ -78,7 +82,7 @@ public class ServletBuscaVisita extends HttpServlet {
 	      //  		|| (textopesquisa5!="" && textopesquisa5!=null)){
 
 				    		
-				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);				
+				listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5, textopesquisa6);				
 		   //  }else{
 		   // 	listavisita = visitaDAO.listar();	
 		   // }	 
@@ -104,7 +108,7 @@ public class ServletBuscaVisita extends HttpServlet {
 				request.setAttribute("visita", visita);
 				visitaDAO.excluir(visita);
 				List<Visita> listavisita = new ArrayList<Visita>();    		
-	        	listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5);
+	        	listavisita = visitaDAO.listar(textopesquisa1, textopesquisa2, textopesquisa3, textopesquisa4, textopesquisa5, textopesquisa6);
 				request.setAttribute("listavisita", listavisita);				
 				destino = "/c_visita.jsp";	
 		}
