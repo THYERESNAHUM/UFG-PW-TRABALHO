@@ -204,7 +204,7 @@
 											</label>
 											<div class="col-lg-6 col-xs-12">
 												<textarea id="desc_den" name="desc_den" required="required"
-													class="form-control">${denuncia.denunciante}</textarea>
+													class="form-control">${denuncia.desc_den}</textarea>
 												<div class="help-block with-errors"></div>
 											</div>
 										</div>

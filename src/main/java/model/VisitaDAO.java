@@ -171,7 +171,7 @@ public class VisitaDAO extends ConectaBanco {
 		/*Statement stm = conexao.createStatement();*/
 		Connection conexao = getConexao();
 		PreparedStatement pstm = conexao
-				.prepareStatement("Select * from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by bairro asc");
+				.prepareStatement("Select latitude, longitude from visita where bairro like ? and cidade like ? and tp_imovel like ? and estagio like ? order by bairro asc");
 		pstm.setString(1, par_bairro +"%");
 		pstm.setString(2, par_cidade +"%");
 		pstm.setString(3, "%" + par_tipo +"%");
@@ -179,9 +179,6 @@ public class VisitaDAO extends ConectaBanco {
 		ResultSet rs = pstm.executeQuery();
 		while (rs.next()) {
 			Visita visita = new Visita();
-			visita.setBairro(rs.getString("bairro"));
-			visita.setCidade(rs.getString("cidade"));
-			visita.setEstagio(rs.getString("estagio"));
 			visita.setLongitude(rs.getString("longitude"));
 			visita.setLatitude(rs.getString("latitude"));				
 			lista.add(visita);
