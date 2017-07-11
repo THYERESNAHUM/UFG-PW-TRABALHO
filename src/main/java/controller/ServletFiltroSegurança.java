@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Visita;
 
-@WebFilter("/visita.jsp")
+@WebFilter("/teste")
 public class ServletFiltroSegurança implements Filter {
 	
 	private Visita visita = new Visita();
@@ -35,8 +35,8 @@ public class ServletFiltroSegurança implements Filter {
 		if (agente==null) {
 			HttpSession sessao = res.getSession();
 			agente = (String) sessao.getAttribute("nome");
-			visita.setAgente(agente);
-	        request.setAttribute("visita", visita);
+			//visita.setAgente(agente);
+	        request.setAttribute("agente", agente);
 			RequestDispatcher view = request.getRequestDispatcher("/visita.jsp");  
 		    view.forward(request, response);
 		}

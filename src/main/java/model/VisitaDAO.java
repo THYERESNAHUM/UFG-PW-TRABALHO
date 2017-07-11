@@ -223,8 +223,6 @@ public List<Visita> listarmapa() {
 	
 	
 	
-	
-	
 public List<Visita> listar() {
 		
 		List<Visita> lista = new ArrayList<Visita>();

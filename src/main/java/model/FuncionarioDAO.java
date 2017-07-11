@@ -97,8 +97,8 @@ public class FuncionarioDAO extends ConectaBanco {
 			erro = true;
 		}
 		return erro;
-	}
-
+	}	
+	
 	public List<Funcionario> listar(String par_nome, String par_funcao, String par_matricula) {
 		
 		List<Funcionario> lista = new ArrayList<Funcionario>();
