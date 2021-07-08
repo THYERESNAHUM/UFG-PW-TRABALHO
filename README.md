@@ -2,13 +2,13 @@
 
 Projeto fase 2.
 
-## Para rodar o projeto
+## Para executar o projeto
 
 ### Para fazer clone.
 
 `git clone https://github.com/dougfalves/UFG-PW-TRABALHO.git`
 
-### Para rodar com o Tomcat.
+### Para excutar com o Tomcat.
 
 `mvnw tomcat7:run`
 
